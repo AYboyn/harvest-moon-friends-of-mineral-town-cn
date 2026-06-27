@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>恋爱攻略 - 牧场物语矿石镇的伙伴们</title>
+<style>
+  body { font-family: "Microsoft YaHei", sans-serif; line-height: 1.6; margin: 0; padding-top: 60px; background-color: #f9f9f9; color: #333; }
+  h1, h2, h3 { color: #5a7c3a; }
+  table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.9em; }
+  th { background-color: #5a7c3a; color: #fff; padding: 10px; text-align: left; }
+  td { padding: 8px; border: 1px solid #ddd; vertical-align: top; }
+  tr:nth-child(even) { background-color: #f2f2f2; }
+  .event-box { background-color: #fff; padding: 15px; border-left: 4px solid #e91e63; margin: 10px 0; border-radius: 0 5px 5px 0; }
+  .tip { font-style: italic; color: #666; }
+  .note { background-color: #fff3e0; padding: 10px; border-left: 4px solid #ff9800; margin: 10px 0; border-radius: 0 5px 5px 0; }
+  .choice { color: #e91e63; font-weight: bold; }
+  
+  nav { position: fixed; top: 0; left: 0; right: 0; background-color: #5a7c3a; padding: 15px 20px; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  nav li { margin: 0; }
+  nav a { color: #fff; text-decoration: none; padding: 8px 15px; border-radius: 5px; transition: background-color 0.3s; font-size: 0.9em; }
+  nav a:hover { background-color: #4a6a2a; }
+  nav a.active { background-color: #3a5a1a; font-weight: bold; }
+  
+  .content { max-width: 1000px; margin: 0 auto; padding: 20px; }
+  .back-to-top { position: fixed; bottom: 30px; right: 30px; background-color: #5a7c3a; color: #fff; padding: 10px 15px; border-radius: 50%; text-decoration: none; font-size: 1.2em; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+  .back-to-top:hover { background-color: #4a6a2a; }
+  .page-header { text-align: center; padding: 20px; background: linear-gradient(135deg, #e91e63, #f06292); color: #fff; border-radius: 10px; margin-bottom: 20px; }
+  .page-header h1 { color: #fff; margin: 0 0 5px 0; }
+  .page-header p { margin: 0; }
+  .girl-card { background: #fff; padding: 20px; border-radius: 10px; margin: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+  .girl-card h3 { color: #e91e63; margin-top: 0; }
+  .heart-level { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.8em; margin: 2px; }
+  .heart-black { background-color: #333; color: #fff; }
+  .heart-purple { background-color: #9c27b0; color: #fff; }
+  .heart-blue { background-color: #2196f3; color: #fff; }
+  .heart-green { background-color: #4caf50; color: #fff; }
+  .heart-yellow { background-color: #ffeb3b; color: #333; }
+  .heart-orange { background-color: #ff9800; color: #fff; }
+  .heart-red { background-color: #f44336; color: #fff; }
+  .heart-event { background: #fafafa; padding: 12px; margin: 8px 0; border-radius: 8px; border: 1px solid #eee; }
+  .heart-event h4 { margin: 0 0 5px 0; }
+  .toc { background: linear-gradient(135deg, #fff, #fce4ec); padding: 20px 25px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid #f8bbd0; }
+  .toc strong { display: block; font-size: 1.1em; color: #c2185b; margin-bottom: 12px; }
+  .toc ul { columns: 2; column-gap: 20px; list-style: none; padding: 0; margin: 0; }
+  .toc li { margin: 0; break-inside: avoid; }
+  .toc a { display: block; color: #e91e63; text-decoration: none; padding: 8px 12px; border-radius: 8px; transition: all 0.25s ease; font-size: 0.95em; }
+  .toc a:hover { background: #fce4ec; color: #880e4f; transform: translateX(4px); text-decoration: none; }
+  .rival-section { background: linear-gradient(135deg, #fff, #e3f2fd); padding: 20px 25px; border-radius: 12px; margin: 25px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid #90caf9; }
+  .rival-section h2 { color: #1565c0; }
+  .rival-card { background: #fff; padding: 20px; border-radius: 10px; margin: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-left: 4px solid #2196f3; }
+  .rival-card h3 { color: #1565c0; margin-top: 0; }
+  .rival-event { background: #fafafa; padding: 12px; margin: 8px 0; border-radius: 8px; border: 1px solid #e3f2fd; }
+  .rival-event h4 { margin: 0 0 5px 0; color: #1565c0; }
+  .rival-pair { display: inline-block; padding: 2px 10px; border-radius: 15px; font-size: 0.85em; margin: 2px; background-color: #e3f2fd; color: #1565c0; }
+  .rival-warning { background-color: #ffebee; padding: 10px; border-left: 4px solid #f44336; margin: 10px 0; border-radius: 0 5px 5px 0; }
+</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="index.html">首页</a></li>
+    <li><a href="daily.html">每日行程</a></li>
+    <li><a href="characters.html">角色生日</a></li>
+    <li><a href="festivals.html">四季节日</a></li>
+    <li><a href="events.html">重要事件</a></li>
+    <li><a href="romance.html" class="active">恋爱攻略</a></li>
+    <li><a href="crops.html">农作物</a></li>
+    <li><a href="livestock.html">畜牧</a></li>
+    <li><a href="cooking.html">料理食谱</a></li>
+    <li><a href="mining.html">挖矿</a></li>
+    <li><a href="fishing.html">钓鱼</a></li>
+    <li><a href="tips.html">技巧秘籍</a></li>
+  </ul>
+</nav>
+
+<div class="content">
+
+<div class="page-header">
+  <h1>💕 恋爱事件攻略</h1>
+  <p>男生版可追求角色 | 含全部爱情事件触发条件与选项</p>
+</div>
+
+<div class="toc">
+  <strong>📑 目录导航：</strong>
+  <ul>
+    <li><a href="#heart-level">💝 爱情度等级</a></li>
+    <li><a href="#popuri">🛖 柏布利</a></li>
+    <li><a href="#ran">🏨 琳</a></li>
+    <li><a href="#elli">🏥 艾莉</a></li>
+    <li><a href="#karen">🏪 卡莲</a></li>
+    <li><a href="#marie">📚 玛丽</a></li>
+    <li><a href="#marry">💍 结婚条件</a></li>
+    <li><a href="#rivals">⚔️ 情敌事件</a></li>
+    <li><a href="#tips">📅 提升爱情度技巧</a></li>
+  </ul>
+</div>
+
+<h2 id="heart-level">💝 爱情度等级</h2>
+<table>
+  <tr><th>等级</th><th>颜色</th><th>说明</th></tr>
+  <tr><td>黑心</td><td><span class="heart-level heart-black">■</span></td><td>初始状态，刚认识</td></tr>
+  <tr><td>紫心</td><td><span class="heart-level heart-purple">■</span></td><td>开始有好感，可触发部分事件</td></tr>
+  <tr><td>蓝心</td><td><span class="heart-level heart-blue">■</span></td><td>关系进一步发展</td></tr>
+  <tr><td>绿心</td><td><span class="heart-level heart-green">■</span></td><td>好感度较高</td></tr>
+  <tr><td>黄心</td><td><span class="heart-level heart-yellow">■</span></td><td>可邀请参加节日活动</td></tr>
+  <tr><td>橙心</td><td><span class="heart-level heart-orange">■</span></td><td>杂货店出售青色羽毛</td></tr>
+  <tr><td>红心</td><td><span class="heart-level heart-red">■</span></td><td>可求婚，使用蓝羽毛</td></tr>
+</table>
+
+<h2 id="popuri">🛖 柏布利 - 养鸡场少女</h2>
+<div class="girl-card">
+  <p><strong>生日：</strong>夏3日 | <strong>地点：</strong>养鸡场</p>
+  <p><strong>最喜欢：</strong>白花、吊钟、温泉蛋、庵列、蛋包饭、水煮蛋、煎蛋、三明治、蜂蜜、冰淇淋、巧克力、曲奇、巧克力蛋糕、各种果酱、草莓奶、热牛奶</p>
+  <p><strong>喜欢：</strong>花、苹果、鸡蛋、金蛋、番茄、玉米、葡萄酱、面包、牛奶、蛋黄酱</p>
+  <p><strong>不喜欢：</strong>奶酪、青椒、茄子、白萝卜</p>
+  <p><strong>最不喜欢：</strong>红色药草、毒蘑菇、绿色药草、米斯里银、金矿石、奥里哈钢</p>
+
+  <h3>💕 爱情事件</h3>
+  <div class="heart-event">
+    <h4><span class="heart-level heart-black">黑心</span> 黑心事件</h4>
+    <p><strong>时间：</strong>水曜日、金曜日 AM10:00～PM6:00</p>
+    <p><strong>条件：</strong>上述时间从锻造屋出来的时候</p>
+    <p><span class="choice">选项：</span>「喜欢鸡」爱情度+3000</p>
+  </div>
+  <div class="heart-event">
+    <h4><span class="heart-level heart-purple">紫心</span> 紫心事件</h4>
+    <p><strong>时间：</strong>月～土曜日 AM6:00～PM1:00</p>
+    <p><strong>地点：</strong>自家牧场</p>
+    <p>珀布利爱情度+3000</p>
+  </div>
+  <div class="heart-event">
+    <h4><span class="heart-level heart-blue">蓝心</span> 蓝心事件</h4>
+    <p><strong>时间：</strong>夏季以外、日曜日 AM10:00～PM1:00</p>
+    <p><strong>地点：</strong>教会</p>
+    <p><span class="choice">选项：</span>「和侄女玩」珀布利爱情度+3000、梅&卡特友好度+20、优友好度-10</p>
+  </div>
+  <div class="heart-event">
+    <h4><span class="heart-level heart-yellow">黄心</span> 黄心事件</h4>
+    <p><strong>时间：</strong>夏季以外、日曜日火曜日以外 AM10:00～PM1:00</p>
+    <p><strong>地点：</strong>和妹妹相遇</p>
+    <p><span class="choice">选项：</span>「莉莉亚很为难」珀布利爱情度+3000、莉莉亚友好度+20</p>
+  </div>
+  <div class="note">💡 喜欢凯伊，与哥哥里克常争吵。夏日中午可在海边找到她。</div>
+</div>
+
+<h2 id="ran">🏨 琳 - 旅馆少女</h2>
+<div class="girl-card">
+  <p><strong>生日：</strong>夏17日 | <strong>地点：</strong>旅馆</p>
+  <p><strong>最喜欢：</strong>冰淇淋、炒饭、铁板烧煎饼、庵列、温泉蛋、蘑菇饭、竹笋饭</p>
+  <p><strong>喜欢：</strong>葡萄、菠萝、苹果、大鱼、鸡蛋、金蛋、番茄、牛奶、奶酪、面包、饭团</p>
+  <p><strong>不喜欢：</strong>小鱼、中鱼、木材、树枝、绿色药草、青色药草</p>
+  <p><strong>最不喜欢：</strong>毒蘑菇、红色药草、饲料、矿石</p>
+
+  <h3>💕 爱情事件</h3>
+  <div class="heart-event">
+    <h4><span class="heart-level heart-black">黑心</span> 黑心事件</h4>
+    <p><strong>时间：</strong>月曜日土曜日以外 AM10:00～PM1:00</p>
+    <p><strong>地点：</strong>达特的店</p>
+    <p><span class="choice">选项：</span>「留下来吃饭」兰爱情度+3000、达特友好度+20</p>
+  </div>
+  <div class="heart-event">
+    <h4><span class="heart-level heart-purple">紫心</span> 紫心事件</h4>
+    <p><strong>时间：</strong>月、水、金曜日以外 AM10:00～PM1:00</p>
+    <p><strong>地点：</strong>达特的店2层</p>
+    <p><span class="choice">选项：</span>「喜欢打扫」兰爱情度+3000</p>
+  </div>
+  <div class="heart-event">
+    <h4><span class="heart-level heart-blue">蓝心</span> 蓝心事件</h4>
+    <p><strong>时间：</strong>月曜日、金曜日 PM0:00～PM7:00</p>
+    <p><strong>地点：</strong>达特的店</p>
+    <p><span class="choice">选项：</span>「带他去医院」兰爱情度+3000、达特、多特、艾莉友好度+20</p>
+  </div>
+  <div class="heart-event">
+    <h4><span class="heart-level heart-yellow">黄心</span> 黄心事件</h4>
+    <p><strong>时间：</strong>月、水、金曜日以外 AM10:00～PM7:00</p>
+    <p><strong>地点：</strong>达特的店</p>
+    <p><span class="choice">选项：</span>「喜欢兰」兰爱情度+3000、达特友好度+20</p>
+  </div>
+  <div class="note">💡 喜欢古利夫，讨厌橘子。为父亲达特的催婚感到困扰。爱情度10000以上可触发达特与笛克争吵事件。</div>
+</div>
+
+<h2 id="elli">🏥 艾莉 - 护士</h2>
+<div class="girl-card">
+  <p><strong>生日：</strong>春16日 | <strong>地点：</strong>医院</p>
+  <p><strong>最喜欢：</strong>各种各样的花、桔子、草莓、热牛奶、赏月丸子、红色奇幻草</p>
+  <p><strong>喜欢：</strong>鱼、牛奶、果汁、热牛奶、苹果酱、冰淇淋、玉米花</p>
+  <p><strong>不喜欢：</strong>洋葱、青椒、烤地瓜、蛋包饭、庵列、炒饭</p>
+  <p><strong>最不喜欢：</strong>毒蘑菇、饲料、树枝、木材</p>
+
+  <h3>💕 爱情事件</h3>
+  <div class="heart-event">
+    <h4><span class="heart-level heart-black">黑心</span> 黑心事件</h4>
+    <p><strong>时间：</strong>月曜日、水曜日以外 AM9:00～PM7:00</p>
+    <p><strong>地点：</strong>医院</p>
+    <p><span class="choice">选项：</span>「提醒优」艾莉爱情度+3000、优友好度-10</p>
+  </div>
+  <div class="heart-event">
+    <h4><span class="heart-level heart-purple">紫心</span> 紫心事件</h4>
+    <p><strong>时间：</strong>日、木、土曜日 AM9:00～PM7:00</p>
+    <p><strong>地点：</strong>医院</p>
+    <p><span class="choice">选项：</span>「鼓励艾莉」艾莉爱情度+3000</p>
+  </div>
+  <div class="heart-event">
+    <h4><span class="heart-level heart-blue">蓝心</span> 蓝心事件</h4>
+    <p><strong>时间：</strong>水曜日 AM9:00～PM1:00</p>
+    <p><strong>地点：</strong>艾莲的家</p>
+    <p><span class="choice">选项：</span>「把优带回来」艾莉爱情度+3000、艾莲&优友好度+20</p>
+  </div>
+  <div class="heart-event">
+    <h4><span class="heart-level heart-yellow">黄心</span> 黄心事件</h4>
+    <p><strong>时间：</strong>水曜日 AM9:00～PM6:00</p>
+    <p><strong>地点：</strong>海滩</p>
+    <p><span class="choice">选项：</span>「不是那样的」艾莉爱情度+3000</p>
+  </div>
+  <div class="note">💡 对医生多特有爱慕之情，料理不在行。需先提升友好度才能触发恋爱事件。</div>
+</div>
+
+<h2 id="karen">🏪 卡莲 - 杂货店少女</h2>
+<div class="girl-card">
+  <p><strong>生日：</strong>秋15日 | <strong>地点：</strong>杂货店</p>
+  <p><strong>最喜欢：</strong>葡萄酒、天妇罗、奶酪、披萨、酒、香水</p>
+  <p><strong>喜欢：</strong>爆米花、烤马铃薯、炒蛋、蜂蜜、草莓</p>
+  <p><strong>不喜欢：</strong>药草、失败作</p>
+  <p><strong>最不喜欢：</strong>毒蘑菇、垃圾</p>
+
+  <h3>💕 爱情事件</h3>
+  <div class="heart-event">
+    <h4><span class="heart-level heart-black">黑心</span> 黑心事件</h4>
+    <p><strong>时间：</strong>水曜日、金曜日 AM10:00～PM1:00</p>
+    <p><strong>地点：</strong>杂货店</p>
+    <p><span class="choice">选项：</span>「其实很困扰」卡莲爱情度+3000、沙夏友好度+20、杰夫友好度-10</p>
+  </div>
+  <div class="heart-event">
+    <h4><span class="heart-level heart-purple">紫心</span> 紫心事件</h4>
+    <p><strong>时间：</strong>月、木、土曜日 AM10:00～PM1:00</p>
+    <p><strong>地点：</strong>杂货店</p>
+    <p><span class="choice">选项：</span>「站在卡莲这边」卡莲爱情度+3000、沙夏友好度-10、杰夫友好度+20</p>
+  </div>
+  <div class="heart-event">
+    <h4><span class="heart-level heart-blue">蓝心</span> 蓝心事件</h4>
+    <p><strong>时间：</strong>水、金曜日 AM10:00～PM1:00</p>
+    <p><strong>地点：</strong>杂货店</p>
+    <p><span class="choice">选项：</span>「去拿葡萄酒」卡莲爱情度+3000、沙夏、杰夫、笛克友好度+20</p>
+  </div>
+  <div class="heart-event">
+    <h4><span class="heart-level heart-yellow">黄心</span> 黄心事件</h4>
+    <p><strong>时间：</strong>月、木、土曜日 AM10:00～PM1:00</p>
+    <p><strong>地点：</strong>杂货店</p>
+    <p><span class="choice">选项：</span>「吃卡莲的料理」卡莲爱情度+3000、沙夏、杰夫友好度+20</p>
+  </div>
+  <div class="note">💡 喜欢喝酒，与父亲笛克斗酒。爱情度30000以上可触发斗酒事件。</div>
+</div>
+
+<h2 id="marie">📚 玛丽 - 图书馆少女</h2>
+<div class="girl-card">
+  <p><strong>生日：</strong>冬20日 | <strong>地点：</strong>图书馆</p>
+  <p><strong>最喜欢：</strong>菜汁、菜奶、消闲茶</p>
+  <p><strong>喜欢：</strong>书籍、蜂蜜</p>
+  <p><strong>不喜欢：</strong>运动</p>
+
+  <h3>💕 爱情事件</h3>
+  <div class="heart-event">
+    <h4><span class="heart-level heart-black">黑心</span> 黑心事件</h4>
+    <p><strong>时间：</strong>火～日曜日 AM10:00～PM6:00</p>
+    <p><strong>地点：</strong>玛丽的图书馆</p>
+    <p><span class="choice">选项：</span>「帮忙商量」玛丽爱情度+3000</p>
+  </div>
+  <div class="heart-event">
+    <h4><span class="heart-level heart-purple">紫心</span> 紫心事件</h4>
+    <p><strong>时间：</strong>日、木、土曜日 AM10:00～PM4:00</p>
+    <p><strong>地点：</strong>玛丽的图书馆</p>
+    <p><span class="choice">选项：</span>「一起找」玛丽爱情度+3000</p>
+  </div>
+  <div class="heart-event">
+    <h4><span class="heart-level heart-blue">蓝心</span> 蓝心事件</h4>
+    <p><strong>时间：</strong>月曜日 PM0:00～PM5:00</p>
+    <p><strong>地点：</strong>山顶</p>
+    <p><span class="choice">选项：</span>「感动得哭过」玛丽爱情度+3000</p>
+    <p class="tip">※没有大背包则不发生</p>
+  </div>
+  <div class="heart-event">
+    <h4><span class="heart-level heart-yellow">黄心</span> 黄心事件</h4>
+    <p><strong>时间：</strong>月曜日 AM10:00～PM1:00</p>
+    <p><strong>地点：</strong>玛丽的家</p>
+    <p><span class="choice">选项：</span>「牧场的工作呢？」玛丽爱情度+3000、巴基尔、安娜友好度+20</p>
+  </div>
+  <div class="note">💡 喜欢研究，不爱出门。安娜的女儿，性格文静。</div>
+</div>
+
+<h2 id="marry">💍 结婚条件</h2>
+<table>
+  <tr><th>条件</th><th>说明</th></tr>
+  <tr><td>爱情度</td><td>达到红心（最高等级）</td></tr>
+  <tr><td>大床</td><td>必须从哥茨处购买大床</td></tr>
+  <tr><td>全部爱情事件</td><td>触发该角色的全部爱情事件（黑心～黄心）</td></tr>
+  <tr><td>蓝色羽毛</td><td>在杂货店购买蓝羽毛（需爱情度达标）</td></tr>
+</table>
+
+<h2 id="rivals">⚔️ 情敌事件</h2>
+
+<div class="rival-section">
+  <p>矿石镇中的5位候补新娘并非只等着主角一人追求。每位女孩都有对应的<strong>情敌</strong>（竞争对手），如果你不积极追求，她们最终会与情敌结婚。情敌事件共分为<strong>4个阶段</strong>（黑心→蓝心→绿心→橙心），全部触发后7天，两人将在教堂举行婚礼。</p>
+  
+  <p><strong>核心规则：</strong></p>
+  <ul>
+    <li>每个阶段需要对应女孩的爱情度<strong>低于</strong>指定心色才能触发（心色越高越难触发，即你越追她越看不到情敌事件）</li>
+    <li>如果你已经和该女孩结婚，则所有情敌事件自动触发（不受心色限制）</li>
+    <li>第1、2阶段通常在第1年即可触发，第3阶段需要第2年之后，第4阶段需要第4年之后</li>
+    <li>全部4个阶段触发后7天，情敌会在教堂结婚，你可前往教堂参加婚礼</li>
+    <li>如果你与情敌（男方）友好度很高，会被邀请参加婚礼</li>
+  </ul>
+
+  <div class="rival-warning">
+    <strong>⚠️ 重要提示：</strong>一旦女孩与情敌结婚，你将永远无法再追求她。柏布利与凯结婚后会离开矿石镇，仅在每年夏天回来探亲。
+  </div>
+</div>
+
+<!-- ========== 柏布利 & 凯 ========== -->
+<h3 id="rival-popuri">🛖 柏布利 & 凯 <span class="rival-pair">情敌配对</span></h3>
+<div class="rival-card">
+  <p><strong>情敌：</strong>凯（夏季海之家经营者，每年夏季出现在矿石镇）</p>
+  <p><strong>剧情概要：</strong>好奇心旺盛的柏布利被凯的独特魅力吸引，两人因料理结缘，感情逐渐升温。最终柏布利决定离开矿石镇，随凯远走他乡。</p>
+
+  <div class="rival-event">
+    <h4><span class="heart-level heart-black">黑心</span> 第1阶段 — 海岸的料理邀约 ✅ </h4>
+    <p><strong>时间：</strong>夏季 / 日曜日 / PM1:00～PM4:00（仅晴天）</p>
+    <p><strong>地点：</strong>海岸（海滩）</p>
+    <p><strong>条件：</strong>柏布利爱情度为黑心</p>
+    <p>柏布利品尝了凯做的料理，赞叹不已，并请求凯也为生病的母亲莉莉亚做一份料理，凯欣然答应。</p>
+  </div>
+
+  <div class="rival-event">
+    <h4><span class="heart-level heart-blue">蓝心</span> 第2阶段 — 海岸的争执 ✅ </h4>
+    <p><strong>时间：</strong>夏季 / 火・木・土曜日 / AM9:00～PM7:00（仅晴天）</p>
+    <p><strong>地点：</strong>海岸（海滩）</p>
+    <p><strong>条件：</strong>柏布利爱情度为蓝心以下</p>
+    <p>柏布利感谢凯为母亲做的料理，两人正愉快交谈时，担心妹妹的里克突然出现，与凯争吵起来。</p>
+  </div>
+
+  <div class="rival-event">
+    <h4><span class="heart-level heart-green">绿心</span> 第3阶段 — 离开矿石镇的念头</h4>
+    <p><strong>时间：</strong>第2年之后 / 夏季 / 日曜日 / PM1:00～PM4:00（仅晴天）</p>
+    <p><strong>地点：</strong>海岸（海滩）</p>
+    <p><strong>条件：</strong>柏布利爱情度为绿心以下</p>
+    <p>柏布利向凯吐露心声，表示想离开矿石镇去大城市看看外面的世界，就像凯一样。凯对此感到惊喜。</p>
+  </div>
+
+  <div class="rival-event">
+    <h4><span class="heart-level heart-orange">橙心</span> 第4阶段 — 养鸡场的告别</h4>
+    <p><strong>时间：</strong>第4年之后 / 夏季 / 火・木・土曜日 / AM9:00～PM7:00（仅晴天）</p>
+    <p><strong>地点：</strong>养鸡场</p>
+    <p><strong>条件：</strong>柏布利爱情度为橙心以下</p>
+    <p>柏布利向家人宣布要离开矿石镇的决定。里克大为光火，但莉莉亚表示同意——前提是凯要负责"带走柏布利"，也就是结婚。</p>
+  </div>
+
+  <div class="note">
+    <strong>💡 注意：</strong>柏布利与凯结婚后将永久离开矿石镇，仅在每年夏天随凯回来探亲。如果你打算追求柏布利，务必在夏季积极提升好感度，阻止情敌事件触发。
+  </div>
+</div>
+
+<!-- ========== 琳 & 克里夫 ========== -->
+<h3 id="rival-ran">🏨 琳 & 克里夫 <span class="rival-pair">情敌配对</span></h3>
+<div class="rival-card">
+  <p><strong>情敌：</strong>克里夫（住在旅馆的流浪青年，性格内向怕生）</p>
+  <p><strong>剧情概要：</strong>性格开朗的琳主动接近孤僻的克里夫，帮助他融入矿石镇的生活。两人的感情在日常相处中逐渐萌芽。</p>
+
+  <div class="rival-event">
+    <h4><span class="heart-level heart-black">黑心</span> 第1阶段 — 旅馆2楼的初次对话</h4>
+    <p><strong>时间：</strong>夏季以外的6～30日 / 土曜日以外 / PM7:00～PM9:00</p>
+    <p><strong>地点：</strong>旅馆2楼（克里夫的房间）</p>
+    <p><strong>条件：</strong>琳爱情度为黑心</p>
+    <p>琳来到克里夫的房间，试图与他聊天。她询问克里夫来到矿石镇的原因，但克里夫不愿多谈。琳虽然道歉，但克里夫感谢她主动关心自己。</p>
+  </div>
+
+  <div class="rival-event">
+    <h4><span class="heart-level heart-blue">蓝心</span> 第2阶段 — 教会的介绍</h4>
+    <p><strong>时间：</strong>秋季以外 / 土曜日以外 / AM11:00～PM4:00</p>
+    <p><strong>地点：</strong>教会</p>
+    <p><strong>条件：</strong>琳爱情度为蓝心以下</p>
+    <p>卡特神父建议克里夫多和镇民交流，但克里夫表示很难跟陌生人说话。琳来送午餐，卡特请琳帮忙介绍克里夫给镇上的其他人认识，琳爽快地答应了。</p>
+  </div>
+
+  <div class="rival-event">
+    <h4><span class="heart-level heart-green">绿心</span> 第3阶段 — 旅馆的挽留</h4>
+    <p><strong>时间：</strong>第2年之后 / 土曜日 / AM10:00～PM1:00</p>
+    <p><strong>地点：</strong>旅馆1楼</p>
+    <p><strong>条件：</strong>琳爱情度为绿心以下；<strong>克里夫必须留在矿石镇</strong>（第1年秋14日果园打工事件中需邀请他）</p>
+    <p>达特询问克里夫是否愿意永远留在旅馆，琳也支持父亲的想法。克里夫虽然惊讶和害羞，但基本同意了留下。</p>
+  </div>
+
+  <div class="rival-event">
+    <h4><span class="heart-level heart-orange">橙心</span> 第4阶段 — 果园储藏室</h4>
+    <p><strong>时间：</strong>第4年之后 / 土曜日以外 / AM10:00～PM1:00</p>
+    <p><strong>地点：</strong>果园储藏室</p>
+    <p><strong>条件：</strong>琳爱情度为橙心以下；克里夫必须留在矿石镇</p>
+    <p>琳来给克里夫送午餐，笛克走进来调侃两人看起来很般配，问克里夫什么时候向琳求婚。琳害羞地跑了出去。</p>
+  </div>
+
+  <div class="note">
+    <strong>💡 注意：</strong>克里夫如果在第1年秋14日没有收到果园打工邀请，将在冬季结束后永远离开矿石镇，琳的情敌事件将无法继续。如果想留住克里夫，务必在秋14日去果园触发事件并邀请他。
+  </div>
+</div>
+
+<!-- ========== 艾莉 & 多特 ========== -->
+<h3 id="rival-elli">🏥 艾莉 & 多特（医生）<span class="rival-pair">情敌配对</span></h3>
+<div class="rival-card">
+  <p><strong>情敌：</strong>多特（矿石镇医院的医生，工作狂，对感情迟钝）</p>
+  <p><strong>剧情概要：</strong>艾莉一直暗恋着一起工作的多特医生，但多特性格迟钝，常常感受不到艾莉的心意。随着时间推移，两人在工作与生活中逐渐靠近。</p>
+
+  <div class="rival-event">
+    <h4><span class="heart-level heart-black">黑心</span> 第1阶段 — 医院的小抱怨</h4>
+    <p><strong>时间：</strong>火・水曜日以外 / AM9:00～PM7:00</p>
+    <p><strong>地点：</strong>医院</p>
+    <p><strong>条件：</strong>艾莉爱情度为黑心</p>
+    <p>艾莉向多特抱怨自己有些累了，但多特关心的却是如果没有护士自己会很麻烦，而不是艾莉本人的感受。艾莉对他的迟钝感到不满。</p>
+  </div>
+
+  <div class="rival-event">
+    <h4><span class="heart-level heart-blue">蓝心</span> 第2阶段 — 艾莲家的出诊</h4>
+    <p><strong>时间：</strong>月曜日 / AM9:00～PM7:00</p>
+    <p><strong>地点：</strong>艾莲的家</p>
+    <p><strong>条件：</strong>艾莉爱情度为蓝心以下</p>
+    <p>多特和艾莉来给艾莲看病。多特认为艾莲只是感冒，但艾莲抱怨腿疼，多特开始为自己无法更好地帮助她而感到内疚，展现出了医生的真诚。</p>
+  </div>
+
+  <div class="rival-event">
+    <h4><span class="heart-level heart-green">绿心</span> 第3阶段 — 医院的担忧</h4>
+    <p><strong>时间：</strong>第2年之后 / 火・水曜日以外 / AM9:00～PM7:00</p>
+    <p><strong>地点：</strong>医院</p>
+    <p><strong>条件：</strong>艾莉爱情度为绿心以下</p>
+    <p>多特咳嗽了，艾莉非常担心。多特说自己只是感冒了没事。艾莉叮嘱他不要过度工作，否则她会生气。多特笑着说她将来会是个好妻子。</p>
+  </div>
+
+  <div class="rival-event">
+    <h4><span class="heart-level heart-orange">橙心</span> 第4阶段 — 海岸的浪漫</h4>
+    <p><strong>时间：</strong>第4年之后 / 水曜日 / PM7:00～PM10:00（仅晴天）</p>
+    <p><strong>地点：</strong>海岸（海滩）</p>
+    <p><strong>条件：</strong>艾莉爱情度为橙心以下</p>
+    <p>多特和艾莉在海边度过了浪漫的时光，两人的关系终于变得明朗而亲密。</p>
+  </div>
+</div>
+
+<!-- ========== 卡莲 & 里克 ========== -->
+<h3 id="rival-karen">🏪 卡莲 & 里克 <span class="rival-pair">情敌配对</span></h3>
+<div class="rival-card">
+  <p><strong>情敌：</strong>里克（养鸡场的哥哥，柏布利的兄长，性格认真但爱操心）</p>
+  <p><strong>剧情概要：</strong>青梅竹马的卡莲和里克，从小一起长大。两人常常拌嘴争吵，但彼此之间有着深厚的羁绊。里克担心外出旅行的父亲，卡莲则在旁默默支持。</p>
+
+  <div class="rival-event">
+    <h4><span class="heart-level heart-black">黑心</span> 第1阶段 — 泉边的回忆 ✅ </h4>
+    <p><strong>时间：</strong>水・木・金・土曜日 / AM11:00～PM6:00（仅晴天）</p>
+    <p><strong>地点：</strong>泉（温泉/女神泉）</p>
+    <p><strong>条件：</strong>卡莲爱情度为黑心；<strong>必须从泉边矿石场一侧进入</strong>（从道路进入不会触发）；手中不能持有任何物品</p>
+    <p>里克和卡莲在泉边聊天，谈论起两人小时候的亲密关系，以及里克那位旅行未归的父亲。</p>
+  </div>
+
+  <div class="rival-event">
+    <h4><span class="heart-level heart-blue">蓝心</span> 第2阶段 — 伐木之家附近的童年</h4>
+    <p><strong>时间：</strong>春季以外 / 月・日曜日 / AM11:00～PM6:00（仅晴天）</p>
+    <p><strong>地点：</strong>伐木之家（哥茨家）附近</p>
+    <p><strong>条件：</strong>卡莲爱情度为蓝心以下；<strong>必须从养鸡场/牛场一侧进入</strong>（从牧场/温泉一侧进入不会触发）</p>
+    <p>里克和卡莲回忆起小时候打架的事，里克说卡莲总是打赢他，因为卡莲更强。卡莲说不记得这些事，有些不高兴地离开了。</p>
+  </div>
+
+  <div class="rival-event">
+    <h4><span class="heart-level heart-green">绿心</span> 第3阶段 — 泉边的守护</h4>
+    <p><strong>时间：</strong>第2年之后 / 水・金曜日 / AM11:00～PM6:00（仅晴天）</p>
+    <p><strong>地点：</strong>泉（温泉/女神泉）</p>
+    <p><strong>条件：</strong>卡莲爱情度为绿心以下；<strong>必须从泉边矿石场一侧进入</strong></p>
+    <p>卡莲被野狗袭击，里克为了保护她而受伤。卡莲既感激又生气，责怪里克不该冒险，称自己完全有能力保护自己。两人争吵中流露出彼此的关心。</p>
+  </div>
+
+  <div class="rival-event">
+    <h4><span class="heart-level heart-orange">橙心</span> 第4阶段 — 养鸡场的浪漫</h4>
+    <p><strong>时间：</strong>第4年之后 / 火・木・土曜日 / PM1:00～PM4:00（仅晴天）</p>
+    <p><strong>地点：</strong>养鸡场</p>
+    <p><strong>条件：</strong>卡莲爱情度为橙心以下；<strong>柏布利必须已经结婚</strong>（与凯或与主角）</p>
+    <p>里克和卡莲在养鸡场独处，两人的关系终于变得浪漫而亲密。这对一直拌嘴的青梅竹马，终于走到了一起。</p>
+  </div>
+</div>
+
+<!-- ========== 玛丽 & 格雷 ========== -->
+<h3 id="rival-marie">📚 玛丽 & 格雷 <span class="rival-pair">情敌配对</span></h3>
+<div class="rival-card">
+  <p><strong>情敌：</strong>格雷（锻造屋的学徒，性格沉默寡言但内心温柔）</p>
+  <p><strong>剧情概要：</strong>格雷在锻造屋受伤，被玛丽的温柔所打动。两人因书结缘，格雷开始频繁出入图书馆。一段安静而温暖的恋情在书香中萌芽。</p>
+
+  <div class="rival-event">
+    <h4><span class="heart-level heart-black">黑心</span> 第1阶段 — 锻造屋的相遇</h4>
+    <p><strong>时间：</strong>月曜日以外 / AM10:00～PM1:00（仅晴天）</p>
+    <p><strong>地点：</strong>锻造屋（塞巴拉锻冶屋）</p>
+    <p><strong>条件：</strong>玛丽爱情度为黑心</p>
+    <p>玛丽来锻造屋升级工具，格雷在工作中不小心弄伤了自己，开始流血。玛丽温柔地为他包扎伤口，格雷被她的善良所吸引。</p>
+    <p class="tip">※此事件发生后，格雷的日程表会改变，除周一外都会在图书馆度过。</p>
+  </div>
+
+  <div class="rival-event">
+    <h4><span class="heart-level heart-blue">蓝心</span> 第2阶段 — 图书馆的读书会 ✅ </h4>
+    <p><strong>时间：</strong>月曜日以外 / PM1:00～PM4:00</p>
+    <p><strong>地点：</strong>图书馆1楼</p>
+    <p><strong>条件：</strong>玛丽爱情度为蓝心以下</p>
+    <p>玛丽和格雷在图书馆聊天，玛丽说很少有人像格雷这样喜欢读书。她问格雷是否愿意读她正在写的小说，格雷当然表示很想读。</p>
+  </div>
+
+  <div class="rival-event">
+    <h4><span class="heart-level heart-green">绿心</span> 第3阶段 — 山顶的告白</h4>
+    <p><strong>时间：</strong>第2年之后 / 火・金・日曜日 / AM7:00～AM10:00（仅晴天）</p>
+    <p><strong>地点：</strong>玛莎山山顶（Mother's Hill）</p>
+    <p><strong>条件：</strong>玛丽爱情度为绿心以下</p>
+    <p>格雷告诉玛丽，她写的小说很棒。他吐露自己也在尝试写作，但觉得自己写得不好。玛丽非常开心，鼓励他继续努力。两颗热爱文学的心在山顶相遇。</p>
+  </div>
+
+  <div class="rival-event">
+    <h4><span class="heart-level heart-orange">橙心</span> 第4阶段 — 图书馆的约定</h4>
+    <p><strong>时间：</strong>第4年之后 / 木・土曜日 / PM1:00～PM4:00</p>
+    <p><strong>地点：</strong>图书馆</p>
+    <p><strong>条件：</strong>玛丽爱情度为橙心以下</p>
+    <p>格雷说爷爷要给他进行锻造技能测试，如果通过了，就有一件事想对玛丽说。但他不肯提前透露是什么事——毫无疑问，那将是求婚的约定。</p>
+  </div>
+</div>
+
+<!-- ========== 情敌婚礼 ========== -->
+<h3 id="rival-wedding">💒 情敌婚礼</h3>
+<div class="rival-section">
+  <p>当任意一对情敌的4个阶段全部触发后，<strong>7天后</strong>两人将在教堂举行婚礼。</p>
+  <ul>
+    <li>如果你与该情敌（男方）友好度很高，会收到邀请信</li>
+    <li>即使没有收到邀请，也可以在婚礼当天<strong>AM9:00～PM10:00</strong>自行前往教堂参加</li>
+    <li>可以与新娘、新郎以及其他来宾交谈</li>
+    <li>卡特神父会邀请你一起庆祝到深夜，接受的话会直接跳到第二天早上</li>
+  </ul>
+  <div class="rival-warning">
+    <strong>⚠️ 注意：</strong>如果你接受了卡特的通宵庆祝邀请，会直接跳到第二天早上。请确保在此之前完成当天的所有农活。
+  </div>
+</div>
+
+<div class="note">
+  <strong>💡 情敌事件总览：</strong>
+  <table>
+    <tr><th>女孩</th><th>情敌</th><th>第1阶段</th><th>第2阶段</th><th>第3阶段</th><th>第4阶段</th><th>特殊条件</th></tr>
+    <tr>
+      <td><a href="#rival-popuri">柏布利</a></td>
+      <td>凯</td>
+      <td>黑心</td>
+      <td>蓝心以下</td>
+      <td>绿心以下（第2年）</td>
+      <td>橙心以下（第4年）</td>
+      <td>仅夏季；凯仅在夏季出现</td>
+    </tr>
+    <tr>
+      <td><a href="#rival-ran">琳</a></td>
+      <td>克里夫</td>
+      <td>黑心</td>
+      <td>蓝心以下</td>
+      <td>绿心以下（第2年）</td>
+      <td>橙心以下（第4年）</td>
+      <td>克里夫必须留在矿石镇</td>
+    </tr>
+    <tr>
+      <td><a href="#rival-elli">艾莉</a></td>
+      <td>多特</td>
+      <td>黑心</td>
+      <td>蓝心以下</td>
+      <td>绿心以下（第2年）</td>
+      <td>橙心以下（第4年）</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><a href="#rival-karen">卡莲</a></td>
+      <td>里克</td>
+      <td>黑心</td>
+      <td>蓝心以下</td>
+      <td>绿心以下（第2年）</td>
+      <td>橙心以下（第4年）</td>
+      <td>第4阶段需柏布利已结婚</td>
+    </tr>
+    <tr>
+      <td><a href="#rival-marie">玛丽</a></td>
+      <td>格雷</td>
+      <td>黑心</td>
+      <td>蓝心以下</td>
+      <td>绿心以下（第2年）</td>
+      <td>橙心以下（第4年）</td>
+      <td>—</td>
+    </tr>
+  </table>
+</div>
+
+<h2 id="tips">📅 提升爱情度技巧</h2>
+<ul>
+  <li><strong>送礼物：</strong>每天送最喜欢的礼物可快速提升爱情度</li>
+  <li><strong>节日邀请：</strong>黄心以上可邀请参加焰火大会、赏月会、星夜祭等</li>
+  <li><strong>日常对话：</strong>每天对话可增加少量好感</li>
+  <li><strong>生日礼物：</strong>生日当天送礼物效果翻倍</li>
+  <li><strong>温泉蛋：</strong>多数女孩喜欢温泉蛋，是性价比高的礼物</li>
+  <li><strong>春季感恩节（春14）：</strong>送心仪女孩曲奇或巧克力曲奇，爱情度上升更快</li>
+  <li><strong>冬之感谢祭（冬14）：</strong>蓝心以上的女孩会送你巧克力或巧克力蛋糕，接受爱情度+1000</li>
+  <li><strong>星夜祭（冬24）：</strong>前一天与黄心以上女孩约好，当天6点去女孩家吃饭，爱情度+3000</li>
+</ul>
+
+<div class="note">
+  <strong>⚠️ 注意事项：</strong>
+  <ul>
+    <li>同时追求多个角色会降低所有角色的好感</li>
+    <li>情敌事件会在特定条件下触发</li>
+    <li>婚后仍可继续提升妻子好感度</li>
+    <li>离婚会导致所有村民好感度大幅下降</li>
+  </ul>
+</div>
+
+</div>
+
+<a href="#" class="back-to-top" title="返回顶部">↑</a>
+
+</body>
+</html>

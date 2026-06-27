@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>农作物种植 - 牧场物语矿石镇的伙伴们</title>
+<style>
+  body { font-family: "Microsoft YaHei", sans-serif; line-height: 1.6; margin: 0; padding-top: 60px; background-color: #f9f9f9; color: #333; }
+  h1, h2, h3 { color: #5a7c3a; }
+  table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.9em; }
+  th { background-color: #5a7c3a; color: #fff; padding: 10px; text-align: left; }
+  td { padding: 8px; border: 1px solid #ddd; vertical-align: top; }
+  tr:nth-child(even) { background-color: #f2f2f2; }
+  .tip-box { background-color: #fff; padding: 15px; border-left: 4px solid #ff9800; margin: 10px 0; border-radius: 0 5px 5px 0; }
+  .tip { font-style: italic; color: #666; }
+  .crop-tip { background-color: #e8f5e9; border-left-color: #4caf50; }
+  .profit-tip { background-color: #e3f2fd; border-left-color: #2196f3; }
+  .warn-tip { background-color: #fce4ec; border-left-color: #e91e63; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; background-color: #5a7c3a; padding: 15px 20px; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  nav li { margin: 0; }
+  nav a { color: #fff; text-decoration: none; padding: 8px 15px; border-radius: 5px; transition: background-color 0.3s; font-size: 0.9em; }
+  nav a:hover { background-color: #4a6a2a; }
+  nav a.active { background-color: #3a5a1a; font-weight: bold; }
+
+  .content { max-width: 1000px; margin: 0 auto; padding: 20px; }
+  .back-to-top { position: fixed; bottom: 30px; right: 30px; background-color: #5a7c3a; color: #fff; padding: 10px 15px; border-radius: 50%; text-decoration: none; font-size: 1.2em; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+  .back-to-top:hover { background-color: #4a6a2a; }
+  .page-header { text-align: center; padding: 20px; background: linear-gradient(135deg, #4caf50, #81c784); color: #fff; border-radius: 10px; margin-bottom: 20px; }
+  .page-header h1 { color: #fff; margin: 0 0 5px 0; }
+  .page-header p { margin: 0; }
+
+  .season-nav { display: flex; justify-content: center; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
+  .season-nav a { padding: 10px 20px; border-radius: 5px; text-decoration: none; color: #fff; font-weight: bold; transition: transform 0.2s; }
+  .season-nav a:hover { transform: scale(1.05); }
+  .season-spring { background-color: #66bb6a; }
+  .season-summer { background-color: #ef5350; }
+  .season-autumn { background-color: #ff9800; }
+
+  .season-section { margin: 30px 0; }
+  .season-title { padding: 15px 20px; border-radius: 10px 10px 0 0; color: #fff; margin: 0; font-size: 1.5em; }
+  .spring-title { background: linear-gradient(135deg, #66bb6a, #81c784); }
+  .summer-title { background: linear-gradient(135deg, #ef5350, #e57373); }
+  .autumn-title { background: linear-gradient(135deg, #ff9800, #ffb74d); }
+  .winter-title { background: linear-gradient(135deg, #42a5f5, #64b5f6); }
+
+  .season-content { background: #fff; border-radius: 0 0 10px 10px; padding: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+
+  .grade-badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.8em; margin: 2px; color: #fff; }
+  .grade-s { background-color: #9e9e9e; }
+  .grade-a { background-color: #4caf50; }
+  .grade-b { background-color: #2196f3; }
+  .grade-c { background-color: #ff9800; }
+
+  .toc { background: linear-gradient(135deg, #fff, #e8f5e9); padding: 20px 25px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid #c8e6c9; }
+  .toc strong { display: block; font-size: 1.1em; color: #2e7d32; margin-bottom: 12px; }
+  .toc ul { columns: 2; column-gap: 20px; list-style: none; padding: 0; margin: 0; }
+  .toc li { margin: 0; break-inside: avoid; }
+  .toc a { display: block; color: #5a7c3a; text-decoration: none; padding: 8px 12px; border-radius: 8px; transition: all 0.25s ease; font-size: 0.95em; }
+  .toc a:hover { background: #e8f5e9; color: #1b5e20; transform: translateX(4px); text-decoration: none; }
+
+  .source-note { text-align: center; color: #999; font-size: 0.85em; margin-top: 30px; padding: 15px; border-top: 1px solid #eee; }
+</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="index.html">首页</a></li>
+    <li><a href="daily.html">每日行程</a></li>
+    <li><a href="characters.html">角色生日</a></li>
+    <li><a href="festivals.html">四季节日</a></li>
+    <li><a href="events.html">重要事件</a></li>
+    <li><a href="romance.html">恋爱攻略</a></li>
+    <li><a href="crops.html" class="active">农作物</a></li>
+    <li><a href="livestock.html">畜牧</a></li>
+    <li><a href="cooking.html">料理食谱</a></li>
+    <li><a href="mining.html">挖矿</a></li>
+    <li><a href="fishing.html">钓鱼</a></li>
+    <li><a href="tips.html">技巧秘籍</a></li>
+  </ul>
+</nav>
+
+<div class="content">
+
+<div class="page-header">
+  <h1>🌾 农作物种植指南</h1>
+  <p>四季作物种植指南 · 收益分析 · 隐藏作物解锁</p>
+</div>
+
+<div class="toc">
+  <strong>📑 目录导航</strong>
+  <ul>
+    <li><a href="#crop-basics">种植基础知识</a></li>
+    <li><a href="#spring-crops">春季作物</a></li>
+    <li><a href="#summer-crops">夏季作物</a></li>
+    <li><a href="#autumn-crops">秋季作物</a></li>
+    <li><a href="#grass">牧草种植</a></li>
+    <li><a href="#crop-profit">四季收益对比</a></li>
+  </ul>
+</div>
+
+<!-- ==================== 种植基础 ==================== -->
+<h2 id="crop-basics">📖 种植基础知识</h2>
+
+<div class="tip-box crop-tip">
+  <h3>种植基本规则</h3>
+  <ul>
+    <li><strong>耕地：</strong>用锄头开垦土地，每块地 3×3 格为一组</li>
+    <li><strong>播种：</strong>在开垦过的土地上使用种子即可播种</li>
+    <li><strong>浇水：</strong>每天必须浇水，否则作物不会生长（雨天除外）</li>
+    <li><strong>收获时间：</strong>一次性作物为 N+1 天（如萝卜栽种时间4天，第5天收获）；连续收获作物为 N-1 天间隔（如草莓收获后2天再成熟，即隔1天再收）</li>
+    <li><strong>换季枯萎：</strong>作物在季节最后一天过后会全部枯萎，换季前请勿播种</li>
+    <li><strong>出货时间：</strong>下午4点前放入出货箱，当天结算</li>
+  </ul>
+</div>
+
+<div class="tip-box crop-tip">
+  <h3>隐藏作物解锁条件</h3>
+  <p>以下作物需要在杂货店累计出货一定数量后才能解锁购买：</p>
+  <ul>
+    <li><strong>春草莓：</strong>萝卜/马铃薯/黄瓜各出货100以上</li>
+    <li><strong>夏南瓜：</strong>番茄/玉米/洋葱各出货100以上</li>
+    <li><strong>秋菠菜：</strong>茄子/胡萝卜/地瓜各出货100以上</li>
+  </ul>
+</div>
+
+<div class="tip-box warn-tip">
+  <h3>⚠️ 种植注意事项</h3>
+  <ul>
+    <li>初期水壶只能浇1格，建议开垦"凹"字型3×3田，确保中心覆盖</li>
+    <li>委托小矮人浇水/收获可大幅节省体力（需好感度3心以上）</li>
+    <li>换季前2-3天停止播种，避免作物未收获就枯萎</li>
+    <li>田地总面积约 43×25=1075格，合理种植约1008格（留出通道）</li>
+  </ul>
+</div>
+
+<!-- ==================== 春季作物 ==================== -->
+<div class="season-section" id="spring-crops">
+  <h2 class="season-title spring-title">🌸 春季作物</h2>
+  <div class="season-content">
+    <table>
+      <tr><th>作物</th><th>种子价格</th><th>栽种时间</th><th>出货价</th><th>类型</th><th>推荐度</th></tr>
+      <tr>
+        <td>萝卜</td><td>120G</td><td>4天</td><td>60G</td><td>一次性</td>
+        <td><span class="grade-badge grade-b">B</span> 周期短但利润低 420/袋 * 7</td>
+      </tr>
+      <tr>
+        <td>马铃薯</td><td>150G</td><td>7天</td><td>80G</td><td>一次性</td>
+        <td><span class="grade-badge grade-b">B</span> 收益一般 570/袋 * 4</td>
+      </tr>
+      <tr>
+        <td>黄瓜</td><td>200G</td><td>9天（收获后5天再长成）</td><td>60G</td><td>连续收获</td>
+        <td><span class="grade-badge grade-a">A</span> 一季可收5次 2500/袋 </td>
+      </tr>
+      <tr>
+        <td>草莓</td><td>150G</td><td>8天（收获后2天再长成）</td><td>30G</td><td>连续收获</td>
+        <td><span class="grade-badge grade-a">A</span> 一季可收11次，需解锁 2820/袋</td>
+      </tr>
+      <tr>
+        <td>包心菜</td><td>500G</td><td>14天</td><td>250G</td><td>一次性</td>
+        <td><span class="grade-badge grade-s">S</span> 单次利润最高 1750/袋 * 2</td>
+      </tr>
+    </table>
+
+    <div class="tip-box profit-tip">
+      <h3>春季收益分析（1008格合理种植）</h3>
+      <ul>
+        <li><strong>萝卜：</strong>1008×7次×60 - 112包×7次×120 = <strong>329,280G</strong></li>
+        <li><strong>马铃薯：</strong>1008×4次×80 - 112包×4次×150 = <strong>255,360G</strong></li>
+        <li><strong>黄瓜：</strong>1008×5次×60 - 112包×1次×200 = <strong>280,000G</strong></li>
+        <li><strong>草莓：</strong>1008×11次×30 - 112包×1次×150 = <strong>315,840G</strong></li>
+        <li><strong>包心菜：</strong>1008×2次×250 - 112包×2次×500 = <strong>392,000G</strong> 🏆</li>
+      </ul>
+      <p>💡 <strong>推荐：</strong>包心菜收益最高，草莓适合懒人（种一次收一季）</p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 夏季作物 ==================== -->
+<div class="season-section" id="summer-crops">
+  <h2 class="season-title summer-title">🏖️ 夏季作物</h2>
+  <div class="season-content">
+    <table>
+      <tr><th>作物</th><th>种子价格</th><th>栽种时间</th><th>出货价</th><th>类型</th><th>推荐度</th></tr>
+      <tr>
+        <td>番茄</td><td>200G</td><td>9天（收获后3天再长成）</td><td>60G</td><td>连续收获</td>
+        <td><span class="grade-badge grade-a">A</span> 一季可收7次</td>
+      </tr>
+      <tr>
+        <td>玉米</td><td>300G</td><td>14天（收获后3天再长成）</td><td>100G</td><td>连续收获</td>
+        <td><span class="grade-badge grade-s">S</span> 收益高，还可做饲料</td>
+      </tr>
+      <tr>
+        <td>洋葱</td><td>150G</td><td>7天</td><td>80G</td><td>一次性</td>
+        <td><span class="grade-badge grade-b">B</span> 收益一般</td>
+      </tr>
+      <tr>
+        <td>南瓜</td><td>500G</td><td>14天</td><td>250G</td><td>一次性</td>
+        <td><span class="grade-badge grade-a">A</span> 需解锁</td>
+      </tr>
+      <tr>
+        <td>菠萝</td><td>1000G</td><td>20天（收获后5天再长成）</td><td>500G</td><td>连续收获</td>
+        <td><span class="grade-badge grade-s">S</span> 🏆 夏季最强收益</td>
+      </tr>
+    </table>
+
+    <div class="tip-box profit-tip">
+      <h3>夏季收益分析（1008格合理种植）</h3>
+      <ul>
+        <li><strong>番茄：</strong>1008×7次×60 - 112包×1次×200 = <strong>400,960G</strong></li>
+        <li><strong>玉米：</strong>1008×6次×100 - 112包×1次×300 = <strong>571,200G</strong></li>
+        <li><strong>洋葱：</strong>1008×4次×80 - 112包×4次×150 = <strong>255,360G</strong></li>
+        <li><strong>南瓜：</strong>1008×2次×250 - 112包×2次×500 = <strong>392,000G</strong></li>
+        <li><strong>菠萝：</strong>1008×2次×500 - 112包×1次×1000 = <strong>896,000G</strong> 🏆</li>
+      </ul>
+      <p>💡 <strong>推荐：</strong>菠萝收益碾压全场，玉米兼顾收益与饲料</p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 秋季作物 ==================== -->
+<div class="season-section" id="autumn-crops">
+  <h2 class="season-title autumn-title">🍁 秋季作物</h2>
+  <div class="season-content">
+    <table>
+      <tr><th>作物</th><th>种子价格</th><th>栽种时间</th><th>出货价</th><th>类型</th><th>推荐度</th></tr>
+      <tr>
+        <td>茄子</td><td>120G</td><td>9天（收获后3天再长成）</td><td>80G</td><td>连续收获</td>
+        <td><span class="grade-badge grade-a">A</span> 一季可收7次</td>
+      </tr>
+      <tr>
+        <td>胡萝卜</td><td>300G</td><td>7天</td><td>120G</td><td>一次性</td>
+        <td><span class="grade-badge grade-b">B</span> 收益一般</td>
+      </tr>
+      <tr>
+        <td>地瓜</td><td>300G</td><td>5天（收获后2天再长成）</td><td>120G</td><td>连续收获</td>
+        <td><span class="grade-badge grade-s">S</span> 🏆 秋季最强收益</td>
+      </tr>
+      <tr>
+        <td>菠菜</td><td>200G</td><td>5天</td><td>80G</td><td>一次性</td>
+        <td><span class="grade-badge grade-c">C</span> 需解锁，收益低</td>
+      </tr>
+      <tr>
+        <td>青椒</td><td>150G</td><td>7天（收获后2天再长成）</td><td>40G</td><td>连续收获</td>
+        <td><span class="grade-badge grade-a">A</span> 一季可收12次</td>
+      </tr>
+      <tr>
+        <td>奇幻花</td><td>600G</td><td>10天</td><td>400G</td><td>一次性</td>
+        <td><span class="grade-badge grade-b">B</span> 需红色变异才能出货</td>
+      </tr>
+    </table>
+
+    <div class="tip-box profit-tip">
+      <h3>秋季收益分析（1008格合理种植）</h3>
+      <ul>
+        <li><strong>茄子：</strong>1008×7次×80 - 112包×1次×120 = <strong>551,040G</strong></li>
+        <li><strong>胡萝卜：</strong>1008×4次×120 - 112包×4次×300 = <strong>349,440G</strong></li>
+        <li><strong>地瓜：</strong>1008×13次×120 - 112包×1次×300 = <strong>1,538,880G</strong> 🏆</li>
+        <li><strong>菠菜：</strong>1008×5次×80 - 112包×5次×200 = <strong>291,200G</strong></li>
+        <li><strong>青椒：</strong>1008×12次×40 - 112包×1次×150 = <strong>467,040G</strong></li>
+      </ul>
+      <p>💡 <strong>推荐：</strong>地瓜是全游戏收益最高的作物！周期短、收获次数多</p>
+    </div>
+
+    <div class="tip-box warn-tip">
+      <h3>奇幻花注意事项</h3>
+      <p>奇幻花只有<strong>红色变异</strong>的才能出货。播种时按大地图查看，如果没有红色花就读档重来（SL大法）。普通颜色的奇幻花无法出货。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 牧草 ==================== -->
+<div class="season-section" id="grass">
+  <h2 class="season-title winter-title">🌿 牧草（春夏秋）</h2>
+  <div class="season-content">
+    <table>
+      <tr><th>名称</th><th>种子价格</th><th>栽种时间</th><th>用途</th></tr>
+      <tr>
+        <td>牧草</td><td>500G/包</td><td>11天（收割后9天再成熟）</td>
+        <td>放入筒仓作为牛羊饲料；放牧时牛羊直接吃</td>
+      </tr>
+    </table>
+
+    <div class="tip-box crop-tip">
+      <h3>牧草种植建议</h3>
+      <ul>
+        <li>牧草<strong>不需要浇水</strong>，种下后自动生长</li>
+        <li>收割后自动再生长，无需重新播种</li>
+        <li>建议在牧场角落种植一片，供放牧使用</li>
+        <li>收割的牧草存入筒仓，雨雪天备用</li>
+        <li>冬季牧草不会生长，需提前储备</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 四季收益对比 ==================== -->
+<h2 id="crop-profit">📊 四季收益对比总表</h2>
+<table>
+  <tr><th>季节</th><th>作物</th><th>类型</th><th>全季收益(G)</th><th>排名</th></tr>
+  <tr><td>春</td><td>包心菜</td><td>一次性</td><td>392,000</td><td>🥇</td></tr>
+  <tr><td>春</td><td>萝卜</td><td>一次性</td><td>329,280</td><td>🥈</td></tr>
+  <tr><td>春</td><td>草莓</td><td>连续</td><td>315,840</td><td>🥉</td></tr>
+  <tr><td>春</td><td>黄瓜</td><td>连续</td><td>280,000</td><td>4</td></tr>
+  <tr><td>春</td><td>马铃薯</td><td>一次性</td><td>255,360</td><td>5</td></tr>
+  <tr style="background:#fff3e0"><td>夏</td><td>菠萝</td><td>连续</td><td>896,000</td><td>🥇</td></tr>
+  <tr style="background:#fff3e0"><td>夏</td><td>玉米</td><td>连续</td><td>571,200</td><td>🥈</td></tr>
+  <tr style="background:#fff3e0"><td>夏</td><td>番茄</td><td>连续</td><td>400,960</td><td>🥉</td></tr>
+  <tr style="background:#fff3e0"><td>夏</td><td>南瓜</td><td>一次性</td><td>392,000</td><td>4</td></tr>
+  <tr style="background:#fff3e0"><td>夏</td><td>洋葱</td><td>一次性</td><td>255,360</td><td>5</td></tr>
+  <tr><td>秋</td><td>地瓜</td><td>连续</td><td>1,538,880</td><td>🥇</td></tr>
+  <tr><td>秋</td><td>茄子</td><td>连续</td><td>551,040</td><td>🥈</td></tr>
+  <tr><td>秋</td><td>青椒</td><td>连续</td><td>467,040</td><td>🥉</td></tr>
+  <tr><td>秋</td><td>胡萝卜</td><td>一次性</td><td>349,440</td><td>4</td></tr>
+  <tr><td>秋</td><td>菠菜</td><td>一次性</td><td>291,200</td><td>5</td></tr>
+</table>
+
+<div class="tip-box profit-tip">
+  <h3>🏆 全游戏收益冠军</h3>
+  <p><strong>秋季地瓜</strong>是全游戏收益最高的作物，单季收益可达 <strong>153万G</strong> 以上！5天成熟，之后每2天收获一次，一季可收13次。</p>
+  <p>其次是<strong>夏季菠萝</strong>（约90万G）和<strong>夏季玉米</strong>（约57万G）。</p>
+</div>
+
+<!-- ==================== 新手推荐 ==================== -->
+<div class="tip-box crop-tip">
+  <h3>🌟 新手推荐发展路线</h3>
+  <ol>
+    <li><strong>第一年春：</strong>种萝卜/马铃薯积累资金，买1-2只鸡开始产蛋</li>
+    <li><strong>第一年夏：</strong>种玉米（收益+饲料两用），攒钱买牛</li>
+    <li><strong>第一年秋：</strong>全力种地瓜！这是爆发期，攒够钱升级工具和设施</li>
+    <li><strong>第一年冬：</strong>无法种植，专注挖矿升级工具，加工动物产物</li>
+    <li><strong>第二年：</strong>解锁草莓/南瓜/菠菜后，收益进一步提升</li>
+  </ol>
+</div>
+
+<div class="source-note">
+  <p>数据整理自：B站攻略、悟饭游戏厅、k73游戏之家等 | 适用于GBA版《牧场物语：矿石镇的伙伴们》</p>
+</div>
+
+<a href="#" class="back-to-top">↑</a>
+
+</div>
+
+</body>
+</html>

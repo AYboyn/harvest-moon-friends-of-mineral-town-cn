@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>挖矿攻略 - 牧场物语矿石镇的伙伴们</title>
+<style>
+  body { font-family: "Microsoft YaHei", sans-serif; line-height: 1.6; margin: 0; padding-top: 60px; background-color: #f9f9f9; color: #333; }
+  h1, h2, h3 { color: #5a7c3a; }
+  table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.9em; }
+  th { background-color: #5a7c3a; color: #fff; padding: 10px; text-align: left; }
+  td { padding: 8px; border: 1px solid #ddd; vertical-align: top; }
+  tr:nth-child(even) { background-color: #f2f2f2; }
+  .tip-box { background-color: #fff; padding: 15px; border-left: 4px solid #ff9800; margin: 10px 0; border-radius: 0 5px 5px 0; }
+  .tip { font-style: italic; color: #666; }
+  .mine-tip { background-color: #e8f5e9; border-left-color: #4caf50; }
+  .ore-tip { background-color: #e3f2fd; border-left-color: #2196f3; }
+  .curse-tip { background-color: #fce4ec; border-left-color: #e91e63; }
+  .warn-tip { background-color: #fff3e0; border-left-color: #ff5722; }
+  .bless-tip { background-color: #ede7f6; border-left-color: #7c4dff; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; background-color: #5a7c3a; padding: 15px 20px; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  nav li { margin: 0; }
+  nav a { color: #fff; text-decoration: none; padding: 8px 15px; border-radius: 5px; transition: background-color 0.3s; font-size: 0.9em; }
+  nav a:hover { background-color: #4a6a2a; }
+  nav a.active { background-color: #3a5a1a; font-weight: bold; }
+
+  .content { max-width: 1000px; margin: 0 auto; padding: 20px; }
+  .back-to-top { position: fixed; bottom: 30px; right: 30px; background-color: #5a7c3a; color: #fff; padding: 10px 15px; border-radius: 50%; text-decoration: none; font-size: 1.2em; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+  .back-to-top:hover { background-color: #4a6a2a; }
+  .page-header { text-align: center; padding: 20px; background: linear-gradient(135deg, #795548, #a1887f); color: #fff; border-radius: 10px; margin-bottom: 20px; }
+  .page-header h1 { color: #fff; margin: 0 0 5px 0; }
+  .page-header p { margin: 0; }
+
+  .toc { background: linear-gradient(135deg, #fff, #efebe9); padding: 20px 25px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid #d7ccc8; }
+  .toc strong { display: block; font-size: 1.1em; color: #4e342e; margin-bottom: 12px; }
+  .toc ul { columns: 2; column-gap: 20px; list-style: none; padding: 0; margin: 0; }
+  .toc li { margin: 0; break-inside: avoid; }
+  .toc a { display: block; color: #795548; text-decoration: none; padding: 8px 12px; border-radius: 8px; transition: all 0.25s ease; font-size: 0.95em; }
+  .toc a:hover { background: #efebe9; color: #3e2723; transform: translateX(4px); text-decoration: none; }
+
+  .grade-badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.8em; margin: 2px; color: #fff; }
+  .grade-s { background-color: #9e9e9e; }
+  .grade-a { background-color: #4caf50; }
+  .grade-b { background-color: #2196f3; }
+  .grade-c { background-color: #ff9800; }
+
+  .source-note { text-align: center; color: #999; font-size: 0.85em; margin-top: 30px; padding: 15px; border-top: 1px solid #eee; }
+
+  .floor-table { margin: 20px 0; }
+  .floor-table th { text-align: center; }
+  .floor-table td { text-align: center; }
+</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="index.html">首页</a></li>
+    <li><a href="daily.html">每日行程</a></li>
+    <li><a href="characters.html">角色生日</a></li>
+    <li><a href="festivals.html">四季节日</a></li>
+    <li><a href="events.html">重要事件</a></li>
+    <li><a href="romance.html">恋爱攻略</a></li>
+    <li><a href="crops.html">农作物</a></li>
+    <li><a href="livestock.html">畜牧</a></li>
+    <li><a href="cooking.html">料理食谱</a></li>
+    <li><a href="mining.html" class="active">挖矿</a></li>
+    <li><a href="fishing.html">钓鱼</a></li>
+    <li><a href="tips.html">技巧秘籍</a></li>
+  </ul>
+</nav>
+
+<div class="content">
+
+<div class="page-header">
+  <h1>⛏️ 挖矿攻略</h1>
+  <p>矿石分布、道具升级、诅咒祝福道具与贤者之石全指南</p>
+</div>
+
+<div class="toc">
+  <strong>📋 目录</strong>
+  <ul>
+    <li><a href="#mines">两个矿石场介绍</a></li>
+    <li><a href="#tools">挖矿所需工具</a></li>
+    <li><a href="#spring-ore">泉边矿石场 - 矿石分布</a></li>
+    <li><a href="#lake-ore">湖边矿石场 - 宝石分布</a></li>
+    <li><a href="#cursed">诅咒道具获取</a></li>
+    <li><a href="#blessed">诅咒→祝福道具</a></li>
+    <li><a href="#sage">贤者之石与贤者道具</a></li>
+    <li><a href="#goddess">女神之玉</a></li>
+    <li><a href="#kappa">河童之玉</a></li>
+    <li><a href="#power">力量果实</a></li>
+    <li><a href="#tips">挖矿技巧</a></li>
+  </ul>
+</div>
+
+<!-- 两个矿石场 -->
+<h2 id="mines">📍 两个矿石场</h2>
+
+<table class="floor-table">
+  <tr>
+    <th>矿石场</th>
+    <th>位置</th>
+    <th>层数</th>
+    <th>开放条件</th>
+    <th>特点</th>
+  </tr>
+  <tr>
+    <td>泉边矿石场</td>
+    <td>温泉旁边</td>
+    <td>255层</td>
+    <td>全年可进入</td>
+    <td>主要获取矿石和诅咒/祝福道具</td>
+  </tr>
+  <tr>
+    <td>湖边矿石场</td>
+    <td>湖边（右下角）</td>
+    <td>255层</td>
+    <td>冬季湖面结冰后</td>
+    <td>主要获取宝石（玛瑙/钻石/红宝石等）和河童之玉</td>
+  </tr>
+</table>
+
+<div class="tip-box mine-tip">
+  <strong>💡 提示：</strong>泉边矿石场各层都有石头可以敲，用来练熟练度；湖边矿石场没有石头，需要自己挖楼梯下去，适合深入挖掘。
+</div>
+
+<!-- 所需工具 -->
+<h2 id="tools">🔨 挖矿所需工具</h2>
+<table>
+  <tr><th>工具</th><th>用途</th><th>升级消耗</th></tr>
+  <tr><td>锤子</td><td>敲碎矿石场的石头</td><td>铜→银→金→秘银→贤者，共需矿石逐级升级</td></tr>
+  <tr><td>锄头</td><td>挖掘地面寻找楼梯/道具</td><td>同上</td></tr>
+  <tr><td>背包</td><td>携带更多物品</td><td>背包1→背包2→背包3，在杂货店购买</td></tr>
+</table>
+
+<div class="tip-box warn-tip">
+  <strong>⚠️ 重要：</strong>进入深层矿洞前，务必保证背包有足够空间。建议将工具升级到秘银级别后再挑战深层。
+</div>
+
+<!-- 泉边矿石场 -->
+<h2 id="spring-ore">🪨 泉边矿石场 - 矿石分布</h2>
+<table>
+  <tr><th>矿石种类</th><th>出现楼层</th><th>售价</th><th>用途</th></tr>
+  <tr><td>废矿石</td><td>所有楼层</td><td>1G</td><td>无特殊用途</td></tr>
+  <tr><td>铜</td><td>所有楼层</td><td>15G</td><td>升级铜工具</td></tr>
+  <tr><td>银</td><td>所有楼层</td><td>20G</td><td>升级银工具</td></tr>
+  <tr><td>金</td><td>B3F以下</td><td>25G</td><td>升级金工具</td></tr>
+  <tr><td>秘银</td><td>B5F以下</td><td>40G</td><td>升级秘银工具</td></tr>
+  <tr><td>奥利哈刚</td><td>B9F以下</td><td>50G</td><td>制作首饰</td></tr>
+  <tr><td>金刚石</td><td>B9F以下</td><td>50G</td><td>制作加工机</td></tr>
+  <tr><td>贤者之石</td><td>B60F/102F/123F/152F/155F/171F/190F/202F/222F/231F~255F</td><td>20000G</td><td>升级贤者工具</td></tr>
+</table>
+
+<div class="tip-box ore-tip">
+  <strong>💡 泉边矿石场特点：</strong>每层都有石头可以敲，适合刷矿石经验和收集基础矿石。金从B3F开始出现，秘银从B5F，奥利哈刚和金刚石从B9F。
+</div>
+
+<!-- 湖边矿石场 -->
+<h2 id="lake-ore">💎 湖边矿石场 - 宝石分布</h2>
+<table>
+  <tr><th>宝石种类</th><th>出现楼层</th><th>售价</th><th>说明</th></tr>
+  <tr><td>废矿石</td><td>所有楼层</td><td>1G</td><td>无特殊用途</td></tr>
+  <tr><td>黑色草</td><td>所有楼层</td><td>10G</td><td>回复体力</td></tr>
+  <tr><td>月亮石</td><td>个位数为8的层数（8/18/28…）、255</td><td>55G</td><td>出货/送礼</td></tr>
+  <tr><td>沙漠玫瑰石</td><td>个位数为9的层数（9/19/29…）、255</td><td>60G</td><td>出货/送礼</td></tr>
+  <tr><td>紫水晶</td><td>50/100/150/200 以外的所有层</td><td>60G</td><td>出货/送礼</td></tr>
+  <tr><td>玛瑙</td><td>50/100/150/200 以外的所有层</td><td>62G</td><td>出货/送礼</td></tr>
+  <tr><td>萤石</td><td>50/100/150/200 以外的所有层</td><td>65G</td><td>出货/送礼</td></tr>
+  <tr><td>橄榄石</td><td>50/100/150/200 以外的所有层</td><td>68G</td><td>出货/送礼</td></tr>
+  <tr><td>黄玉</td><td>50/100/150/200 以外的所有层</td><td>70G</td><td>出货/送礼</td></tr>
+  <tr><td>红宝石</td><td>50/100/150/200 以外的所有层</td><td>75G</td><td>出货/送礼</td></tr>
+  <tr><td>祖母绿</td><td>个位数为5的层数、40/60/80/120/140/160/180、201~255</td><td>80G</td><td>出货/送礼</td></tr>
+  <tr><td>钻石</td><td>10/20/30/70/90/110/130/170/190、201~255</td><td>100G</td><td>出货/送礼</td></tr>
+  <tr><td>粉红钻石</td><td>30/70/90/110/130/170/190/210/220/230/240、250~255</td><td>10000G</td><td>高价值出货</td></tr>
+  <tr><td>亚历山大石</td><td>50/100/150/200/210/220/230/240、250~255</td><td>10000G</td><td>高价值出货</td></tr>
+</table>
+
+<div class="tip-box warn-tip">
+  <strong>⚠️ 注意：</strong>湖边矿石场没有石头可敲，只能通过锄头挖地来寻找楼梯。体力消耗主要来自挖地和跳跃楼层。湖矿出产的是各种宝石，<strong>没有铜银金秘银等基础矿石</strong>，也没有贤者之石。冬季是挖宝石赚钱的好时机。
+</div>
+
+<!-- 诅咒道具 -->
+<h2 id="cursed">👻 诅咒道具获取</h2>
+
+<div class="tip-box curse-tip">
+  <strong>⚠️ 前置条件：</strong>所有道具必须升级到<strong>秘银级别</strong>后，才能在泉边矿石场挖到诅咒道具。
+</div>
+
+<table>
+  <tr><th>诅咒道具</th><th>出现楼层</th><th>装备效果</th><th>解除方法</th></tr>
+  <tr><td>诅咒钓竿</td><td>B29F</td><td>装备后无法卸下</td><td>使用255次</td></tr>
+  <tr><td>诅咒锄头</td><td>B39F</td><td>装备后无法卸下</td><td>去教堂解除诅咒10次</td></tr>
+  <tr><td>诅咒斧头</td><td>B49F</td><td>装备后无法卸下</td><td>使用255次</td></tr>
+  <tr><td>诅咒锤子</td><td>B59F</td><td>装备后无法卸下</td><td>装备10天</td></tr>
+  <tr><td>诅咒浇水壶</td><td>B69F</td><td>装备后无法卸下</td><td>去教堂解除诅咒10次</td></tr>
+  <tr><td>诅咒镰刀</td><td>B79F</td><td>装备后无法卸下，自动刮草</td><td>装备10天</td></tr>
+</table>
+
+<div class="tip-box curse-tip">
+  <strong>💡 挖诅咒技巧：</strong>
+  <ul>
+    <li>到达目标楼层后，用锄头反复挖地，直到挖出诅咒道具</li>
+    <li>建议提前存档，如果体力不够可以读档重新规划</li>
+    <li>诅咒道具不一定百分百出现，多挖几次即可</li>
+    <li>拿到诅咒道具后，建议尽快解除诅咒</li>
+  </ul>
+</div>
+
+<!-- 诅咒→祝福 -->
+<h2 id="blessed">✨ 诅咒→祝福道具</h2>
+
+<p>将诅咒道具解除诅咒后变为祝福道具，祝福道具是升级贤者道具的必备材料。</p>
+
+<table>
+  <tr><th>诅咒道具</th><th>解除方式</th><th>变为祝福道具</th></tr>
+  <tr><td>诅咒钓竿</td><td>使用255次（挥杆255次）</td><td>祝福钓竿</td></tr>
+  <tr><td>诅咒锄头</td><td>去教堂忏悔10次（每次100G）</td><td>祝福锄头</td></tr>
+  <tr><td>诅咒斧头</td><td>使用255次（砍树255次）</td><td>祝福斧头</td></tr>
+  <tr><td>诅咒锤子</td><td>装备在身上10天（满10天自动解除）</td><td>祝福锤子</td></tr>
+  <tr><td>诅咒浇水壶</td><td>去教堂忏悔10次（每次100G）</td><td>祝福浇水壶</td></tr>
+  <tr><td>诅咒镰刀</td><td>装备在身上10天（满10天自动解除）</td><td>祝福镰刀</td></tr>
+</table>
+
+<div class="tip-box bless-tip">
+  <strong>💡 祝福道具效果：</strong>祝福道具的蓄力效果比秘银道具更强，范围更大。例如祝福锄头蓄力后可以刨出3×3范围的地，祝福浇水壶可以浇3×3范围的水。
+</div>
+
+<!-- 贤者之石 -->
+<h2 id="sage">💎 贤者之石与贤者道具</h2>
+
+<div class="tip-box ore-tip">
+  <strong>前置条件：</strong>拥有祝福道具后，在<strong>泉边矿石场</strong>的特定楼层可以挖到贤者之石，用于将祝福道具升级为贤者道具。
+</div>
+
+<table>
+  <tr><th>贤者道具</th><th>所需材料</th><th>费用</th><th>效果</th></tr>
+  <tr><td>贤者锄头</td><td>祝福锄头 + 贤者之石×1</td><td>50000G</td><td>可刨整块地</td></tr>
+  <tr><td>贤者锤子</td><td>祝福锤子 + 贤者之石×1</td><td>50000G</td><td>可敲碎大石头</td></tr>
+  <tr><td>贤者斧头</td><td>祝福斧头 + 贤者之石×1</td><td>50000G</td><td>可砍树桩</td></tr>
+  <tr><td>贤者钓竿</td><td>祝福钓竿 + 贤者之石×1</td><td>50000G</td><td>可钓所有鱼（含鱼王）</td></tr>
+  <tr><td>贤者浇水壶</td><td>祝福浇水壶 + 贤者之石×1</td><td>50000G</td><td>超大范围浇水</td></tr>
+  <tr><td>贤者镰刀</td><td>祝福镰刀 + 贤者之石×1</td><td>50000G</td><td>超大范围割草</td></tr>
+</table>
+
+<div class="tip-box mine-tip">
+  <strong>💡 贤者之石挖取地点：</strong>仅在泉边矿石场 B60F/102F/123F/152F/155F/171F/190F/202F/222F/231F~255F。建议在B60F反复刷，挖到后用回复药回复体力。概率不高，需要耐心。
+</div>
+
+<!-- 女神之玉 -->
+<h2 id="goddess">👸 女神之玉</h2>
+
+<p>在泉边矿石场收集9颗女神之玉，集齐后可获得<strong>女神秘宝</strong>，用于触发女神相关事件。</p>
+
+<table>
+  <tr><th>编号</th><th>出现楼层</th><th>编号</th><th>出现楼层</th></tr>
+  <tr><td>女神之玉①</td><td>B60F</td><td>女神之玉⑥</td><td>B171F</td></tr>
+  <tr><td>女神之玉②</td><td>B102F</td><td>女神之玉⑦</td><td>B190F</td></tr>
+  <tr><td>女神之玉③</td><td>B123F</td><td>女神之玉⑧</td><td>B202F</td></tr>
+  <tr><td>女神之玉④</td><td>B152F</td><td>女神之玉⑨</td><td>B222F</td></tr>
+  <tr><td>女神之玉⑤</td><td>B155F</td><td></td><td></td></tr>
+</table>
+
+<div class="tip-box mine-tip">
+  <strong>💡 提示：</strong>每层需要反复挖地才能找到女神之玉，不是必出的。建议带足回复药，一层一层挖。
+</div>
+
+<!-- 河童之玉 -->
+<h2 id="kappa">🐸 河童之玉</h2>
+
+<p>在湖边矿石场收集9颗河童之玉，集齐后可获得<strong>河童秘宝</strong>。</p>
+
+<table>
+  <tr><th>编号</th><th>出现楼层</th><th>编号</th><th>出现楼层</th></tr>
+  <tr><td>河童之玉①</td><td>B0F（地面）</td><td>河童之玉⑥</td><td>B140F</td></tr>
+  <tr><td>河童之玉②</td><td>B40F</td><td>河童之玉⑦</td><td>B160F</td></tr>
+  <tr><td>河童之玉③</td><td>B60F</td><td>河童之玉⑧</td><td>B180F</td></tr>
+  <tr><td>河童之玉④</td><td>B80F</td><td>河童之玉⑨</td><td>B255F</td></tr>
+  <tr><td>河童之玉⑤</td><td>B120F</td><td></td><td></td></tr>
+</table>
+
+<div class="tip-box warn-tip">
+  <strong>⚠️ 注意：</strong>只有冬天才能进入湖边矿石场。河童之玉①在湖边矿石场入口（地面层）的地里，需要锄头挖。
+</div>
+
+<!-- 力量果实 -->
+<h2 id="power">🍎 力量果实</h2>
+
+<p>在矿场中可以挖到力量果实，用于增加体力上限。</p>
+
+<table>
+  <tr><th>获取方式</th><th>地点</th><th>说明</th></tr>
+  <tr><td>挖矿获得</td><td>泉边矿石场 B100F</td><td>在B100F挖地，概率获得力量果实</td></tr>
+</table>
+
+<!-- 挖矿技巧 -->
+<h2 id="tips">💡 挖矿技巧</h2>
+
+<div class="tip-box mine-tip">
+  <strong>1. 存档大法（S/L）：</strong>每下一层前存档，如果挖到的矿石不理想或楼梯位置不好，可以读档重新来。这是挖矿最核心的技巧。
+</div>
+
+<div class="tip-box ore-tip">
+  <strong>2. 楼梯位置规律：</strong>楼梯一定在泥土中，不会在石头下面。优先挖没有石头覆盖的地面。如果一层找遍了还没有，看看四个角落。
+</div>
+
+<div class="tip-box mine-tip">
+  <strong>3. 体力管理：</strong>
+  <ul>
+    <li>带足回复药（推荐：体力回复剂、超级回复剂）</li>
+    <li>黑色草药（矿山大量产出）也可以回复体力</li>
+    <li>如果体力耗尽，可去温泉回复（需出矿场）</li>
+  </ul>
+</div>
+
+<div class="tip-box ore-tip">
+  <strong>4. 快速下矿法：</strong>如果目标是深层（如诅咒道具、女神之玉），不要每层都敲石头。直接挖楼梯下去，节省体力。
+</div>
+
+<div class="tip-box warn-tip">
+  <strong>5. 陷阱楼层：</strong>泉边矿石场B50F/B100F/B150F/B200F/B250F是特殊楼层，不会有楼梯，需要从边缘跳下去（或使用回归道具）。这些楼层通常有特殊奖励。
+</div>
+
+<div class="tip-box mine-tip">
+  <strong>6. 挖矿必备物品清单：</strong>
+  <ul>
+    <li>锤子（秘银级以上）</li>
+    <li>锄头（秘银级以上）</li>
+    <li>回复药×5-10个</li>
+    <li>背包空间充足</li>
+    <li>（可选）回归道具，用来快速脱出</li>
+  </ul>
+</div>
+
+<div class="source-note">
+  攻略来源：牧场物语矿石镇的伙伴们 游戏数据整理
+</div>
+
+<a href="#" class="back-to-top">⬆</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>技巧秘籍 - 牧场物语矿石镇的伙伴们</title>
+<style>
+  body { font-family: "Microsoft YaHei", sans-serif; line-height: 1.6; margin: 0; padding-top: 60px; background-color: #f9f9f9; color: #333; }
+  h1, h2, h3 { color: #5a7c3a; }
+  table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.9em; }
+  th { background-color: #5a7c3a; color: #fff; padding: 10px; text-align: left; }
+  td { padding: 8px; border: 1px solid #ddd; vertical-align: top; }
+  tr:nth-child(even) { background-color: #f2f2f2; }
+  .tip-box { background-color: #fff; padding: 15px; border-left: 4px solid #ff9800; margin: 10px 0; border-radius: 0 5px 5px 0; }
+  .tip { font-style: italic; color: #666; }
+  .money-tip { background-color: #e8f5e9; border-left-color: #4caf50; }
+  .love-tip { background-color: #fce4ec; border-left-color: #e91e63; }
+  .farm-tip { background-color: #e3f2fd; border-left-color: #2196f3; }
+  .power-tip { background-color: #fff3e0; border-left-color: #ff5722; }
+  .truth-tip { background-color: #ede7f6; border-left-color: #7c4dff; }
+  .tool-tip { background-color: #e0f7fa; border-left-color: #00bcd4; }
+  .warn-tip { background-color: #fce4ec; border-left-color: #e91e63; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; background-color: #5a7c3a; padding: 15px 20px; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  nav li { margin: 0; }
+  nav a { color: #fff; text-decoration: none; padding: 8px 15px; border-radius: 5px; transition: background-color 0.3s; font-size: 0.9em; }
+  nav a:hover { background-color: #4a6a2a; }
+  nav a.active { background-color: #3a5a1a; font-weight: bold; }
+
+  .content { max-width: 1000px; margin: 0 auto; padding: 20px; }
+  .back-to-top { position: fixed; bottom: 30px; right: 30px; background-color: #5a7c3a; color: #fff; padding: 10px 15px; border-radius: 50%; text-decoration: none; font-size: 1.2em; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+  .back-to-top:hover { background-color: #4a6a2a; }
+  .page-header { text-align: center; padding: 20px; background: linear-gradient(135deg, #ff9800, #ffb74d); color: #fff; border-radius: 10px; margin-bottom: 20px; }
+  .page-header h1 { color: #fff; margin: 0 0 5px 0; }
+  .page-header p { margin: 0; }
+
+  .toc { background: linear-gradient(135deg, #fff, #fff3e0); padding: 20px 25px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid #ffe0b2; }
+  .toc strong { display: block; font-size: 1.1em; color: #e65100; margin-bottom: 12px; }
+  .toc ul { columns: 2; column-gap: 20px; list-style: none; padding: 0; margin: 0; }
+  .toc li { margin: 0; break-inside: avoid; }
+  .toc a { display: block; color: #ff9800; text-decoration: none; padding: 8px 12px; border-radius: 8px; transition: all 0.25s ease; font-size: 0.95em; }
+  .toc a:hover { background: #fff3e0; color: #bf360c; transform: translateX(4px); text-decoration: none; }
+
+  .source-note { text-align: center; color: #999; font-size: 0.85em; margin-top: 30px; padding: 15px; border-top: 1px solid #eee; }
+</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="index.html">首页</a></li>
+    <li><a href="daily.html">每日行程</a></li>
+    <li><a href="characters.html">角色生日</a></li>
+    <li><a href="festivals.html">四季节日</a></li>
+    <li><a href="events.html">重要事件</a></li>
+    <li><a href="romance.html">恋爱攻略</a></li>
+    <li><a href="crops.html">农作物</a></li>
+    <li><a href="livestock.html">畜牧</a></li>
+    <li><a href="cooking.html">料理食谱</a></li>
+    <li><a href="mining.html">挖矿</a></li>
+    <li><a href="fishing.html">钓鱼</a></li>
+    <li><a href="tips.html" class="active">技巧秘籍</a></li>
+  </ul>
+</nav>
+
+<div class="content">
+
+<div class="page-header">
+  <h1>💡 技巧与秘籍</h1>
+  <p>赚钱技巧 · 好感度提升 · 力之果实 · 真实之玉 · 道具升级全攻略</p>
+</div>
+
+<div class="toc">
+  <strong>📑 目录导航</strong>
+  <ul>
+    <li><a href="#money">赚钱技巧</a></li>
+    <li><a href="#love">好感度提升</a></li>
+    <li><a href="#farm-tips">农场经营技巧</a></li>
+    <li><a href="#power-berry">力之果实获取</a></li>
+    <li><a href="#truth-jewel">真实之玉获取</a></li>
+    <li><a href="#tool-upgrade">道具升级攻略</a></li>
+    <li><a href="#cursed-tools">诅咒与祝福工具</a></li>
+    <li><a href="#sage-tools">贤者工具</a></li>
+  </ul>
+</div>
+
+<!-- ==================== 赚钱技巧 ==================== -->
+<h2 id="money">💰 赚钱技巧</h2>
+
+<div class="tip-box money-tip">
+  <h3>🏇 赛马赚钱法</h3>
+  <p><strong>方法：</strong>春季18日和秋季18日的赛马会，下注大筐（大框）可快速赚钱。</p>
+  <p><strong>技巧：</strong>先存钱，全部押在大筐上，赢一次可获得大量奖金。反复S/L直到赢为止。</p>
+</div>
+
+<div class="tip-box money-tip">
+  <h3>🐄 最佳牲口比赛</h3>
+  <p><strong>方法：</strong>穆基每年举办最佳牲口比赛，获胜可获得丰厚奖励。</p>
+  <p><strong>技巧：</strong>提前给牲口刷毛、对话、放牧，提升品质后再参赛。</p>
+</div>
+
+<div class="tip-box money-tip">
+  <h3>🥚 鸡蛋出荷法</h3>
+  <p><strong>方法：</strong>养鸡产蛋，金蛋价格更高。</p>
+  <p><strong>技巧：</strong>保持鸡的心情好，多对话，多放牧，可产出金蛋。</p>
+</div>
+
+<div class="tip-box money-tip">
+  <h3>🍷 葡萄酒加工</h3>
+  <p><strong>方法：</strong>用葡萄制作葡萄酒，售价比葡萄高很多。</p>
+  <p><strong>技巧：</strong>大量种植葡萄，制作葡萄酒后出荷，利润翻倍。</p>
+</div>
+
+<!-- ==================== 好感度 ==================== -->
+<h2 id="love">❤️ 好感度提升方法</h2>
+
+<div class="tip-box love-tip">
+  <h3>🎁 送礼技巧</h3>
+  <ul>
+    <li>每天送最喜欢的礼物可快速提升好感</li>
+    <li>生日当天送礼物效果翻倍</li>
+    <li>节日当天送对应礼物有额外加成</li>
+    <li>温泉蛋是万能礼物，多数村民都喜欢</li>
+  </ul>
+</div>
+
+<div class="tip-box love-tip">
+  <h3>👥 小矮人好感度</h3>
+  <ul>
+    <li>春天3-4点给每个小矮人送喝茶点心可参加茶会</li>
+    <li>好感度低于2点小矮人会拒绝工作</li>
+    <li>送蜂蜜、小麦粉、面包、葡萄等可快速提升好感</li>
+  </ul>
+</div>
+
+<div class="tip-box love-tip">
+  <h3>🏘️ 村民好感度</h3>
+  <ul>
+    <li>每天对话可增加少量好感</li>
+    <li>节日参加活动可增加好感</li>
+    <li>送对礼物比送错礼物效果好10倍</li>
+    <li>注意每个人的喜好，送错会降低好感</li>
+  </ul>
+</div>
+
+<!-- ==================== 农场经营 ==================== -->
+<h2 id="farm-tips">🌾 农场经营技巧</h2>
+
+<div class="tip-box farm-tip">
+  <h3>🌱 作物种植</h3>
+  <ul>
+    <li><strong>春季：</strong>青瓜、草莓、土豆、萝卜</li>
+    <li><strong>夏季：</strong>番茄、玉米、南瓜、菠萝</li>
+    <li><strong>秋季：</strong>茄子、地瓜、胡萝卜、青椒</li>
+    <li>每天浇水，收获后重新种植可连续收获</li>
+  </ul>
+</div>
+
+<div class="tip-box farm-tip">
+  <h3>🐄 动物饲养</h3>
+  <ul>
+    <li>每天对话、刷毛、放牧可提升动物心情</li>
+    <li>心情好的动物产出品质更高</li>
+    <li>怀孕的母牛/母羊需要特别照顾</li>
+    <li>动物生病要及时治疗</li>
+  </ul>
+</div>
+
+<div class="tip-box farm-tip">
+  <h3>🎣 钓鱼技巧</h3>
+  <ul>
+    <li>古力乌说"想钓鱼"时会送钓竿</li>
+    <li>不同季节、不同地点钓到的鱼不同</li>
+    <li>鱼王只在特定条件下出现</li>
+    <li>钓到所有鱼种可获得特殊奖励</li>
+  </ul>
+</div>
+
+<!-- ==================== 力之果实 ==================== -->
+<h2 id="power-berry">� 力之果实 — 全部10个获取方式</h2>
+
+<div class="tip-box power-tip">
+  <h3>作用说明</h3>
+  <p>每吃一个力之果实，<strong>体力上限+10</strong>（基础体力150，上限250）。共10个红色力之果实 + 1个蓝色不可思议果实。</p>
+</div>
+
+<table>
+  <tr><th>#</th><th>获取方式</th><th>详细说明</th></tr>
+  <tr>
+    <td>1</td>
+    <td>牧场土地中挖掘</td>
+    <td>在自家牧场用锄头耕地，随机获得（概率约1.2%）</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>泉之矿场100层</td>
+    <td>在100层用锄头挖地，概率约19.5%。建议下楼前存档</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>湖之矿场19层</td>
+    <td>在19层用锄头挖地，概率约19.5%。需冬天湖面结冰才能进入</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>湖之矿场洞口后</td>
+    <td>冬天湖面结冰后，绕到湖之矿场洞口后面调查获得</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>女神第10次供品</td>
+    <td>连续10天向女神泉投掷供品（花、农作物等），第10天女神赠送</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>赛马券900个兑换</td>
+    <td>春/秋季赛马会上用900个赛马券兑换</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>赛马冠军奖品</td>
+    <td>赛马比赛中获得第一名（马成年后可参赛，多骑乘提升好感）</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>飞碟大赛冠军</td>
+    <td>夏季1日训狗飞碟大赛获得第一名（需大狗+飞盘）</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>冬天海边钓鱼</td>
+    <td>冬季使用秘银钓竿在海边钓鱼，随机钓到</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>电视购物</td>
+    <td>最后一次电视购物商品（需房屋扩建到最大+购买大床和地毯）</td>
+  </tr>
+</table>
+
+<div class="tip-box power-tip">
+  <h3>🔵 不可思议的果实（蓝色）</h3>
+  <p><strong>作用：</strong>疲劳增加速度减半（如原本挥锄头+2疲劳，变为+1）</p>
+  <p><strong>获取：</strong>除冬天外，连续10天每天向湖中（湖之矿场那片湖）扔一根黄瓜，第11天河童赠送。</p>
+  <p>⚠️ 注意：一天扔多根没用，必须每天一根连续10天。</p>
+</div>
+
+<div class="tip-box power-tip">
+  <h3>📊 体力与疲劳机制</h3>
+  <ul>
+    <li><strong>体力：</strong>基础150，每吃一个力之果实+10，上限250</li>
+    <li><strong>疲劳：</strong>初始0，到达100时被强制送入医院</li>
+    <li>体力为0时使用道具，疲劳每次+2；使用诅咒道具+10</li>
+    <li>下雨/下雪时疲劳额外+1；晚上10点后劳作额外+1；0点后额外+2</li>
+    <li><strong>温泉：</strong>每分钟体力+1、疲劳-1</li>
+    <li><strong>浴室：</strong>每次30分钟，体力+20、疲劳-20</li>
+    <li><strong>男孩版：</strong>6点前睡觉，体力全恢复、疲劳-53</li>
+  </ul>
+</div>
+
+<!-- ==================== 真实之玉 ==================== -->
+<h2 id="truth-jewel">💎 真实之玉 — 全部9个获取方式</h2>
+
+<div class="tip-box truth-tip">
+  <h3>作用说明</h3>
+  <p>集齐9个真实之玉后，找镇长对话可获得<strong>真实秘宝</strong>。装备后可查看当前体力和疲劳度的具体数值。</p>
+  <p>⚠️ <strong>前提条件：</strong>必须先购买整理柜（置物架）后才能开始收集真实之玉。</p>
+</div>
+
+<table>
+  <tr><th>#</th><th>位置</th><th>详细说明</th></tr>
+  <tr>
+    <td>1</td>
+    <td>狗屋</td>
+    <td>调查自家牧场狗屋的屋顶</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>马房水槽</td>
+    <td>调查马房内的水槽</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>街道路灯</td>
+    <td>教堂通往玫瑰广场路上的第一个路灯下</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>图书馆二楼</td>
+    <td>二楼最右侧书架（非靠墙那排，最靠近楼梯的书架）</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>中国商人购买</td>
+    <td>向霍安（扎克家）以 50,000G 购买</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>赛马券兑换</td>
+    <td>春/秋季赛马会用 1,000 个赛马券兑换</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>村之别墅猜谜</td>
+    <td>拥有村之别墅后，年末年初（冬30日~春5日）看电视综艺频道答题全对获得<br>村之别墅条件：1亿G + 999木材 + 999石材请木工建造</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>山之别墅挂历</td>
+    <td>结婚50周年纪念日，配偶赠送山之别墅，调查挂历获得</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>镇长家冰箱</td>
+    <td>集齐前8个后，全部带在身上，调查镇长家的冰箱获得最后一个</td>
+  </tr>
+</table>
+
+<div class="tip-box truth-tip">
+  <h3>💡 收集提示</h3>
+  <ul>
+    <li>真实之玉不能出货，只能存放在整理柜中</li>
+    <li>前8个收集顺序不限，第9个必须在集齐前8个后才能获得</li>
+    <li>获得第9个后找镇长对话，他会帮你合成真实秘宝</li>
+    <li>山之别墅需要结婚50年，是最难获得的一个</li>
+  </ul>
+</div>
+
+<!-- ==================== 道具升级 ==================== -->
+<h2 id="tool-upgrade">🔨 道具升级全攻略</h2>
+
+<div class="tip-box tool-tip">
+  <h3>升级基本规则</h3>
+  <ul>
+    <li><strong>升级地点：</strong>锻冶屋（赛巴拉铁匠铺），营业时间 9:00~16:00，周四休息</li>
+    <li><strong>升级条件：</strong>工具使用经验达到100% + 对应矿石 + 金钱</li>
+    <li><strong>经验查看：</strong>按START → 选择"收入" → 查看"道具等级表"</li>
+    <li><strong>升级耗时：</strong>根据等级不同需2~3天，期间无法使用该工具</li>
+    <li><strong>跳级升级：</strong>经验超过100%可累积，如200%可直接从铜升到银</li>
+  </ul>
+</div>
+
+<h3>升级路线与费用</h3>
+<table>
+  <tr><th>等级</th><th>所需矿石</th><th>费用</th><th>矿石位置</th></tr>
+  <tr><td>铜工具</td><td>铜矿石 ×1</td><td>1,000G</td><td>泉之矿场所有层</td></tr>
+  <tr><td>银工具</td><td>银矿石 ×1</td><td>2,000G</td><td>泉之矿场所有层</td></tr>
+  <tr><td>金工具</td><td>金矿石 ×1</td><td>3,000G</td><td>泉之矿场地下6层起</td></tr>
+  <tr><td>秘银工具</td><td>秘银矿石 ×1</td><td>5,000G</td><td>泉之矿场地下6层起</td></tr>
+  <tr><td>诅咒工具</td><td>—</td><td>—</td><td>湖之矿场特定层（需全秘银）</td></tr>
+  <tr><td>祝福工具</td><td>—</td><td>—</td><td>诅咒工具净化获得</td></tr>
+  <tr><td>贤者工具</td><td>贤者之石 ×1</td><td>50,000G</td><td>泉之矿场深层（需全祝福）</td></tr>
+</table>
+
+<h3>各工具升级效果</h3>
+
+<h4>🔨 锤子</h4>
+<table>
+  <tr><th>等级</th><th>效果</th><th>体力消耗</th></tr>
+  <tr><td>普通</td><td>砸碎石块和坏栅栏</td><td>-2</td></tr>
+  <tr><td>铜</td><td>大石头3下碎</td><td>-4</td></tr>
+  <tr><td>银</td><td>大石头2下碎，岩石6下</td><td>-5</td></tr>
+  <tr><td>金</td><td>大石头1下碎，岩石3下</td><td>-8</td></tr>
+  <tr><td>秘银</td><td>岩石2下碎</td><td>-10</td></tr>
+</table>
+
+<h4>🪓 斧头</h4>
+<table>
+  <tr><th>等级</th><th>效果</th><th>体力消耗</th></tr>
+  <tr><td>普通</td><td>只能砍树枝</td><td>-2</td></tr>
+  <tr><td>铜</td><td>树桩6下砍坏</td><td>-4</td></tr>
+  <tr><td>银</td><td>树桩3下砍坏</td><td>-5</td></tr>
+  <tr><td>金</td><td>树桩2下砍坏</td><td>-8</td></tr>
+  <tr><td>秘银</td><td>树桩1下砍坏</td><td>-10</td></tr>
+</table>
+
+<h4>⛏️ 锄头</h4>
+<table>
+  <tr><th>等级</th><th>效果</th><th>体力消耗</th></tr>
+  <tr><td>普通</td><td>面前1格</td><td>-2</td></tr>
+  <tr><td>铜</td><td>面前直列2格</td><td>-3</td></tr>
+  <tr><td>银</td><td>面前直列3格</td><td>-5</td></tr>
+  <tr><td>金</td><td>面前直列4格</td><td>-7</td></tr>
+  <tr><td>秘银</td><td>面前直列6格</td><td>-10</td></tr>
+</table>
+
+<h4>🚿 水壶</h4>
+<table>
+  <tr><th>等级</th><th>效果</th><th>体力消耗</th></tr>
+  <tr><td>普通</td><td>面前1格</td><td>-2</td></tr>
+  <tr><td>铜</td><td>面前1×3格</td><td>-4</td></tr>
+  <tr><td>银</td><td>面前2×3格</td><td>-6</td></tr>
+  <tr><td>金</td><td>面前3×3格</td><td>-8</td></tr>
+  <tr><td>秘银</td><td>面前3×5格</td><td>-10</td></tr>
+</table>
+
+<h4>🔪 镰刀</h4>
+<table>
+  <tr><th>等级</th><th>效果</th><th>体力消耗</th></tr>
+  <tr><td>普通</td><td>面前1格</td><td>-2</td></tr>
+  <tr><td>铜</td><td>面前行列3格</td><td>-3</td></tr>
+  <tr><td>银</td><td>面前2×3格</td><td>-5</td></tr>
+  <tr><td>金</td><td>自身为中心3×3格</td><td>-7</td></tr>
+  <tr><td>秘银</td><td>自身为中心5×5格</td><td>-10</td></tr>
+</table>
+
+<h4>🎣 钓竿</h4>
+<table>
+  <tr><th>等级</th><th>效果</th></tr>
+  <tr><td>普通</td><td>钓小鱼</td></tr>
+  <tr><td>铜</td><td>可钓中鱼</td></tr>
+  <tr><td>银</td><td>可钓中大型鱼</td></tr>
+  <tr><td>金</td><td>可钓大鱼</td></tr>
+  <tr><td>秘银</td><td>可钓力之果实、海盗秘宝等稀有物品</td></tr>
+</table>
+
+<div class="tip-box tool-tip">
+  <h3>⭐ 推荐升级顺序</h3>
+  <p><strong>水壶 → 锄头 → 斧头 → 锤子 → 镰刀 → 钓竿</strong></p>
+  <p>水壶和锄头是日常使用最频繁的工具，优先升级可大幅节省体力。钓竿最后升即可。</p>
+</div>
+
+<!-- ==================== 诅咒与祝福工具 ==================== -->
+<h2 id="cursed-tools">👻 诅咒工具与祝福净化</h2>
+
+<div class="tip-box warn-tip">
+  <h3>⚠️ 获取诅咒工具的前提条件</h3>
+  <ul>
+    <li>六件工具<strong>全部升级到秘银级</strong></li>
+    <li>背包留空（建议只带锤子和锄头）</li>
+    <li>前往<strong>湖之矿场</strong>（冬天湖面结冰后才能进入）</li>
+    <li>挖诅咒有概率性，建议下楼前存档</li>
+    <li>诅咒工具一旦装备就只能去教堂卸下，切换工具时请通过背包操作</li>
+  </ul>
+</div>
+
+<h3>诅咒工具位置</h3>
+<table>
+  <tr><th>工具</th><th>所在层数</th><th>效果</th></tr>
+  <tr><td>诅咒钓竿</td><td>地下29层</td><td>可钓所有鱼种</td></tr>
+  <tr><td>诅咒锄头</td><td>地下39层</td><td>面前12×3格耕地</td></tr>
+  <tr><td>诅咒斧头</td><td>地下49层</td><td>地图内所有树桩全灭</td></tr>
+  <tr><td>诅咒锤子</td><td>地下59层</td><td>面前9×9内石头全灭</td></tr>
+  <tr><td>诅咒水壶</td><td>地下69层</td><td>面前大面积浇水</td></tr>
+  <tr><td>诅咒镰刀</td><td>地下79层</td><td>自身为中心9×9格收割</td></tr>
+</table>
+
+<h3>祝福净化方法</h3>
+<table>
+  <tr><th>工具</th><th>净化方式</th><th>费用/耗时</th></tr>
+  <tr><td>祝福镰刀</td><td>诅咒镰刀连续装备10天（不能卸下）</td><td>10天</td></tr>
+  <tr><td>祝福锤子</td><td>诅咒锤子连续装备10天（不能卸下）</td><td>10天</td></tr>
+  <tr><td>祝福锄头</td><td>去教堂连续解除诅咒10次</td><td>10,000G（每次1,000G）</td></tr>
+  <tr><td>祝福水壶</td><td>去教堂连续解除诅咒10次</td><td>10,000G（每次1,000G）</td></tr>
+  <tr><td>祝福斧头</td><td>诅咒斧头使用255次</td><td>—</td></tr>
+  <tr><td>祝福钓竿</td><td>诅咒钓竿使用255次</td><td>—</td></tr>
+</table>
+
+<div class="tip-box warn-tip">
+  <h3>💡 净化技巧</h3>
+  <ul>
+    <li><strong>镰刀/锤子：</strong>选择冬季进行，农田作业少，反复睡觉快速度过10天</li>
+    <li><strong>锄头/水壶：</strong>准备好10,000G，连续去教堂10天即可</li>
+    <li><strong>斧头/钓竿：</strong>在牧场反复使用255次，比较耗时但无额外花费</li>
+    <li>诅咒工具使用时会随机消耗10~100体力，注意备好恢复道具</li>
+  </ul>
+</div>
+
+<!-- ==================== 贤者工具 ==================== -->
+<h2 id="sage-tools">🌟 贤者工具 — 终极形态</h2>
+
+<div class="tip-box tool-tip">
+  <h3>获取条件</h3>
+  <ul>
+    <li>六件工具<strong>全部转化为祝福工具</strong></li>
+    <li>在泉之矿场深层挖到<strong>贤者之石</strong></li>
+    <li>携带贤者之石 + 50,000G 到锻冶屋打造</li>
+  </ul>
+</div>
+
+<h3>贤者之石分布层数</h3>
+<p>泉之矿场：60、102、123、152、155、171、190、202、222、231~255层岩石中（出现率约0.2%）</p>
+
+<h3>贤者工具效果</h3>
+<table>
+  <tr><th>工具</th><th>效果</th><th>体力消耗</th></tr>
+  <tr><td>贤者锄头</td><td>面前 5×18 格耕地</td><td>-35</td></tr>
+  <tr><td>贤者水壶</td><td>面前 21×12 格洒水</td><td>-35</td></tr>
+  <tr><td>贤者斧头</td><td>地图内所有树桩全灭并获取木材</td><td>-35</td></tr>
+  <tr><td>贤者锤子</td><td>地图内所有石头岩石全灭</td><td>-35</td></tr>
+  <tr><td>贤者镰刀</td><td>自身为中心 15×15 格收割</td><td>-35</td></tr>
+  <tr><td>贤者钓竿</td><td>可钓到所有能钓的东西</td><td>-35</td></tr>
+</table>
+
+<div class="tip-box tool-tip">
+  <h3>🏆 完整升级路线总结</h3>
+  <p><strong>普通 → 铜 → 银 → 金 → 秘银 → 诅咒 → 祝福 → 贤者</strong></p>
+  <p>从零到贤者工具，需要经历：挖矿积累矿石 → 锻冶屋逐级升级 → 湖之矿场挖诅咒 → 净化祝福 → 泉之矿场深层挖贤者之石 → 最终打造。整个过程是游戏的核心目标之一。</p>
+</div>
+
+<div class="source-note">
+  <p>数据整理自：B站攻略、九游、游侠网、wiki.mineraltown.net 等 | 适用于GBA版《牧场物语：矿石镇的伙伴们》</p>
+</div>
+
+<a href="#" class="back-to-top" title="返回顶部">↑</a>
+
+</div>
+
+</body>
+</html>

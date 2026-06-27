@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>畜牧饲养 - 牧场物语矿石镇的伙伴们</title>
+<style>
+  body { font-family: "Microsoft YaHei", sans-serif; line-height: 1.6; margin: 0; padding-top: 60px; background-color: #f9f9f9; color: #333; }
+  h1, h2, h3 { color: #5a7c3a; }
+  table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.9em; }
+  th { background-color: #5a7c3a; color: #fff; padding: 10px; text-align: left; }
+  td { padding: 8px; border: 1px solid #ddd; vertical-align: top; }
+  tr:nth-child(even) { background-color: #f2f2f2; }
+  .tip-box { background-color: #fff; padding: 15px; border-left: 4px solid #ff9800; margin: 10px 0; border-radius: 0 5px 5px 0; }
+  .tip { font-style: italic; color: #666; }
+  .animal-tip { background-color: #fff3e0; border-left-color: #ff9800; }
+  .profit-tip { background-color: #e3f2fd; border-left-color: #2196f3; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; background-color: #5a7c3a; padding: 15px 20px; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  nav li { margin: 0; }
+  nav a { color: #fff; text-decoration: none; padding: 8px 15px; border-radius: 5px; transition: background-color 0.3s; font-size: 0.9em; }
+  nav a:hover { background-color: #4a6a2a; }
+  nav a.active { background-color: #3a5a1a; font-weight: bold; }
+
+  .content { max-width: 1000px; margin: 0 auto; padding: 20px; }
+  .back-to-top { position: fixed; bottom: 30px; right: 30px; background-color: #5a7c3a; color: #fff; padding: 10px 15px; border-radius: 50%; text-decoration: none; font-size: 1.2em; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+  .back-to-top:hover { background-color: #4a6a2a; }
+  .page-header { text-align: center; padding: 20px; background: linear-gradient(135deg, #ff9800, #ffb74d); color: #fff; border-radius: 10px; margin-bottom: 20px; }
+  .page-header h1 { color: #fff; margin: 0 0 5px 0; }
+  .page-header p { margin: 0; }
+
+  .toc { background: linear-gradient(135deg, #fff, #fff3e0); padding: 20px 25px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid #ffe0b2; }
+  .toc strong { display: block; font-size: 1.1em; color: #e65100; margin-bottom: 12px; }
+  .toc ul { columns: 2; column-gap: 20px; list-style: none; padding: 0; margin: 0; }
+  .toc li { margin: 0; break-inside: avoid; }
+  .toc a { display: block; color: #e65100; text-decoration: none; padding: 8px 12px; border-radius: 8px; transition: all 0.25s ease; font-size: 0.95em; }
+  .toc a:hover { background: #fff3e0; color: #bf360c; transform: translateX(4px); text-decoration: none; }
+
+  .source-note { text-align: center; color: #999; font-size: 0.85em; margin-top: 30px; padding: 15px; border-top: 1px solid #eee; }
+</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="index.html">首页</a></li>
+    <li><a href="daily.html">每日行程</a></li>
+    <li><a href="characters.html">角色生日</a></li>
+    <li><a href="festivals.html">四季节日</a></li>
+    <li><a href="events.html">重要事件</a></li>
+    <li><a href="romance.html">恋爱攻略</a></li>
+    <li><a href="crops.html">农作物</a></li>
+    <li><a href="livestock.html" class="active">畜牧</a></li>
+    <li><a href="cooking.html">料理食谱</a></li>
+    <li><a href="mining.html">挖矿</a></li>
+    <li><a href="fishing.html">钓鱼</a></li>
+    <li><a href="tips.html">技巧秘籍</a></li>
+  </ul>
+</nav>
+
+<div class="content">
+
+<div class="page-header">
+  <h1>🐄 畜牧饲养指南</h1>
+  <p>动物饲养 · 产物等级 · 加工品收益</p>
+</div>
+
+<div class="toc">
+  <strong>📑 目录导航</strong>
+  <ul>
+    <li><a href="#animal-basics">畜牧基础知识</a></li>
+    <li><a href="#chicken">鸡</a></li>
+    <li><a href="#cow">牛</a></li>
+    <li><a href="#sheep">羊</a></li>
+    <li><a href="#horse-dog">马与狗</a></li>
+    <li><a href="#animal-products">动物产物等级</a></li>
+    <li><a href="#processing">加工品收益</a></li>
+  </ul>
+</div>
+
+<!-- ==================== 畜牧基础 ==================== -->
+<h2 id="animal-basics">📖 畜牧基础知识</h2>
+
+<div class="tip-box animal-tip">
+  <h3>饲养基本规则</h3>
+  <ul>
+    <li><strong>喂食：</strong>每天必须喂食，否则无法获得产物</li>
+    <li><strong>对话：</strong>每天和动物说话可提升好感度</li>
+    <li><strong>刷毛：</strong>牛/羊/马需要刷毛（毛刷在铁匠铺购买）</li>
+    <li><strong>放牧：</strong>晴天摇铃放牧，可节省饲料并提升好感度（鸡/兔不需要牧草，牛羊需要牧草）</li>
+    <li><strong>雨雪天：</strong>必须召回动物，否则会生病</li>
+    <li><strong>野狗：</strong>放牧时需围栏或用狗驱赶野狗</li>
+    <li><strong>好感度：</strong>影响产物品质等级（S→M→L→G→P→X）</li>
+  </ul>
+</div>
+
+<div class="tip-box animal-tip">
+  <h3>饲料获取方式</h3>
+  <table>
+    <tr><th>饲料类型</th><th>适用动物</th><th>获取方式</th></tr>
+    <tr><td>鸡饲料</td><td>鸡</td><td>养鸡场购买（10G/个）</td></tr>
+    <tr><td>干草饲料</td><td>牛、羊</td><td>约德尔牧场购买（20G/个）；收割牧草获得</td></tr>
+  </table>
+</div>
+
+<!-- ==================== 鸡 ==================== -->
+<h2 id="chicken">🐔 鸡</h2>
+<table>
+  <tr><th>项目</th><th>详情</th></tr>
+  <tr><td>购买价格</td><td>1500G/只（养鸡场）</td></tr>
+  <tr><td>寿命</td><td>2-3年</td></tr>
+  <tr><td>产物</td><td>鸡蛋（每天1个）</td></tr>
+  <tr><td>饲料</td><td>鸡饲料（10G/个）</td></tr>
+  <tr><td>饲养场所</td><td>鸡小屋（初始4只，扩建后8只）</td></tr>
+  <tr><td>繁殖</td><td>鸡蛋放入孵化器，3天后孵出小鸡，7天长成</td></tr>
+</table>
+
+<div class="tip-box animal-tip">
+  <h3>养鸡技巧</h3>
+  <ul>
+    <li><strong>新手首选！</strong>成本低、回本快，每天稳定产蛋</li>
+    <li>鸡蛋可加工为蛋黄酱，售价翻倍</li>
+    <li>好感度8心以上 + 斗鸡大会冠军 → 产出金蛋（P级）</li>
+    <li>放牧不需要牧草，晴天放出去即可省饲料</li>
+    <li>茶色鸡孵化只能出白色小鸡</li>
+  </ul>
+</div>
+
+<!-- ==================== 牛 ==================== -->
+<h2 id="cow">🐄 牛</h2>
+<table>
+  <tr><th>项目</th><th>详情</th></tr>
+  <tr><td>购买价格</td><td>5000G/头（约德尔牧场）</td></tr>
+  <tr><td>寿命</td><td>5-6年</td></tr>
+  <tr><td>产物</td><td>牛奶（每天1次，需挤奶器）</td></tr>
+  <tr><td>饲料</td><td>干草饲料（20G/个）</td></tr>
+  <tr><td>饲养场所</td><td>动物小屋（初始8头，扩建后16头）</td></tr>
+  <tr><td>繁殖</td><td>使用牛种配种，怀孕21天后生小牛，14天长成</td></tr>
+</table>
+
+<div class="tip-box animal-tip">
+  <h3>养牛技巧</h3>
+  <ul>
+    <li>每天<strong>刷毛+对话+喂食</strong>，好感度提升最快</li>
+    <li>牛奶可加工为奶酪，S级奶酪300G→X级奶酪1500G</li>
+    <li>怀孕期间母牛<strong>不能产奶</strong>，配种前需三思</li>
+    <li>参加牛祭获胜可提升产物等级</li>
+    <li>放牧需要田地中有牧草</li>
+  </ul>
+</div>
+
+<!-- ==================== 羊 ==================== -->
+<h2 id="sheep">🐑 羊</h2>
+<table>
+  <tr><th>项目</th><th>详情</th></tr>
+  <tr><td>购买价格</td><td>4000G/只（约德尔牧场）</td></tr>
+  <tr><td>寿命</td><td>4-5年</td></tr>
+  <tr><td>产物</td><td>羊毛（每7天1次，需剃毛剪）</td></tr>
+  <tr><td>饲料</td><td>干草饲料（20G/个）</td></tr>
+  <tr><td>饲养场所</td><td>动物小屋</td></tr>
+  <tr><td>繁殖</td><td>使用羊种配种，怀孕21天后生小羊</td></tr>
+</table>
+
+<div class="tip-box animal-tip">
+  <h3>养羊技巧</h3>
+  <ul>
+    <li>羊毛采集周期较长（7天），但加工后利润可观</li>
+    <li>羊毛加工为毛线：S级毛线300G→X级毛线4000G</li>
+    <li>需要购买<strong>毛线制造机</strong>才能加工</li>
+    <li>同样需要每天刷毛+对话提升好感</li>
+  </ul>
+</div>
+
+<!-- ==================== 马与狗 ==================== -->
+<h2 id="horse-dog">🐴 马 & 🐕 狗</h2>
+
+<div class="tip-box animal-tip">
+  <h3>🐴 马</h3>
+  <ul>
+    <li><strong>获取：</strong>春天去约德尔牧场与穆奇对话，第二天晴天自动送来</li>
+    <li><strong>作用：</strong>骑乘加速移动，参加赛马</li>
+    <li><strong>照料：</strong>每天刷毛+对话提升好感度</li>
+    <li>好感度高可在赛马会获得更好成绩</li>
+  </ul>
+</div>
+
+<div class="tip-box animal-tip">
+  <h3>🐕 狗</h3>
+  <ul>
+    <li><strong>获取：</strong>游戏开始时自动拥有</li>
+    <li><strong>作用：</strong>好感度高时可帮助放牧，驱赶野狗保护动物</li>
+    <li><strong>提升好感：</strong>抱起狗即可提升</li>
+    <li><strong>玩飞盘：</strong>需飞盘道具+大狗，早9点~下午5点带去海滩</li>
+  </ul>
+</div>
+
+<!-- ==================== 动物产物等级 ==================== -->
+<h2 id="animal-products">🥚 动物产物等级表</h2>
+
+<h3>鸡蛋等级</h3>
+<table>
+  <tr><th>等级</th><th>条件</th><th>出货价</th></tr>
+  <tr><td>S鸡蛋</td><td>好感度 &lt; 40</td><td>50G</td></tr>
+  <tr><td>M鸡蛋</td><td>好感度 50~80</td><td>60G</td></tr>
+  <tr><td>L鸡蛋</td><td>好感度 &gt; 90</td><td>80G</td></tr>
+  <tr><td>G鸡蛋（金蛋）</td><td>好感度 &gt; 90 + 节日/比赛胜出</td><td>100G</td></tr>
+  <tr><td>P鸡蛋（白金蛋）</td><td>好感度 &gt; 90 + 节日/比赛胜出 + 放牧600小时</td><td>180G</td></tr>
+  <tr><td>X鸡蛋（最高级）</td><td>P级有15%概率产出</td><td>350G</td></tr>
+  <tr><td>温泉蛋</td><td>所有扔进温泉的蛋</td><td>80G</td></tr>
+</table>
+
+<h3>牛奶等级</h3>
+<table>
+  <tr><th>等级</th><th>条件</th><th>出货价</th></tr>
+  <tr><td>S牛奶</td><td>好感度 &lt; 40</td><td>100G</td></tr>
+  <tr><td>M牛奶</td><td>好感度 50~80</td><td>150G</td></tr>
+  <tr><td>L牛奶</td><td>好感度 &gt; 90</td><td>200G</td></tr>
+  <tr><td>G牛奶</td><td>好感度 &gt; 90 + 节日/比赛胜出</td><td>300G</td></tr>
+  <tr><td>P牛奶</td><td>好感度 &gt; 90 + 节日/比赛胜出 + 放牧600小时</td><td>500G</td></tr>
+  <tr><td>X牛奶</td><td>P级有15%概率产出</td><td>800G</td></tr>
+</table>
+
+<h3>羊毛等级</h3>
+<table>
+  <tr><th>等级</th><th>条件</th><th>出货价</th></tr>
+  <tr><td>S羊毛</td><td>好感度 &lt; 40</td><td>100G</td></tr>
+  <tr><td>M羊毛</td><td>好感度 50~80</td><td>400G</td></tr>
+  <tr><td>L羊毛</td><td>好感度 &gt; 90</td><td>500G</td></tr>
+  <tr><td>G羊毛</td><td>好感度 &gt; 90 + 节日/比赛胜出</td><td>600G</td></tr>
+  <tr><td>P羊毛</td><td>好感度 &gt; 90 + 节日/比赛胜出 + 放牧600小时</td><td>1000G</td></tr>
+  <tr><td>X羊毛</td><td>P级有15%概率产出</td><td>2000G</td></tr>
+</table>
+
+<!-- ==================== 加工品收益 ==================== -->
+<h2 id="processing">🏭 加工品收益表</h2>
+
+<div class="tip-box profit-tip">
+  <h3>加工设备</h3>
+  <ul>
+    <li><strong>蛋黄酱制造机：</strong>将鸡蛋加工为蛋黄酱</li>
+    <li><strong>奶酪制造机：</strong>将牛奶加工为奶酪</li>
+    <li><strong>毛线制造机：</strong>将羊毛加工为毛线</li>
+    <li>加工后售价大幅提升，是中期主要收入来源</li>
+  </ul>
+</div>
+
+<h3>蛋黄酱</h3>
+<table>
+  <tr><th>等级</th><th>原料</th><th>出货价</th></tr>
+  <tr><td>S蛋黄酱</td><td>S鸡蛋</td><td>100G</td></tr>
+  <tr><td>M蛋黄酱</td><td>M鸡蛋</td><td>150G</td></tr>
+  <tr><td>L蛋黄酱</td><td>L鸡蛋</td><td>200G</td></tr>
+  <tr><td>G蛋黄酱</td><td>G鸡蛋</td><td>300G</td></tr>
+  <tr><td>P蛋黄酱</td><td>P鸡蛋</td><td>450G</td></tr>
+  <tr><td>X蛋黄酱</td><td>X鸡蛋</td><td>800G</td></tr>
+</table>
+
+<h3>奶酪</h3>
+<table>
+  <tr><th>等级</th><th>原料</th><th>出货价</th></tr>
+  <tr><td>S奶酪</td><td>S牛奶</td><td>300G</td></tr>
+  <tr><td>M奶酪</td><td>M牛奶</td><td>400G</td></tr>
+  <tr><td>L奶酪</td><td>L牛奶</td><td>500G</td></tr>
+  <tr><td>G奶酪</td><td>G牛奶</td><td>600G</td></tr>
+  <tr><td>P奶酪</td><td>P牛奶</td><td>750G</td></tr>
+  <tr><td>X奶酪</td><td>X牛奶</td><td>1500G</td></tr>
+</table>
+
+<h3>毛线</h3>
+<table>
+  <tr><th>等级</th><th>原料</th><th>出货价</th></tr>
+  <tr><td>S毛线</td><td>S羊毛</td><td>300G</td></tr>
+  <tr><td>M毛线</td><td>M羊毛</td><td>700G</td></tr>
+  <tr><td>L毛线</td><td>L羊毛</td><td>800G</td></tr>
+  <tr><td>G毛线</td><td>G羊毛</td><td>1000G</td></tr>
+  <tr><td>P毛线</td><td>P羊毛</td><td>1500G</td></tr>
+  <tr><td>X毛线</td><td>X羊毛</td><td>4000G</td></tr>
+</table>
+
+<div class="tip-box profit-tip">
+  <h3>💡 加工品收益总结</h3>
+  <ul>
+    <li>鸡蛋→蛋黄酱：售价约<strong>翻倍</strong></li>
+    <li>牛奶→奶酪：售价约<strong>2-3倍</strong></li>
+    <li>羊毛→毛线：售价约<strong>2-3倍</strong></li>
+    <li>X级毛线出货价高达<strong>4000G</strong>，是游戏中最值钱的动物加工品</li>
+  </ul>
+</div>
+
+<div class="source-note">
+  <p>数据整理自：B站攻略、悟饭游戏厅、k73游戏之家等 | 适用于GBA版《牧场物语：矿石镇的伙伴们》</p>
+</div>
+
+<a href="#" class="back-to-top">↑</a>
+
+</div>
+
+</body>
+</html>

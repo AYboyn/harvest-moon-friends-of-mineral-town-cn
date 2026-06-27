@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>每日行程 - 牧场物语矿石镇的伙伴们</title>
+<style>
+  body { font-family: "Microsoft YaHei", sans-serif; line-height: 1.6; margin: 0; padding-top: 60px; background-color: #f9f9f9; color: #333; }
+  h1, h2, h3 { color: #5a7c3a; }
+  
+  nav { position: fixed; top: 0; left: 0; right: 0; background-color: #5a7c3a; padding: 15px 20px; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  nav li { margin: 0; }
+  nav a { color: #fff; text-decoration: none; padding: 8px 15px; border-radius: 5px; transition: background-color 0.3s; font-size: 0.9em; }
+  nav a:hover { background-color: #4a6a2a; }
+  nav a.active { background-color: #3a5a1a; font-weight: bold; }
+  
+  .content { max-width: 1000px; margin: 0 auto; padding: 20px; }
+  .back-to-top { position: fixed; bottom: 30px; right: 30px; background-color: #5a7c3a; color: #fff; padding: 10px 15px; border-radius: 50%; text-decoration: none; font-size: 1.2em; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+  .back-to-top:hover { background-color: #4a6a2a; }
+  .page-header { text-align: center; padding: 20px; background: linear-gradient(135deg, #5a7c3a, #8bc34a); color: #fff; border-radius: 10px; margin-bottom: 20px; }
+  .page-header h1 { color: #fff; margin: 0 0 5px 0; }
+  .page-header p { margin: 0; }
+  
+  .season-nav { display: flex; justify-content: center; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
+  .season-nav a { padding: 10px 20px; border-radius: 5px; text-decoration: none; color: #fff; font-weight: bold; transition: transform 0.2s; }
+  .season-nav a:hover { transform: scale(1.05); }
+  .season-spring { background-color: #66bb6a; }
+  .season-summer { background-color: #ef5350; }
+  .season-autumn { background-color: #ff9800; }
+  .season-winter { background-color: #42a5f5; }
+  
+  .season-section { margin: 30px 0; }
+  .season-title { padding: 15px 20px; border-radius: 10px 10px 0 0; color: #fff; margin: 0; font-size: 1.5em; }
+  .spring-title { background: linear-gradient(135deg, #66bb6a, #81c784); }
+  .summer-title { background: linear-gradient(135deg, #ef5350, #e57373); }
+  .autumn-title { background: linear-gradient(135deg, #ff9800, #ffb74d); }
+  .winter-title { background: linear-gradient(135deg, #42a5f5, #64b5f6); }
+  
+  .day-list { background: #fff; border-radius: 0 0 10px 10px; padding: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+  .day-item { padding: 12px 15px; border-bottom: 1px solid #eee; display: flex; gap: 15px; align-items: flex-start; }
+  .day-item:last-child { border-bottom: none; }
+  .day-item:hover { background-color: #f5f5f5; }
+  .day-num { min-width: 90px; font-weight: bold; color: #5a7c3a; font-size: 0.95em; }
+  .day-content { flex: 1; }
+  .highlight { color: #2d94a7; font-weight: bold; }
+  .birth { color: #e91e63; font-weight: bold; }
+  .ps-note { color: #888; font-size: 0.9em; margin-top: 3px; }
+
+  .spring-tips { background: #fff; padding: 15px; border-left: 4px solid #66bb6a; margin: 15px 0; border-radius: 0 5px 5px 0; }
+  .spring-tips h4 { margin: 0 0 10px 0; color: #66bb6a; }
+  .spring-tips ul { margin: 0; padding-left: 20px; }
+  .spring-tips li { margin: 5px 0; }
+
+  .summer-tips { background: #fff; padding: 15px; border-left: 4px solid #ef5350; margin: 15px 0; border-radius: 0 5px 5px 0; }
+  .summer-tips h4 { margin: 0 0 10px 0; color: #ef5350; }
+  .summer-tips ul { margin: 0; padding-left: 20px; }
+  .summer-tips li { margin: 5px 0; }
+  
+  .season-tips { background: #fff; padding: 15px; border-left: 4px solid #ff9800; margin: 15px 0; border-radius: 0 5px 5px 0; }
+  .season-tips h4 { margin: 0 0 10px 0; color: #ff9800; }
+  .season-tips ul { margin: 0; padding-left: 20px; }
+  .season-tips li { margin: 5px 0; }
+
+  .winter-tips { background: #fff; padding: 15px; border-left: 4px solid #42a5f5; margin: 15px 0; border-radius: 0 5px 5px 0; }
+  .winter-tips h4 { margin: 0 0 10px 0; color: #42a5f5; }
+  .winter-tips ul { margin: 0; padding-left: 20px; }
+  .winter-tips li { margin: 5px 0; }
+  
+  .source-note { text-align: center; color: #999; font-size: 0.85em; margin-top: 30px; padding: 15px; border-top: 1px solid #eee; }
+</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="index.html">首页</a></li>
+    <li><a href="daily.html" class="active">每日行程</a></li>
+    <li><a href="characters.html">角色生日</a></li>
+    <li><a href="festivals.html">四季节日</a></li>
+    <li><a href="events.html">重要事件</a></li>
+    <li><a href="romance.html">恋爱攻略</a></li>
+    <li><a href="crops.html">农作物</a></li>
+    <li><a href="livestock.html">畜牧</a></li>
+    <li><a href="cooking.html">料理食谱</a></li>
+    <li><a href="mining.html">挖矿</a></li>
+    <li><a href="fishing.html">钓鱼</a></li>
+    <li><a href="tips.html">技巧秘籍</a></li>
+  </ul>
+</nav>
+
+<div class="content">
+
+<div class="page-header">
+  <h1>📅 每天该干什么</h1>
+  <p>春夏秋冬每日行程指南</p>
+</div>
+
+<div class="season-nav">
+  <a href="#spring" class="season-spring">🌸 春</a>
+  <a href="#summer" class="season-summer">🏖️ 夏</a>
+  <a href="#autumn" class="season-autumn">🍁 秋</a>
+  <a href="#winter" class="season-winter">☃️ 冬</a>
+</div>
+
+<!-- ==================== 春 ==================== -->
+<div class="season-section" id="spring">
+  <div class="spring-tips">
+    <h4>💡 春季小窍门</h4>
+    <ul>
+      <li>开始的时候想多种点作物就去矿场挖钱吧！</li>
+      <li>每天早上后山捡东西时顺便采一朵花来孝敬女神吧！</li>
+      <li>杂货店关门的前一天记得把需要的东西买好！</li>
+      <li>工具-斧头升银砍木桩升级别墅</li>
+    </ul>
+  </div>
+
+  <h2 class="season-title spring-title">🌸 春季</h2>
+  <div class="day-list">
+
+    <div class="day-item">
+      <div class="day-num">春月2号（周一）</div>
+      <div class="day-content">有奖问答（弄到10可以得到休闲茶叶很不错的收获品）记得购买种子（建议4包萝卜）今天没什么特别！早点干完活早点休息吧！<div class="ps-note">PS：今天可以去祈祷！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月3号（周二）</div>
+      <div class="day-content">今天时间很充足，可以去检后山的东西出货。记得浇水。<div class="ps-note">PS：今天杂货店休息！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月4号（周三）</div>
+      <div class="day-content"><span class="birth">🎂 紫色小矮人(波尔多)生日</span>（去杂货店买小麦粉送很实惠），中国商人今天早6：00可能会到你家门口卖特殊苹果，今天可以去教堂祈祷！<div class="ps-note">PS：医院关门</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月5号（周四）</div>
+      <div class="day-content">没有什么特别说明的做好该做的事就好！<div class="ps-note">PS：今天铁匠铺关门</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月6号（周五）</div>
+      <div class="day-content"><span class="highlight">提醒：今天有600的话最好买2包青瓜种子！</span>收获后分10天送给河童！就可以得到不可思议的果实了！"不可思议的果实"疲劳减半对工作很有帮助！<div class="ps-note">PS：送的时候河童很阴险。大家只送就好了~！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月7号（周六）</div>
+      <div class="day-content">今天会有<span class="highlight">电视购物</span>，自己富裕的话记得去旅馆打电话购买！</div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月8号（周日）</div>
+      <div class="day-content"><span class="birth">🎂 女神生日</span>（送花是不错的选择）<div class="ps-note">PS：杂货店关门，养鸡场关门</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月9号（周一）</div>
+      <div class="day-content"><span class="highlight">重点：不要忘记去教堂祈祷。</span><div class="ps-note">PS：今天牛场休息！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月10号（周二）</div>
+      <div class="day-content">今天杂货店休息。今天利用体力提升下工具的等级吧！</div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月11号（周三）</div>
+      <div class="day-content"><span class="birth">🎂 铁匠铺老爷爷生日</span><div class="ps-note">PS：不要忘记去祈祷，今天医院关门！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月12号（周四）</div>
+      <div class="day-content">做好该做的事就可以了！<div class="ps-note">PS：今天铁匠铺关门！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月13号（周五）</div>
+      <div class="day-content">平淡的一天。貌似没什么事！</div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月14号（周六）</div>
+      <div class="day-content"><span class="highlight">今天的电视购物不要忘记！</span>今天有节日，可以送MM们东西~！<div class="ps-note">PS：今天木匠休息</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月15号（周日）</div>
+      <div class="day-content"><span class="birth">🎂 蓝色小矮人的生日！</span>（依然是送小麦粉）<div class="ps-note">PS：今天养鸡场和杂货店关门</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月16号（周一）</div>
+      <div class="day-content"><span class="birth">🎂 护士MM的生日不要错过！</span>1点后记得去教堂祈祷！<div class="ps-note">PS：牛场老爷爷今天休息！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月17号（周二）</div>
+      <div class="day-content">穆基爷爷生日。早上村长会通知你明天赛马！（第一年是不能参加的）<div class="ps-note">PS：今天是卖牛的老爷爷生日！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月18号（周三）</div>
+      <div class="day-content"><span class="highlight">春季赛马！一个赚钱的好地方。</span>购买大筐后，带着去，然后赌马可以赢到马票！换20马票一个的项链一个2000G，装满一筐后是60000G这样就可以在开始时候成为富翁了~！</div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月19号（周四）</div>
+      <div class="day-content"><span class="birth">🎂 重点！鸡场老板的生日不要忘记。</span><div class="ps-note">PS：铁匠铺关门。</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月20号（周五）</div>
+      <div class="day-content">今天没什么特别的！</div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月21号（周六）</div>
+      <div class="day-content">出门时村长提醒参加明天的料理大会！（同样第一年无法参加）<div class="ps-note">PS：今天的电视购物不要忘记参加！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月22号（周日）</div>
+      <div class="day-content"><span class="highlight">料理大赛！</span>很有意思。尤其是最后的卡连料理~！<div class="ps-note">PS：和村民说话可以提高好感~！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月23号（周一）</div>
+      <div class="day-content"><span class="highlight">重点：今天可以去祈祷~！</span><div class="ps-note">PS：卖牛老爷爷的牧场休息！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月24号（周二）</div>
+      <div class="day-content"><div class="ps-note">PS：杂货店休息！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月25号（周三）</div>
+      <div class="day-content"><span class="highlight">重点：祈祷是很重要的！</span></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月26号（周四）</div>
+      <div class="day-content"><span class="birth">🎂 青色小矮人的生日。</span>（小麦粉）<div class="ps-note">PS：铁匠铺休息！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月27号（周五）</div>
+      <div class="day-content">今天好象没什么事！</div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月28号（周六）</div>
+      <div class="day-content"><span class="highlight">电视购物不要错过~！</span><div class="ps-note">PS：木匠今天休息~！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月29号（周日）</div>
+      <div class="day-content">没什么特别的！<div class="ps-note">PS：养鸡场和杂货店关门！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">春月30号（周一）</div>
+      <div class="day-content"><span class="birth">🎂 杂货店老板的妻子的生日！</span><div class="ps-note">PS：养牛老爷爷的牧场休息！今天不要忘记去祈祷！</div></div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ==================== 夏 ==================== -->
+<div class="season-section" id="summer">
+
+  <div class="summer-tips">
+    <h4>💡 夏季小窍门</h4>
+    <ul>
+      <li>在海边的节日有鱼竿和筐的情况下一定要带着。可以钓宝（海贼宝箱）</li>
+      <li>菠萝种子建议初期多买点~</li>
+      <li>每天记得用SL看天气，小心台风！</li>
+      <li>在秋天前和卡特好感度达到200（17 * 小麦粉）触发事件进后门</li>
+      <li>工具-镰刀升秘银 秘银道具抽一天挖完</li>
+    </ul>
+  </div>
+
+  <h2 class="season-title summer-title">🏖️ 夏季</h2>
+  <div class="day-list">
+
+    <div class="day-item">
+      <div class="day-num">夏月1号（周二）</div>
+      <div class="day-content">适合种的有：番茄、玉米、南瓜、洋葱、菠萝。可以供大家的选购！<div class="ps-note">PS：今天在海滩有飞盘大赛（同样第一年不能参加）</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月2号（周三）</div>
+      <div class="day-content">可以开始着手工作了！<div class="ps-note">PS：今天不要忘记去教堂祈祷！医院关门！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月3号（周四）</div>
+      <div class="day-content"><span class="birth">🎂 鸡场MM的生日不要错过！</span><div class="ps-note">PS：今天铁匠铺关门</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月4号（周五）</div>
+      <div class="day-content"><span class="birth">🎂 警卫员的生日！</span><div class="ps-note">PS：中国商人早上会卖你苹果！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月5号（周六）</div>
+      <div class="day-content"><span class="highlight">今天有电视购物！</span>（想快点结婚就不能错过）<div class="ps-note">PS：木匠休息</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月6号（周日）</div>
+      <div class="day-content"><span class="birth">🎂 重点：今天是教会少年（克里夫）的生日！</span>不要错过。出门时鸡场哥哥会问你明天是否参加斗鸡（提前必须拥有一只鸡）<div class="ps-note">PS：今天养鸡场关门、杂货店关门</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月7号（周一）</div>
+      <div class="day-content"><span class="highlight">今天有斗鸡大赛。</span>不需要早去，干完活再去吧！</div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月8号（周二）</div>
+      <div class="day-content">今天杂货店休息！其他没什么特别。好好享受一天吧！</div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月9号（周三）</div>
+      <div class="day-content"><span class="highlight">重点：祈祷不能错过哦~！</span><div class="ps-note">PS：今天医院关门</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月10号（周四）</div>
+      <div class="day-content">今天没什么特别的事！好好工作吧！<div class="ps-note">PS：今天铁匠铺关门</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月11号（周五）</div>
+      <div class="day-content"><span class="birth">🎂 今天是植物研究家的生日！</span></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月12号（周六）</div>
+      <div class="day-content"><span class="highlight">重点：电视购物又来了~</span>又离结婚近了一步！<div class="ps-note">PS：今天木匠休息</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月13号（周日）</div>
+      <div class="day-content">没什么特别的一天，努力工作吧！<div class="ps-note">PS：今天养鸡场关门、杂货店关门</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月14号（周一）</div>
+      <div class="day-content"><span class="highlight">重点：今天可以去祈祷~！</span><div class="ps-note">PS：今天卖牛的老爷爷休息！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月15号（周二）</div>
+      <div class="day-content">今天又可以安心工作了！<div class="ps-note">PS：杂货店休息</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月16号（周三）</div>
+      <div class="day-content"><span class="highlight">重点：祈祷过后不要忘记给</span><span class="birth">🎂 绿色小矮人过生日！</span><div class="ps-note">PS：今天医院关门</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月17号（周四）</div>
+      <div class="day-content"><span class="birth">🎂 旅馆妹妹的生日~~~~</span><div class="ps-note">PS：今天铁匠铺关门</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月18号（周五）</div>
+      <div class="day-content">今天无特殊事件！安心工作吧！</div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月19号（周六）</div>
+      <div class="day-content"><span class="highlight">重点：早上出门时牛场老爷爷会问你要不要参加斗牛</span>，选"是"牛会被他带走！还有就是电视购物别错过！<div class="ps-note">PS：今天木匠休息</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月20号（周日）</div>
+      <div class="day-content"><span class="highlight">今天可以去参加斗牛大赛。</span>获胜后在场村民友好＋20、牛奶品质升级</div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月21号（周一）</div>
+      <div class="day-content"><span class="highlight">重点：祈祷莫忘！！！</span><div class="ps-note">PS：牛场老爷爷今天休息。</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月22号（周二）</div>
+      <div class="day-content"><span class="birth">🎂 海之家店主凯的生日~~~~~</span><div class="ps-note">PS：今天杂货店休息</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月23号（周三）</div>
+      <div class="day-content"><span class="highlight">重点：祈祷……</span><div class="ps-note">PS：今天医院关门！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月24号（周四）</div>
+      <div class="day-content"><span class="highlight">今天是夏天最美的时候~~焰火大会~~~</span>记得约MM看烟火哦~！</div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月25号（周五）</div>
+      <div class="day-content"><span class="birth">🎂 镇长的生日……</span>好好孝敬吧！</div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月26号（周六）</div>
+      <div class="day-content"><span class="highlight">重点：电视购物！！！</span><div class="ps-note">PS：今天木匠休息</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月27号（周日）</div>
+      <div class="day-content">没什么特别的事！<div class="ps-note">PS：今天养鸡场关门、杂货店关门</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月28号（周一）</div>
+      <div class="day-content"><span class="highlight">今天又可以祈祷了~！</span><div class="ps-note">PS：卖牛老爷爷休息</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月29号（周二）</div>
+      <div class="day-content"><span class="birth">🎂 出荷业者的生日不要错过！</span><div class="ps-note">PS：今天杂货店休息</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">夏月30号（周三）</div>
+      <div class="day-content"><span class="highlight">要点：祈祷！</span>和记得把来年的作物买好~因为夏天结束是节日！</div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ==================== 秋 ==================== -->
+<div class="season-section" id="autumn">
+
+<div class="season-tips">
+    <h4>💡 秋季小窍门</h4>
+    <ul>
+      <li>工具-水壶、锄头、斧头升秘银</li>
+      <li>砍木桩升级大别墅</li>
+    </ul>
+  </div>
+
+  <h2 class="season-title autumn-title">🍁 秋季</h2>
+  <div class="day-list">
+
+    <div class="day-item">
+      <div class="day-num">秋月1号（周四）</div>
+      <div class="day-content">可播种作物：茄子、胡萝卜、地瓜、菠菜、青椒、奇幻花。<span class="highlight">推荐地瓜</span></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月2号（周五）</div>
+      <div class="day-content">出门时卡特会询问是否参加音乐会！去参加吧！<span class="birth">🎂 PS：木匠生日不要忘记！</span></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月3号（周六）</div>
+      <div class="day-content"><span class="highlight">提示：电视购物</span>，先打个电话预约下~周日去打电话也可以！PS：今天的音乐节好好玩吧！</div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月4号（周日）</div>
+      <div class="day-content">中国商人今天早6：00会到你家门口卖特殊苹果！<div class="ps-note">PS：今天养鸡场和杂货店关门。</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月5号（周一）</div>
+      <div class="day-content"><span class="birth">🎂 小男孩的生日不要忘记！</span><span class="highlight">琳母亲的忌日，可去山顶祭拜。重点：可以去祈祷</span><div class="ps-note">PS：卖牛老爷爷休息！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月6号（周二）</div>
+      <div class="day-content">今天没什么特别的事！<div class="ps-note">PS：杂货店关门！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月7号（周三）</div>
+      <div class="day-content"><span class="highlight">重点：祈祷第一。。</span><div class="ps-note">PS：医院关门</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月8号（周四）</div>
+      <div class="day-content">出门时村长会提醒明天参加收获祭。<div class="ps-note">PS：今天铁匠铺关门</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月9号（周五）</div>
+      <div class="day-content"><span class="highlight">又是热闹的一天！"收获祭"</span>幸福的和村民畅饮吧！<div class="ps-note">PS：最好放自己种的东西进去！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月10号（周六）</div>
+      <div class="day-content"><span class="birth">🎂 重点：黄色小矮人的生日不要错过！</span><span class="highlight">电视购物更加不可以忘！</span><div class="ps-note">PS：今天木匠休息。</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月11号（周日）</div>
+      <div class="day-content"><span class="birth">🎂 果树园老板妻的生日不要忘记！</span><div class="ps-note">PS：今天养鸡场关门、杂货店关门。</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月12号（周一）</div>
+      <div class="day-content"><span class="highlight">祈祷不要忘记！</span><div class="ps-note">PS：卖牛老爷爷休息！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月13号（周二）</div>
+      <div class="day-content"><span class="highlight">提示：今天起～20号不需要剪羊毛，更加不能让小精灵来照顾动物！</span>（剪了就不能参加斗羊了）<span class="highlight">秋天最美的"赏月"</span>和心爱的MM一起度过这快乐的时光吧！<div class="ps-note">PS：如有赏月丸子可以+1000爱情</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月14号（周三）</div>
+      <div class="day-content"><span class="birth">🎂 重点：红色小矮人歇夫年的生日～</span><span class="highlight">早上果树园老板会来找你帮忙！注意：一定要找克里夫</span>，否则你会后悔的！</div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月15号（周四）</div>
+      <div class="day-content"><span class="birth">🎂 杂货屋MM的生日~~~~~~~~</span><div class="ps-note">PS：铁匠铺关门。</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月16号（周五）</div>
+      <div class="day-content">今天没什么特别的~！努力工作吧！</div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月17号（周六）</div>
+      <div class="day-content"><span class="highlight">要点：出门时村长会询问是否报名参加赛马</span>，电视购物不要忘。<div class="ps-note">PS：木匠休息。</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月18号（周日）</div>
+      <div class="day-content"><span class="highlight">秋季赛马！又是个赚钱的日子！</span><div class="ps-note">PS：不要忘记准备筐！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月19号（周一）</div>
+      <div class="day-content"><span class="highlight">重点：1、可以去祈祷！</span><span class="birth">🎂 2、医生的生日</span><div class="ps-note">3、卖牛老爷爷今天休息！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月20号（周二）</div>
+      <div class="day-content">为了这一天……我们才自己照顾羊的，答应他吧！<span class="birth">🎂 神父的生日不要错过！</span></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月21号（周三）</div>
+      <div class="day-content"><span class="highlight">斗羊大赛—努力吧！</span>胜利后：村民友好＋20、羊毛品质升级</div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月22号（周四）</div>
+      <div class="day-content">今天可以好好工作！<div class="ps-note">PS：铁匠铺关门！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月23号（周五）</div>
+      <div class="day-content"><span class="birth">🎂 图书馆少女母亲的生日不要忘记！</span></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月24号（周六）</div>
+      <div class="day-content"><span class="highlight">重点：电视购物！</span><div class="ps-note">PS：今天木匠休息！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月25号（周日）</div>
+      <div class="day-content">今天没有特别的事发生！<div class="ps-note">PS：养鸡场和杂货店关门！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月26号（周一）</div>
+      <div class="day-content"><span class="highlight">重点是祈祷！</span><div class="ps-note">PS：今天老爷爷休息！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月27号（周二）</div>
+      <div class="day-content"><span class="birth">🎂 鸡场少年的生日不要忘记！</span><div class="ps-note">PS：杂货店关门！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月28号（周三）</div>
+      <div class="day-content"><span class="highlight">重点在于祈祷！</span><div class="ps-note">PS：今天医院关门！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月29号（周四）</div>
+      <div class="day-content">好好度过最后几天的秋天吧！<div class="ps-note">PS：今天铁匠铺关门！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">秋月30号（周五）</div>
+      <div class="day-content"><span class="highlight">开心的最后晚秋！"南瓜节"</span>给梅、优和帕布里饼干增加友好度和爱情度，婚后自己和老婆孩子过！</div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ==================== 冬 ==================== -->
+<div class="season-section" id="winter">
+
+  <div class="winter-tips">
+    <h4>💡 冬季小窍门</h4>
+    <ul>
+      <li>牧草仍可收割</li>
+      <li>挖矿、钓鱼、陪小矮人玩游戏</li>
+      <li>铁匠铺用奥利哈钢制作首饰</li>
+      <li>扩建动物小屋、制造毛线加工机</li>
+    </ul>
+  </div>
+
+  <h2 class="season-title winter-title">☃️ 冬季</h2>
+  <div class="day-list">
+
+    <div class="day-item">
+      <div class="day-num">冬月1号（周六）</div>
+      <div class="day-content"><span class="highlight">重点：买好了电视购物！就开始去医院吧！</span>力之果实！准备些恢复剂去挖诅咒吧！（有耐心的朋友可以顺便连河童之玉一起挖！）</div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月2号（周日）</div>
+      <div class="day-content"><span class="highlight">村长早6：00来你门口让你帮他找样东西</span>，出门前存档用S/L大法确定他要找的东西你有！晚上7：00交给村长他要找的东西可得黄金资财！<div class="ps-note">PS：今天养鸡场和杂货店关门！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月3号（周一）</div>
+      <div class="day-content"><span class="highlight">重点只有祈祷！</span><div class="ps-note">PS：今天卖牛的老爷爷休息！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月4号（周二）</div>
+      <div class="day-content">中国商人今天早6：00会到你家门口卖特殊苹果！<div class="ps-note">PS：今天杂货店休息！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月5号（周三）</div>
+      <div class="day-content"><span class="highlight">重点祈祷！</span><div class="ps-note">PS：今天医院关门！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月6号（周四）</div>
+      <div class="day-content"><span class="birth">🎂 铁匠铺少年的生日~</span><div class="ps-note">PS：今天铁匠铺关门！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月7号（周五）</div>
+      <div class="day-content">今天可以好好休息下了~！是个和村民讨好关系的好时候~！</div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月8号（周六）</div>
+      <div class="day-content"><span class="highlight">电视购物记得买哦~！</span><div class="ps-note">PS：今天木匠休息！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月9号（周日）</div>
+      <div class="day-content">今天可以让老婆婆帮你织袜子~！<div class="ps-note">PS：今天养鸡场关门、杂货店关门</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月10号（周一）</div>
+      <div class="day-content"><span class="highlight">重点祈祷~！</span><div class="ps-note">PS：今天老爷爷休息！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月11号（周二）</div>
+      <div class="day-content"><span class="birth">🎂 旅馆主人的生日！</span>（如果有条件的话可以解一个剧情！）<div class="ps-note">PS：杂货店休息！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月12号（周三）</div>
+      <div class="day-content"><span class="highlight">重点祈祷~！</span><div class="ps-note">PS：医院休息~！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月13号（周四）</div>
+      <div class="day-content"><span class="birth">🎂 老婆婆的生日~！</span><div class="ps-note">PS：今天铁匠铺休息~！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月14号（周五）</div>
+      <div class="day-content"><span class="highlight">紫心以上女孩会来送巧克力</span>，接受爱情＋1000</div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月15号（周六）</div>
+      <div class="day-content"><span class="birth">🎂 果树园主人的生日不要错过！</span><span class="highlight">电视购物不要错过~！</span><div class="ps-note">PS：今天木匠休息！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月16号（周日）</div>
+      <div class="day-content">可以去挖矿解无聊了！<div class="ps-note">PS：今天养鸡场关门、杂货店关门</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月17号（周一）</div>
+      <div class="day-content"><span class="highlight">重点祈祷~！</span><div class="ps-note">PS：老爷爷休息~！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月18号（周二）</div>
+      <div class="day-content">悠闲在冬~！平静的一天~！<div class="ps-note">PS：今天杂货店休息</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月19号（周三）</div>
+      <div class="day-content"><span class="birth">🎂 中国商人的生日不要忘记~！</span><span class="highlight">祈祷不要忘记~！</span><div class="ps-note">PS：医院关门~！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月20号（周四）</div>
+      <div class="day-content"><span class="birth">🎂 图书馆MM的生日~~</span><div class="ps-note">PS：今天铁匠铺关门！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月21号（周五）</div>
+      <div class="day-content">今天貌似没有什么事~！</div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月22号（周六）</div>
+      <div class="day-content"><span class="birth">🎂 橙色小矮人的生日~！</span><span class="highlight">电视购物！不要忘记！</span><div class="ps-note">PS：今天木匠休息！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月23号（周日）</div>
+      <div class="day-content"><span class="highlight">重点！今天要与自己喜欢的MM约好明天到她家吃饭！</span><div class="ps-note">PS：今天养鸡场和杂货店关门！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月24号（周一）</div>
+      <div class="day-content"><span class="highlight">"星夜祭"去喜欢的MM家吃饭！</span>幸福的一晚啊！注意不要迟到</div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月25号（周二）</div>
+      <div class="day-content">如果有艾莲送的袜子，村长会乔装圣诞老人来送礼！</div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月26号（周三）</div>
+      <div class="day-content"><span class="birth">🎂 重点：小女孩的生日！祈祷</span><div class="ps-note">PS：医院关门~！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月27号（周四）</div>
+      <div class="day-content">冬天快结束了。。好好欣赏吧！<div class="ps-note">PS：今天铁匠铺关门！</div></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月28号（周五）</div>
+      <div class="day-content">好好享受吧~！</div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月29号（周六）</div>
+      <div class="day-content"><span class="birth">🎂 杂货店主的生日不要忘记~！</span><span class="highlight">电视购物不要忘！</span></div>
+    </div>
+
+    <div class="day-item">
+      <div class="day-num">冬月30号（周日）</div>
+      <div class="day-content">选择性的晚冬~！祝大家一周年愉快~！！！！！！！！！！！！</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="source-note">
+  更新时间：2026-05-16
+</div>
+
+</div>
+
+<a href="#" class="back-to-top" title="返回顶部">↑</a>
+
+</body>
+</html>

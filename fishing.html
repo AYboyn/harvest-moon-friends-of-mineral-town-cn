@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>钓鱼攻略 - 牧场物语矿石镇的伙伴们</title>
+<style>
+  body { font-family: "Microsoft YaHei", sans-serif; line-height: 1.6; margin: 0; padding-top: 60px; background-color: #f9f9f9; color: #333; }
+  h1, h2, h3 { color: #5a7c3a; }
+  table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.9em; }
+  th { background-color: #5a7c3a; color: #fff; padding: 10px; text-align: left; }
+  td { padding: 8px; border: 1px solid #ddd; vertical-align: top; }
+  tr:nth-child(even) { background-color: #f2f2f2; }
+  .tip-box { background-color: #fff; padding: 15px; border-left: 4px solid #ff9800; margin: 10px 0; border-radius: 0 5px 5px 0; }
+  .tip { font-style: italic; color: #666; }
+  .fish-tip { background-color: #e0f7fa; border-left-color: #00bcd4; }
+  .king-tip { background-color: #fff3e0; border-left-color: #ff5722; }
+  .rod-tip { background-color: #e8f5e9; border-left-color: #4caf50; }
+  .warn-tip { background-color: #fce4ec; border-left-color: #e91e63; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; background-color: #5a7c3a; padding: 15px 20px; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  nav li { margin: 0; }
+  nav a { color: #fff; text-decoration: none; padding: 8px 15px; border-radius: 5px; transition: background-color 0.3s; font-size: 0.9em; }
+  nav a:hover { background-color: #4a6a2a; }
+  nav a.active { background-color: #3a5a1a; font-weight: bold; }
+
+  .content { max-width: 1000px; margin: 0 auto; padding: 20px; }
+  .back-to-top { position: fixed; bottom: 30px; right: 30px; background-color: #5a7c3a; color: #fff; padding: 10px 15px; border-radius: 50%; text-decoration: none; font-size: 1.2em; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+  .back-to-top:hover { background-color: #4a6a2a; }
+  .page-header { text-align: center; padding: 20px; background: linear-gradient(135deg, #0288d1, #4fc3f7); color: #fff; border-radius: 10px; margin-bottom: 20px; }
+  .page-header h1 { color: #fff; margin: 0 0 5px 0; }
+  .page-header p { margin: 0; }
+
+  .toc { background: linear-gradient(135deg, #fff, #e0f7fa); padding: 20px 25px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid #b2ebf2; }
+  .toc strong { display: block; font-size: 1.1em; color: #01579b; margin-bottom: 12px; }
+  .toc ul { columns: 2; column-gap: 20px; list-style: none; padding: 0; margin: 0; }
+  .toc li { margin: 0; break-inside: avoid; }
+  .toc a { display: block; color: #0288d1; text-decoration: none; padding: 8px 12px; border-radius: 8px; transition: all 0.25s ease; font-size: 0.95em; }
+  .toc a:hover { background: #e0f7fa; color: #01579b; transform: translateX(4px); text-decoration: none; }
+
+  .season-nav { display: flex; justify-content: center; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
+  .season-nav a { padding: 10px 20px; border-radius: 5px; text-decoration: none; color: #fff; font-weight: bold; transition: transform 0.2s; font-size: 0.9em; }
+  .season-nav a:hover { transform: scale(1.05); }
+  .season-spring { background-color: #66bb6a; }
+  .season-summer { background-color: #ef5350; }
+  .season-autumn { background-color: #ff9800; }
+  .season-winter { background-color: #42a5f5; }
+
+  .source-note { text-align: center; color: #999; font-size: 0.85em; margin-top: 30px; padding: 15px; border-top: 1px solid #eee; }
+
+  .fish-table th { text-align: center; }
+  .fish-table td { text-align: center; }
+</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="index.html">首页</a></li>
+    <li><a href="daily.html">每日行程</a></li>
+    <li><a href="characters.html">角色生日</a></li>
+    <li><a href="festivals.html">四季节日</a></li>
+    <li><a href="events.html">重要事件</a></li>
+    <li><a href="romance.html">恋爱攻略</a></li>
+    <li><a href="crops.html">农作物</a></li>
+    <li><a href="livestock.html">畜牧</a></li>
+    <li><a href="cooking.html">料理食谱</a></li>
+    <li><a href="mining.html">挖矿</a></li>
+    <li><a href="fishing.html" class="active">钓鱼</a></li>
+    <li><a href="tips.html">技巧秘籍</a></li>
+  </ul>
+</nav>
+
+<div class="content">
+
+<div class="page-header">
+  <h1>🎣 钓鱼攻略</h1>
+  <p>钓竿升级、钓鱼地点、季节鱼种与鱼王全指南</p>
+</div>
+
+<div class="toc">
+  <strong>📋 目录</strong>
+  <ul>
+    <li><a href="#rod">钓竿获取与升级</a></li>
+    <li><a href="#location">钓鱼地点</a></li>
+    <li><a href="#spring-fish">春季鱼种</a></li>
+    <li><a href="#summer-fish">夏季鱼种</a></li>
+    <li><a href="#autumn-fish">秋季鱼种</a></li>
+    <li><a href="#winter-fish">冬季鱼种</a></li>
+    <li><a href="#kings">鱼王攻略</a></li>
+    <li><a href="#fishing-tips">钓鱼技巧</a></li>
+  </ul>
+</div>
+
+<!-- 钓竿 -->
+<h2 id="rod">🎣 钓竿获取与升级</h2>
+
+<table>
+  <tr><th>钓竿等级</th><th>获取方式</th><th>蓄力等级</th><th>可钓鱼种</th></tr>
+  <tr><td>普通钓竿</td><td>游戏初期在背包中</td><td>无</td><td>小鱼</td></tr>
+  <tr><td>铜钓竿</td><td>道具店升级（铜×1）</td><td>Lv1</td><td>中小型鱼</td></tr>
+  <tr><td>银钓竿</td><td>道具店升级（银×1）</td><td>Lv2</td><td>中型鱼</td></tr>
+  <tr><td>金钓竿</td><td>道具店升级（金×1）</td><td>Lv3</td><td>大型鱼</td></tr>
+  <tr><td>秘银钓竿</td><td>道具店升级（秘银×1）</td><td>Lv4</td><td>大部分鱼</td></tr>
+  <tr><td>诅咒钓竿</td><td>泉边矿石场B29F</td><td>Lv5</td><td>全部鱼（装备后无法卸下）</td></tr>
+  <tr><td>祝福钓竿</td><td>解除诅咒后获得</td><td>Lv6</td><td>全部鱼</td></tr>
+  <tr><td>贤者钓竿</td><td>祝福钓竿+贤者之石（50000G）</td><td>Lv7（最大）</td><td>全部鱼，含鱼王</td></tr>
+</table>
+
+<div class="tip-box rod-tip">
+  <strong>💡 提示：</strong>要钓到鱼王，需要<strong>贤者钓竿 Lv7蓄力</strong>。钓竿蓄力越高，可钓到的鱼越大、种类越多。
+</div>
+
+<!-- 钓鱼地点 -->
+<h2 id="location">📍 钓鱼地点</h2>
+
+<table>
+  <tr><th>地点</th><th>位置</th><th>主要鱼种</th><th>特点</th></tr>
+  <tr><td>河流（上游）</td><td>女神泉附近</td><td>河鱼为主</td><td>全年可钓，鱼种随季节变化</td></tr>
+  <tr><td>河流（下游）</td><td>牧场下方</td><td>河鱼为主</td><td>同上，鱼种略有不同</td></tr>
+  <tr><td>海洋</td><td>沙滩</td><td>海鱼为主</td><td>全年可钓，冬季鱼种较少</td></tr>
+  <tr><td>湖泊</td><td>湖边</td><td>湖鱼为主</td><td>冬季结冰无法钓鱼</td></tr>
+  <tr><td>温泉</td><td>温泉池</td><td>温泉鱼</td><td>特殊地点，可钓到温泉特有的鱼</td></tr>
+  <tr><td>矿场水池</td><td>泉边矿石场B9F</td><td>矿场鱼</td><td>可钓到矿场特有鱼种</td></tr>
+</table>
+
+<div class="tip-box fish-tip">
+  <strong>💡 提示：</strong>不同季节、不同时间段、不同天气，同一地点能钓到的鱼也不同。有些鱼只在雨天或特定季节出现。
+</div>
+
+<!-- 春季鱼种 -->
+<h2 id="spring-fish">🌸 春季鱼种</h2>
+<table class="fish-table">
+  <tr><th>鱼名</th><th>地点</th><th>时间</th><th>天气</th><th>钓竿要求</th><th>售价</th></tr>
+  <tr><td>小型鱼</td><td>河/海/湖</td><td>全天</td><td>任意</td><td>普通</td><td>50G</td></tr>
+  <tr><td>中型鱼</td><td>河/海/湖</td><td>全天</td><td>任意</td><td>铜</td><td>80G</td></tr>
+  <tr><td>大型鱼</td><td>河/海</td><td>全天</td><td>任意</td><td>银</td><td>120G</td></tr>
+  <tr><td>鲫鱼</td><td>河</td><td>全天</td><td>任意</td><td>铜</td><td>100G</td></tr>
+  <tr><td>鲤鱼</td><td>湖</td><td>全天</td><td>任意</td><td>银</td><td>150G</td></tr>
+  <tr><td>泥鳅</td><td>河</td><td>全天</td><td>雨天</td><td>铜</td><td>60G</td></tr>
+  <tr><td>白鲑</td><td>河</td><td>白天</td><td>任意</td><td>金</td><td>200G</td></tr>
+  <tr><td>银鱼</td><td>河</td><td>全天</td><td>任意</td><td>秘银</td><td>300G</td></tr>
+  <tr><td>虾</td><td>海</td><td>全天</td><td>任意</td><td>银</td><td>130G</td></tr>
+  <tr><td>乌贼</td><td>海</td><td>全天</td><td>任意</td><td>金</td><td>180G</td></tr>
+  <tr><td>竹荚鱼</td><td>海</td><td>全天</td><td>任意</td><td>铜</td><td>100G</td></tr>
+</table>
+
+<!-- 夏季鱼种 -->
+<h2 id="summer-fish">☀️ 夏季鱼种</h2>
+<table class="fish-table">
+  <tr><th>鱼名</th><th>地点</th><th>时间</th><th>天气</th><th>钓竿要求</th><th>售价</th></tr>
+  <tr><td>小型鱼</td><td>河/海/湖</td><td>全天</td><td>任意</td><td>普通</td><td>50G</td></tr>
+  <tr><td>中型鱼</td><td>河/海/湖</td><td>全天</td><td>任意</td><td>铜</td><td>80G</td></tr>
+  <tr><td>大型鱼</td><td>河/海</td><td>全天</td><td>任意</td><td>银</td><td>120G</td></tr>
+  <tr><td>香鱼</td><td>河</td><td>全天</td><td>任意</td><td>铜</td><td>100G</td></tr>
+  <tr><td>鳗鱼</td><td>河</td><td>夜间</td><td>任意</td><td>金</td><td>250G</td></tr>
+  <tr><td>黑鲈</td><td>湖</td><td>全天</td><td>任意</td><td>银</td><td>150G</td></tr>
+  <tr><td>鳟鱼</td><td>河</td><td>白天</td><td>任意</td><td>金</td><td>200G</td></tr>
+  <tr><td>金鱼</td><td>河</td><td>全天</td><td>晴天</td><td>银</td><td>180G</td></tr>
+  <tr><td>章鱼</td><td>海</td><td>全天</td><td>任意</td><td>金</td><td>220G</td></tr>
+  <tr><td>沙丁鱼</td><td>海</td><td>全天</td><td>任意</td><td>铜</td><td>80G</td></tr>
+  <tr><td>鲣鱼</td><td>海</td><td>全天</td><td>任意</td><td>秘银</td><td>300G</td></tr>
+</table>
+
+<!-- 秋季鱼种 -->
+<h2 id="autumn-fish">🍂 秋季鱼种</h2>
+<table class="fish-table">
+  <tr><th>鱼名</th><th>地点</th><th>时间</th><th>天气</th><th>钓竿要求</th><th>售价</th></tr>
+  <tr><td>小型鱼</td><td>河/海/湖</td><td>全天</td><td>任意</td><td>普通</td><td>50G</td></tr>
+  <tr><td>中型鱼</td><td>河/海/湖</td><td>全天</td><td>任意</td><td>铜</td><td>80G</td></tr>
+  <tr><td>大型鱼</td><td>河/海</td><td>全天</td><td>任意</td><td>银</td><td>120G</td></tr>
+  <tr><td>鲑鱼</td><td>河</td><td>全天</td><td>任意</td><td>铜</td><td>120G</td></tr>
+  <tr><td>秋刀鱼</td><td>海</td><td>全天</td><td>任意</td><td>铜</td><td>100G</td></tr>
+  <tr><td>鰤鱼</td><td>海</td><td>全天</td><td>任意</td><td>金</td><td>250G</td></tr>
+  <tr><td>鲷鱼</td><td>海</td><td>白天</td><td>任意</td><td>秘银</td><td>350G</td></tr>
+  <tr><td>旗鱼</td><td>海</td><td>白天</td><td>晴天</td><td>秘银</td><td>400G</td></tr>
+  <tr><td>螃蟹</td><td>海</td><td>全天</td><td>任意</td><td>金</td><td>200G</td></tr>
+  <tr><td>河豚</td><td>海</td><td>全天</td><td>任意</td><td>秘银</td><td>500G</td></tr>
+</table>
+
+<!-- 冬季鱼种 -->
+<h2 id="winter-fish">❄️ 冬季鱼种</h2>
+<table class="fish-table">
+  <tr><th>鱼名</th><th>地点</th><th>时间</th><th>天气</th><th>钓竿要求</th><th>售价</th></tr>
+  <tr><td>小型鱼</td><td>河/海</td><td>全天</td><td>任意</td><td>普通</td><td>50G</td></tr>
+  <tr><td>中型鱼</td><td>河/海</td><td>全天</td><td>任意</td><td>铜</td><td>80G</td></tr>
+  <tr><td>大型鱼</td><td>河/海</td><td>全天</td><td>任意</td><td>银</td><td>120G</td></tr>
+  <tr><td>螃蟹</td><td>海</td><td>全天</td><td>任意</td><td>金</td><td>200G</td></tr>
+  <tr><td>鲷鱼</td><td>海</td><td>白天</td><td>任意</td><td>秘银</td><td>350G</td></tr>
+  <tr><td>鳕鱼</td><td>海</td><td>全天</td><td>任意</td><td>金</td><td>280G</td></tr>
+  <tr><td>比目鱼</td><td>海</td><td>全天</td><td>任意</td><td>金</td><td>220G</td></tr>
+  <tr><td>金枪鱼</td><td>海</td><td>白天</td><td>晴天</td><td>秘银</td><td>500G</td></tr>
+</table>
+
+<div class="tip-box warn-tip">
+  <strong>⚠️ 注意：</strong>冬季湖泊结冰，无法在湖边钓鱼。河和海全年可钓。
+</div>
+
+<!-- 鱼王 -->
+<h2 id="kings">👑 鱼王攻略</h2>
+
+<div class="tip-box king-tip">
+  <strong>前置条件：</strong>必须拥有<strong>贤者钓竿</strong>（Lv7蓄力）才能钓到鱼王。每条鱼王每年只能钓<strong>一次</strong>。
+</div>
+
+<table>
+  <tr><th>鱼王</th><th>地点</th><th>季节</th><th>时间</th><th>天气</th><th>售价</th><th>备注</th></tr>
+  <tr><td>石斑鱼王</td><td>海洋</td><td>春季</td><td>白天</td><td>任意</td><td>10000G</td><td>沙滩处钓鱼</td></tr>
+  <tr><td>鲤鱼王</td><td>湖泊</td><td>夏季</td><td>白天</td><td>任意</td><td>10000G</td><td>冬季湖面结冰无法钓</td></tr>
+  <tr><td>鲑鱼王</td><td>河流（上游）</td><td>夏季</td><td>白天</td><td>任意</td><td>10000G</td><td>女神泉附近</td></tr>
+  <tr><td>鳗鱼王</td><td>河流（下游）</td><td>秋季</td><td>夜间</td><td>雨天</td><td>10000G</td><td>只能在雨天夜晚钓</td></tr>
+  <tr><td>旗鱼王</td><td>海洋</td><td>秋季</td><td>白天</td><td>晴天</td><td>10000G</td><td>晴天限定</td></tr>
+  <tr><td>温泉鱼王</td><td>温泉</td><td>冬季</td><td>全天</td><td>任意</td><td>10000G</td><td>温泉池内</td></tr>
+</table>
+
+<div class="tip-box king-tip">
+  <strong>💡 鱼王钓取技巧：</strong>
+  <ul>
+    <li>使用贤者钓竿，蓄力到Lv7（最大蓄力）</li>
+    <li>鱼王上钩后，需要快速反应按下按钮</li>
+    <li>鱼王挣扎力度较大，需要耐心拉锯</li>
+    <li>建议在目标位置提前存档，没钓到可读档重来</li>
+    <li>每条鱼王每年只能钓一次，钓到后当年不会再出现</li>
+  </ul>
+</div>
+
+<!-- 钓鱼技巧 -->
+<h2 id="fishing-tips">💡 钓鱼技巧</h2>
+
+<div class="tip-box fish-tip">
+  <strong>1. 蓄力钓鱼：</strong>蓄力越久，钓到大型鱼的概率越高。如果想钓特定大小的鱼，可以控制蓄力等级。Lv1-3适合中小型鱼，Lv4-6适合大型鱼，Lv7适合鱼王。
+</div>
+
+<div class="tip-box rod-tip">
+  <strong>2. 看浮标：</strong>鱼咬钩时浮标会下沉，此时迅速按下按钮即可钓上鱼。反应越快，成功率越高。建议眼睛盯着浮标，手指随时准备按键。
+</div>
+
+<div class="tip-box fish-tip">
+  <strong>3. 钓鱼时机：</strong>
+  <ul>
+    <li>下雨天更容易钓到稀有鱼种</li>
+    <li>夜间钓鱼有独特的夜行鱼种</li>
+    <li>不同季节去不同地点，最大化收益</li>
+  </ul>
+</div>
+
+<div class="tip-box warn-tip">
+  <strong>4. 体力管理：</strong>钓鱼消耗体力，每次蓄力钓鱼都会消耗一定体力。如果体力不足，可以去温泉回复后再继续。建议身上带一些回复药。
+</div>
+
+<div class="tip-box fish-tip">
+  <strong>5. 钓鱼收益排行（季节推荐）：</strong>
+  <ul>
+    <li>春季：银鱼（300G）→ 白鲑（200G）→ 乌贼（180G）</li>
+    <li>夏季：鲣鱼（300G）→ 鳗鱼（250G）→ 章鱼（220G）</li>
+    <li>秋季：河豚（500G）→ 旗鱼（400G）→ 鲷鱼（350G）</li>
+    <li>冬季：金枪鱼（500G）→ 鲷鱼（350G）→ 鳕鱼（280G）</li>
+  </ul>
+</div>
+
+<div class="tip-box rod-tip">
+  <strong>6. 钓竿升级建议：</strong>优先升级钓竿到秘银级，这样可以钓到大部分高价值鱼。如果目标是鱼王，则需要进一步升级到贤者钓竿。
+</div>
+
+<div class="source-note">
+  攻略来源：牧场物语矿石镇的伙伴们 游戏数据整理
+</div>
+
+<a href="#" class="back-to-top">⬆</a>
+
+</div>
+
+</body>
+</html>

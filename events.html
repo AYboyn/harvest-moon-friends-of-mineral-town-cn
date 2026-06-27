@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>重要事件 - 牧场物语矿石镇的伙伴们</title>
+<style>
+  body { font-family: "Microsoft YaHei", sans-serif; line-height: 1.6; margin: 0; padding-top: 60px; background-color: #f9f9f9; color: #333; }
+  h1, h2, h3 { color: #5a7c3a; }
+  table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.9em; }
+  th { background-color: #5a7c3a; color: #fff; padding: 10px; text-align: left; }
+  td { padding: 8px; border: 1px solid #ddd; vertical-align: top; }
+  tr:nth-child(even) { background-color: #f2f2f2; }
+  .event-box { background-color: #fff; padding: 15px; border-left: 4px solid #5a7c3a; margin: 10px 0; border-radius: 0 5px 5px 0; }
+  .event-box.important { border-left-color: #e91e63; background-color: #fff5f5; }
+  .event-box.hidden { border-left-color: #9c27b0; background-color: #faf5ff; }
+  .tip { font-style: italic; color: #666; }
+  .choice { color: #e91e63; font-weight: bold; }
+  
+  nav { position: fixed; top: 0; left: 0; right: 0; background-color: #5a7c3a; padding: 15px 20px; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  nav li { margin: 0; }
+  nav a { color: #fff; text-decoration: none; padding: 8px 15px; border-radius: 5px; transition: background-color 0.3s; font-size: 0.9em; }
+  nav a:hover { background-color: #4a6a2a; }
+  nav a.active { background-color: #3a5a1a; font-weight: bold; }
+  
+  .content { max-width: 1000px; margin: 0 auto; padding: 20px; }
+  .back-to-top { position: fixed; bottom: 30px; right: 30px; background-color: #5a7c3a; color: #fff; padding: 10px 15px; border-radius: 50%; text-decoration: none; font-size: 1.2em; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+  .back-to-top:hover { background-color: #4a6a2a; }
+  .page-header { text-align: center; padding: 20px; background: linear-gradient(135deg, #5a7c3a, #7a9c5a); color: #fff; border-radius: 10px; margin-bottom: 20px; }
+  .page-header h1 { color: #fff; margin: 0 0 5px 0; }
+  .page-header p { margin: 0; }
+  .toc { background: linear-gradient(135deg, #fff, #e8f5e9); padding: 20px 25px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid #c8e6c9; }
+  .toc strong { display: block; font-size: 1.1em; color: #2e7d32; margin-bottom: 12px; }
+  .toc ul { columns: 2; column-gap: 20px; list-style: none; padding: 0; margin: 0; }
+  .toc li { margin: 0; break-inside: avoid; }
+  .toc a { display: block; color: #5a7c3a; text-decoration: none; padding: 8px 12px; border-radius: 8px; transition: all 0.25s ease; font-size: 0.95em; }
+  .toc a:hover { background: #e8f5e9; color: #1b5e20; transform: translateX(4px); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="index.html">首页</a></li>
+    <li><a href="daily.html">每日行程</a></li>
+    <li><a href="characters.html">角色生日</a></li>
+    <li><a href="festivals.html">四季节日</a></li>
+    <li><a href="events.html" class="active">重要事件</a></li>
+    <li><a href="romance.html">恋爱攻略</a></li>
+    <li><a href="crops.html">农作物</a></li>
+    <li><a href="livestock.html">畜牧</a></li>
+    <li><a href="cooking.html">料理食谱</a></li>
+    <li><a href="mining.html">挖矿</a></li>
+    <li><a href="fishing.html">钓鱼</a></li>
+    <li><a href="tips.html">技巧秘籍</a></li>
+  </ul>
+</nav>
+
+<div class="content">
+
+<div class="page-header">
+  <h1>📖 重要事件与剧情</h1>
+  <p>镇中事件全新一览 | 含触发条件、地点、选项与影响</p>
+</div>
+
+<div class="toc">
+  <strong>📑 目录导航：</strong>
+  <ul>
+    <li><a href="#birthday">🎂 生日与纪念日</a></li>
+    <li><a href="#chicken">🐔 养鸡场相关事件</a></li>
+    <li><a href="#inn">🏨 宿屋/旅馆相关事件</a></li>
+    <li><a href="#shop">🏪 杂货店相关事件</a></li>
+    <li><a href="#orchard">🍎 果树园相关事件</a></li>
+    <li><a href="#ellen">👵 艾莲家相关事件</a></li>
+    <li><a href="#hospital">🏥 医院相关事件</a></li>
+    <li><a href="#library">📚 图书馆/巴基尔家相关事件</a></li>
+    <li><a href="#town">🏘️ 其他镇中事件</a></li>
+    <li><a href="#special">🎁 特殊奖励事件</a></li>
+    <li><a href="#strange">👻 怪谈与隐藏事件</a></li>
+  </ul>
+</div>
+
+<h2 id="birthday">🎂 生日与纪念日</h2>
+<div class="event-box">
+  <p><strong>主角生日、妻子生日、孩子生日、结婚纪念日</strong></p>
+  <p><strong>时间：</strong>节日当天 pm6:00 - pm8:00</p>
+  <p><strong>地点：</strong>自家</p>
+  <p><strong>条件：</strong>无</p>
+  <p><strong>内容：</strong>家人会为你庆祝生日或纪念日。</p>
+</div>
+
+<h2 id="chicken">🐔 养鸡场相关事件</h2>
+
+<div class="event-box">
+  <p><strong>沙夏的回忆</strong></p>
+  <p><strong>时间：</strong>晴天的火(二) am10:00 - pm1:00</p>
+  <p><strong>地点：</strong>养鸡场</p>
+  <p><strong>条件：</strong>和沙夏友好度高</p>
+  <p><strong>内容：</strong>触发沙夏回忆剧情。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>里克和凯伊的争执 ✅ </strong></p>
+  <p><strong>时间：</strong>夏的日以外的晴天 pm1:00 - 5:00</p>
+  <p><strong>地点：</strong>海边</p>
+  <p><strong>条件：</strong>1. 珀布利未婚 2. 珀布利和凯的第四个爱情事件未发生</p>
+  <p><strong>内容：</strong>里克和凯伊发生争执。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>里克的忧郁</strong></p>
+  <p><strong>时间：</strong>夏以外 pm4:00 - 7:00</p>
+  <p><strong>地点：</strong>养鸡场</p>
+  <p><strong>条件：</strong>1. 珀布利和凯伊已婚 2. 里克和卡莲已婚</p>
+  <p><strong>内容：</strong>里克心情忧郁。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>珀布利的电话邮购 ✅ </strong></p>
+  <p><strong>时间：</strong>春10日-17日 am10:00 - pm3:00</p>
+  <p><strong>地点：</strong>扎克家</p>
+  <p><strong>条件：</strong>珀布利未婚</p>
+  <p><strong>内容：</strong>珀布利想电话邮购。</p>
+  <p><span class="choice">选择：</span>选"是"，珀布利友好度增加；选"不是"，珀布利友好度降低</p>
+</div>
+
+<div class="event-box">
+  <p><strong>亲子之爱 ✅ </strong></p>
+  <p><strong>时间：</strong>夏 am10:00 - pm1:00</p>
+  <p><strong>地点：</strong>养鸡场</p>
+  <p><strong>条件：</strong>1. 珀布利未婚 2. 里克未婚 3. 和莉莉亚友好度高</p>
+  <p><strong>内容：</strong>莉莉亚与孩子们的亲情故事。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>爸爸的来信</strong></p>
+  <p><strong>时间：</strong>第三年后的夏天，火(二)、日以外 am10:00 - pm1:00</p>
+  <p><strong>地点：</strong>养鸡场</p>
+  <p><strong>条件：</strong>1. 珀布利未婚 2. 里克未婚 3. 和莉莉亚友好度高</p>
+  <p><strong>内容：</strong>收到爸爸的来信。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>扎克的示爱</strong></p>
+  <p><strong>时间：</strong>第三年后的夏天，晴天的日 am10:00 - pm0:00</p>
+  <p><strong>地点：</strong>养鸡场</p>
+  <p><strong>条件：</strong>无</p>
+  <p><strong>内容：</strong>扎克向莉莉亚示爱。</p>
+</div>
+
+<h2 id="inn">🏨 宿屋/旅馆相关事件</h2>
+
+<div class="event-box important">
+  <p><strong>卡莲与笛克斗酒</strong></p>
+  <p><strong>时间：</strong>星期日 pm7:00 - 10:00</p>
+  <p><strong>地点：</strong>宿屋</p>
+  <p><strong>条件：</strong>卡莲爱情度30000以上</p>
+  <p><strong>内容：</strong>被请求评判笛克与卡莲的斗酒，笛克付账。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>琳的抱怨</strong></p>
+  <p><strong>时间：</strong>冬以外的雨天 am6:00 - 8:00</p>
+  <p><strong>地点：</strong>宿屋</p>
+  <p><strong>条件：</strong>琳和克里夫已婚</p>
+  <p><strong>内容：</strong>琳抱怨克里夫。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>琳母亲的忌日</strong></p>
+  <p><strong>时间：</strong>秋5日 am6:00 - pm5:00</p>
+  <p><strong>地点：</strong>山顶</p>
+  <p><strong>条件：</strong>琳未婚</p>
+  <p><strong>内容：</strong>琳去山顶祭拜母亲。</p>
+</div>
+
+<div class="event-box important">
+  <p><strong>达特与笛克的争吵</strong></p>
+  <p><strong>时间：</strong>星期六 pm1:00 - 4:00（除晴天以外的日子发生）</p>
+  <p><strong>地点：</strong>宿屋</p>
+  <p><strong>条件：</strong>琳爱情度10000以上</p>
+  <p><strong>内容：</strong>达特与笛克争吵。</p>
+  <p><span class="choice">选择：</span>制止争吵，琳爱情度+3000，达特、笛克、托马斯、哈里斯友好度+20</p>
+</div>
+
+<div class="event-box">
+  <p><strong>给父亲的礼物</strong></p>
+  <p><strong>时间：</strong>冬11日 pm7:00 - 9:00</p>
+  <p><strong>地点：</strong>宿屋厨房</p>
+  <p><strong>条件：</strong>1. 琳未婚 2. 和达特友好度高</p>
+  <p><strong>内容：</strong>琳为父亲准备礼物。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>穆奇女儿的任性</strong></p>
+  <p><strong>时间：</strong>第二年后的金(五) pm4:00 - 7:00</p>
+  <p><strong>地点：</strong>宿屋</p>
+  <p><strong>条件：</strong>和穆奇友好度高</p>
+  <p><strong>内容：</strong>隐藏人物梅的妈妈被提到。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>穆奇女儿的来电</strong></p>
+  <p><strong>时间：</strong>第三年后的水(三) pm4:00 - 7:00</p>
+  <p><strong>地点：</strong>宿屋</p>
+  <p><strong>条件：</strong>1. 已经发生穆奇女儿任性 2. 和梅友好度高</p>
+  <p><strong>内容：</strong>穆奇女儿来电。</p>
+</div>
+
+<h2 id="shop">🏪 杂货店相关事件</h2>
+
+<div class="event-box">
+  <p><strong>杰夫拒绝卖画</strong></p>
+  <p><strong>时间：</strong>月(一) am8:00 - 10:00</p>
+  <p><strong>地点：</strong>杂货店</p>
+  <p><strong>条件：</strong>1. 卡莲和里克已婚 2. 和杰夫及沙夏友好度高</p>
+  <p><strong>内容：</strong>杰夫拒绝出售画作。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>杰夫的决心</strong></p>
+  <p><strong>时间：</strong>冬以外雨天的水(三) pm1:00 - 4:00</p>
+  <p><strong>地点：</strong>杂货店</p>
+  <p><strong>条件：</strong>1. 卡莲和里克已婚 2. 和杰夫及沙夏友好度高</p>
+  <p><strong>内容：</strong>杰夫做出重要决定。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>擅长购物的玛娜</strong></p>
+  <p><strong>时间：</strong>下雨或下雪的木(四)、金(五) pm9:00 - am0:00</p>
+  <p><strong>地点：</strong>杂货店</p>
+  <p><strong>条件：</strong>1. 克里夫没有在果园帮手 2. 和玛娜友好度高</p>
+  <p><strong>内容：</strong>玛娜深夜购物。</p>
+</div>
+
+<h2 id="orchard">🍎 果树园相关事件</h2>
+
+<div class="event-box important">
+  <p><strong>果园兼职（一）</strong></p>
+  <p><strong>时间：</strong>第一年秋14日</p>
+  <p><strong>地点：</strong>自家</p>
+  <p><strong>条件：</strong>无</p>
+  <p><strong>内容：</strong>笛克找主角去果树园帮忙（可以去找克里夫）。</p>
+  <p><span class="choice">选择：</span>选"帮忙"，笛克友好度增加；选"不帮"，笛克友好度降低</p>
+</div>
+
+<div class="event-box important">
+  <p><strong>果园兼职（二）</strong></p>
+  <p><strong>时间：</strong>第一年秋15日 am10:00 - pm1:00</p>
+  <p><strong>地点：</strong>果树园</p>
+  <p><strong>条件：</strong>发生过果园兼职（一）</p>
+  <p><strong>内容：</strong>去果树园帮忙摘苹果。</p>
+  <p><span class="choice">选择：</span>选"帮忙"，笛克、玛娜、克里夫友好度增加；"不帮忙"友好度降低</p>
+</div>
+
+<div class="event-box">
+  <p><strong>笛克夫妇吵架</strong></p>
+  <p><strong>时间：</strong>土(六) pm8:00 - 10:00</p>
+  <p><strong>地点：</strong>果树园</p>
+  <p><strong>条件：</strong>1. 和笛克夫妇友好度高 2. 克里夫已在果园帮手</p>
+  <p><strong>内容：</strong>隐藏人物阿佐被提到。</p>
+</div>
+
+<div class="event-box hidden">
+  <p><strong>阿佐（隐藏人物）</strong></p>
+  <p><strong>时间：</strong>(三) 晴 pm2:00 - pm4:00</p>
+  <p><strong>地点：</strong>广场</p>
+  <p><strong>条件：</strong>1. 克里夫未在果园帮手 2. 和沙夏友好度高</p>
+  <p><strong>内容：</strong>玛娜在广场谈论女儿阿佐离家出走的事，沙夏和安娜安慰玛娜。</p>
+</div>
+
+<h2 id="ellen">👵 艾莲家相关事件</h2>
+
+<div class="event-box">
+  <p><strong>爷爷的信</strong></p>
+  <p><strong>时间：</strong>夏，水(三)的晴天 am9:00 - pm1:00</p>
+  <p><strong>地点：</strong>艾莲家</p>
+  <p><strong>条件：</strong>和艾莲友好度高</p>
+  <p><strong>内容：</strong>艾莲收到爷爷的信。</p>
+</div>
+
+<div class="event-box important">
+  <p><strong>艾莲的袜子</strong></p>
+  <p><strong>时间：</strong>冬1-23日，水(三)以外，am9:00 - 11:00</p>
+  <p><strong>地点：</strong>艾莲家</p>
+  <p><strong>条件：</strong>1. 和艾莲友好度很高 2. 送毛线团给她</p>
+  <p><strong>内容：</strong>艾莲送给主角装圣诞礼物的袜子。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>探望艾莲（一）</strong></p>
+  <p><strong>时间：</strong>第二年以后，冬以外的金(五)的雨天 am8:00 - pm5:00</p>
+  <p><strong>地点：</strong>艾莲家</p>
+  <p><strong>条件：</strong>和艾莲、赛巴拉友好度高</p>
+  <p><strong>内容：</strong>探望生病的艾莲。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>探望艾莲（二）</strong></p>
+  <p><strong>时间：</strong>第四年以后，月(一) am8:00 - pm5:00</p>
+  <p><strong>地点：</strong>艾莲家</p>
+  <p><strong>条件：</strong>1. 发生过探望艾莲事件 2. 和艾莲、赛巴拉友好度很高</p>
+  <p><strong>内容：</strong>再次探望艾莲。</p>
+</div>
+
+<div class="event-box important">
+  <p><strong>幸福之花</strong></p>
+  <p><strong>时间：</strong>第五年以后夏，晴天的木(四)、金(五)和土(六)的 pm1:00 - 4:00</p>
+  <p><strong>地点：</strong>艾莲家</p>
+  <p><strong>条件：</strong>无</p>
+  <p><strong>内容：</strong>pm9:00 - am0:00 在山顶能摘到『月下美人』。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>优的强求</strong></p>
+  <p><strong>时间：</strong>水(三) am10:00 - pm5:00</p>
+  <p><strong>地点：</strong>艾莲家</p>
+  <p><strong>条件：</strong>主角和艾利未婚</p>
+  <p><strong>内容：</strong>优要求主角陪他玩。</p>
+  <p><span class="choice">选择：</span>选"玩"，大家友好度增加；选"不玩"，大家友好度降低</p>
+</div>
+
+<div class="event-box">
+  <p><strong>艾利和优的姐弟情</strong></p>
+  <p><strong>时间：</strong>水(三) am9:00 - pm1:00</p>
+  <p><strong>地点：</strong>艾莲家</p>
+  <p><strong>条件：</strong>主角和艾利未婚</p>
+  <p><strong>内容：</strong>优生病了，艾利让主角带他去医院，艾利好感增加，艾莲、优、多特友好度增加。</p>
+</div>
+
+<h2 id="hospital">🏥 医院相关事件</h2>
+
+<div class="event-box">
+  <p><strong>艾利学习医术</strong></p>
+  <p><strong>时间：</strong>水(三)以外 pm0:00 - 7:00</p>
+  <p><strong>地点：</strong>医院</p>
+  <p><strong>条件：</strong>艾利和多特已婚</p>
+  <p><strong>内容：</strong>艾利努力学习医术。</p>
+  <p><span class="choice">选择：</span>选"一定能医好"，艾利、多特友好度增加；选"留医"，友好度降低</p>
+</div>
+
+<div class="event-box">
+  <p><strong>多特的回忆</strong></p>
+  <p><strong>时间：</strong>晴天的水(三) am8:00 - 10:00</p>
+  <p><strong>地点：</strong>山脚</p>
+  <p><strong>条件：</strong>和多特友好度高</p>
+  <p><strong>内容：</strong>多特回忆往事。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>医生的误诊</strong></p>
+  <p><strong>时间：</strong>火(二) pm1:00 - 4:00</p>
+  <p><strong>地点：</strong>医院</p>
+  <p><strong>条件：</strong>和多特友好高</p>
+  <p><strong>内容：</strong>多特误诊事件。</p>
+</div>
+
+<h2 id="library">📚 图书馆/巴基尔家相关事件</h2>
+
+<div class="event-box">
+  <p><strong>植物学家的执着</strong></p>
+  <p><strong>时间：</strong>春，月(一)以外的雨天 pm1:00 - 4:00</p>
+  <p><strong>地点：</strong>巴基尔家二楼</p>
+  <p><strong>条件：</strong>和巴基尔、安娜友好度高</p>
+  <p><strong>内容：</strong>巴基尔研究植物。</p>
+  <p><span class="choice">选择：</span>选"弄错了"，巴基尔友好度增加；选"向他道歉"，巴基尔友好度降低</p>
+</div>
+
+<div class="event-box">
+  <p><strong>巴基尔的著作得奖</strong></p>
+  <p><strong>时间：</strong>木(四) pm4:00 - 7:00</p>
+  <p><strong>地点：</strong>巴基尔家</p>
+  <p><strong>条件：</strong>1. 玛丽和格雷已婚 2. 和巴基尔友好度很高</p>
+  <p><strong>内容：</strong>巴基尔的著作获奖。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>玛利的书大受好评</strong></p>
+  <p><strong>时间：</strong>晴天的水(三) pm1:00 - 4:00</p>
+  <p><strong>地点：</strong>山顶</p>
+  <p><strong>条件：</strong>玛利和格雷已婚</p>
+  <p><strong>内容：</strong>玛利的书受到好评。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>药草事件</strong></p>
+  <p><strong>时间：</strong>晴天的星期一 am10:00 - pm1:00</p>
+  <p><strong>地点：</strong>哥茨家附近</p>
+  <p><strong>条件：</strong>主角已婚</p>
+  <p><strong>内容：</strong>玛丽谈论药草。</p>
+  <p><span class="choice">选择：</span>选"厉害啊"，玛丽友好度增加；选"普通"，友好度降低</p>
+</div>
+
+<div class="event-box important">
+  <p><strong>安娜的糖果教室</strong></p>
+  <p><strong>时间：</strong>土(六) am10:00 - pm1:00</p>
+  <p><strong>地点：</strong>巴基尔家</p>
+  <p><strong>条件：</strong>和安娜友好度很高</p>
+  <p><strong>内容：</strong>跟安娜学习料理，发生后连续五个土(六) am10:00 - pm1:00 每次可学一种料理。</p>
+  <p><span class="choice">选择：</span>选"教我吧"，安娜友好度增加；选"没时间"，安娜友好度降低。如果5次都有出席，安娜、玛娜友好度增加。</p>
+</div>
+
+<h2 id="town">🏘️ 其他镇中事件</h2>
+
+<div class="event-box">
+  <p><strong>凯伊出场</strong></p>
+  <p><strong>时间：</strong>第一年的春30日 am9:00 - pm7:00</p>
+  <p><strong>地点：</strong>牧场到锻冶屋的路上</p>
+  <p><strong>条件：</strong>无</p>
+  <p><strong>内容：</strong>凯伊首次登场。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>格雷和凯伊的友情</strong></p>
+  <p><strong>时间：</strong>夏的日以外的晴天 am11:00 - pm1:00</p>
+  <p><strong>地点：</strong>海之家</p>
+  <p><strong>条件：</strong>和格雷、凯伊的友好度高</p>
+  <p><strong>内容：</strong>格雷和凯伊的友情故事。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>海之家繁盛日记 ✅ </strong></p>
+  <p><strong>时间：</strong>夏的日以外的晴天 pm5:00 - 7:00</p>
+  <p><strong>地点：</strong>海之家</p>
+  <p><strong>条件：</strong>1. 和凯的友好度高 2. 珀布利未婚</p>
+  <p><strong>内容：</strong>海之家生意兴隆。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>珀布利的任性</strong></p>
+  <p><strong>时间：</strong>夏的日以外的晴天 pm5:00 - 7:00</p>
+  <p><strong>地点：</strong>海之家</p>
+  <p><strong>条件：</strong>珀布利和凯伊已婚</p>
+  <p><strong>内容：</strong>珀布利在海之家任性。</p>
+</div>
+
+<div class="event-box important">
+  <p><strong>克里夫倒下（一）</strong></p>
+  <p><strong>时间：</strong>第一年冬，下雪的1-26日，am10:00 - pm3:00</p>
+  <p><strong>地点：</strong>广场</p>
+  <p><strong>条件：</strong>1. 背包有空位 2. 和克里夫友好度高 3. 琳未婚</p>
+  <p><strong>内容：</strong>看到克里夫倒在雪地里（得到克里夫的照片）。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>克里夫倒下（二）</strong></p>
+  <p><strong>时间：</strong>克里夫住院的三天内</p>
+  <p><strong>地点：</strong>医院</p>
+  <p><strong>条件：</strong>发生过克里夫倒下（一）</p>
+  <p><strong>内容：</strong>在病床旁将照片还给克里夫，克里夫会回忆他的家乡。</p>
+</div>
+
+<div class="event-box important">
+  <p><strong>克里夫展开旅程</strong></p>
+  <p><strong>时间：</strong>第一年冬29日 am6:00 - pm0:00</p>
+  <p><strong>地点：</strong>海边</p>
+  <p><strong>条件：</strong>没有介绍克里夫到果园工作</p>
+  <p><strong>内容：</strong>克里夫从此永远离开矿石镇。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>矿石镇指南 ✅ </strong></p>
+  <p><strong>时间：</strong>第1年春2日</p>
+  <p><strong>地点：</strong>自己的牧场</p>
+  <p><strong>条件：</strong>无</p>
+  <p><strong>内容：</strong>托马斯告诉你游戏的基本操作。</p>
+</div>
+
+<div class="event-box important">
+  <p><strong>领养小马 ✅ </strong></p>
+  <p><strong>时间：</strong>第一年春4日-春6日 晴天 am6:00</p>
+  <p><strong>地点：</strong>自家</p>
+  <p><strong>条件：</strong>第一天和穆奇认识（去尤德尔牧场跟穆奇对话即可）</p>
+  <p><strong>内容：</strong>穆奇牵着一匹小马来到牧场，问你是否愿意收养。若拒绝两次后穆奇不会再送来，永远失去得到马的机会。</p>
+  <p><span class="choice">选择：</span>接受，穆奇友好度+10；拒绝，穆奇友好度-10</p>
+</div>
+
+<div class="event-box">
+  <p><strong>大马评估</strong></p>
+  <p><strong>时间：</strong>领养小马90天后 晴天 am6:00 - pm12:00</p>
+  <p><strong>地点：</strong>自家</p>
+  <p><strong>条件：</strong>已领养小马</p>
+  <p><strong>内容：</strong>穆奇来检查马的成长情况。如果马的心数达到4颗以上，马就正式归你了并可骑乘；如果心数不足，穆奇会把马带走，但一年后会再送来一匹成年马。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>镇长的面子</strong></p>
+  <p><strong>时间：</strong>每年冬2日晴天</p>
+  <p><strong>地点：</strong>自家门口</p>
+  <p><strong>条件：</strong>无</p>
+  <p><strong>内容：</strong>镇长要你寻找一件物品，pm7:00 - 8:00 会来收取物品。</p>
+  <p><span class="choice">选择：</span>答应并找到物品，镇长友好度增加；不答应或没找到物品，友好度降低</p>
+</div>
+
+<div class="event-box">
+  <p><strong>警察的情书（一）</strong></p>
+  <p><strong>时间：</strong>晴天的 pm7:00 - 9:00</p>
+  <p><strong>地点：</strong>自家门口</p>
+  <p><strong>条件：</strong>1. 主角已婚 2. 和哈里斯友好度高</p>
+  <p><strong>内容：</strong>哈里斯来请教情书。</p>
+  <p><span class="choice">选择：</span>选第一项，哈里斯友好度增加，20天后还会来；选第二项，友好度减少，不再来了</p>
+</div>
+
+<div class="event-box">
+  <p><strong>警察的情书（二）</strong></p>
+  <p><strong>时间：</strong>警察的情书（一）发生后20日</p>
+  <p><strong>地点：</strong>自家门口</p>
+  <p><strong>条件：</strong>警察的情书（一）中选第一项</p>
+  <p><strong>内容：</strong>哈里斯再次来请教。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>获得钓鱼竿 ✅ </strong></p>
+  <p><strong>时间：</strong>am11:00 - pm1:00</p>
+  <p><strong>地点：</strong>扎克家</p>
+  <p><strong>条件：</strong>背包工具栏有空位</p>
+  <p><strong>内容：</strong>扎克送给主角钓竿，只能拿一次。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>要买苹果吗 ✅ </strong></p>
+  <p><strong>时间：</strong>每月4日的 am6:00 - am0:00</p>
+  <p><strong>地点：</strong>自家门口</p>
+  <p><strong>条件：</strong>有500G以上</p>
+  <p><strong>内容：</strong>霍安来推销特别的3种苹果。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>要买花瓶吗 ✅ </strong></p>
+  <p><strong>时间：</strong>每月11日的 am6:00 - am0:00</p>
+  <p><strong>地点：</strong>自家门口</p>
+  <p><strong>条件：</strong>有5000G以上，还未买过花瓶</p>
+  <p><strong>内容：</strong>霍安来推销花瓶。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>奸商的赠礼</strong></p>
+  <p><strong>时间：</strong>火(二)和日以外的晴天</p>
+  <p><strong>地点：</strong>扎克家</p>
+  <p><strong>条件：</strong>1. 卡莲未婚 2. 和扎克的友好度高</p>
+  <p><strong>内容：</strong>扎克赠送礼物。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>告解的梦 ✅ </strong></p>
+  <p><strong>时间：</strong>水(三) pm4:00 - 10:00</p>
+  <p><strong>地点：</strong>教堂</p>
+  <p><strong>条件：</strong>和卡特友好度高</p>
+  <p><strong>内容：</strong>以后可以进教堂右边的门了。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>卡特的秘密</strong></p>
+  <p><strong>时间：</strong>秋，月(一)和水(三) pm4:00 - 10:00</p>
+  <p><strong>地点：</strong>教堂后面的空地</p>
+  <p><strong>条件：</strong>和卡特友好度高</p>
+  <p><strong>内容：</strong>发现卡特的秘密。</p>
+  <p><span class="choice">选择：</span>选"是"，卡特友好度增加；选"不是"，友好度降低</p>
+</div>
+
+<div class="event-box">
+  <p><strong>哥茨不开心</strong></p>
+  <p><strong>时间：</strong>第三年后夏的晴天 pm1:00 - 10:00</p>
+  <p><strong>地点：</strong>哥茨家</p>
+  <p><strong>条件：</strong>和哥茨友好度低</p>
+  <p><strong>内容：</strong>不能找他建筑了。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>哥茨没事了</strong></p>
+  <p><strong>时间：</strong>第三年后夏以外的晴天</p>
+  <p><strong>地点：</strong>哥茨家</p>
+  <p><strong>条件：</strong>1. 已发生哥茨不开心 2. 和哥茨的友好度很高</p>
+  <p><strong>内容：</strong>可以再找他建筑了。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>山中巡逻</strong></p>
+  <p><strong>时间：</strong>星期日 am10:00 - pm1:00</p>
+  <p><strong>地点：</strong>哥茨家</p>
+  <p><strong>条件：</strong>和哥茨的友好度高</p>
+  <p><strong>内容：</strong>哥茨回忆家人。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>玛娜的抱怨</strong></p>
+  <p><strong>时间：</strong>土(六) pm1:00 - 4:00</p>
+  <p><strong>地点：</strong>广场</p>
+  <p><strong>条件：</strong>玛娜友好度高</p>
+  <p><strong>内容：</strong>玛娜抱怨丈夫不回家吃饭。</p>
+</div>
+
+<h2 id="special">🎁 特殊奖励事件</h2>
+
+<div class="event-box important">
+  <p><strong>🎁 圣诞礼物</strong></p>
+  <p><strong>时间：</strong>睡觉后</p>
+  <p><strong>地点：</strong>自家床上</p>
+  <p><strong>条件：</strong>1. 有袜子 2. 冬25日 pm9:00 - pm0:00 睡觉</p>
+  <p><strong>内容：</strong>镇长来送礼物，第二天从袜子中得到礼物。</p>
+</div>
+
+<div class="event-box important">
+  <p><strong>🌠 流星雨</strong></p>
+  <p><strong>时间：</strong>第5年的秋10日，晴天 pm6:00 - 次日 am6:00</p>
+  <p><strong>地点：</strong>山顶</p>
+  <p><strong>条件：</strong>无</p>
+  <p><strong>内容：</strong>可以许其中一个愿望：1. 治好所有动物 2. 全部村民好感+10 3. 第二天出的货价钱翻倍。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>🐟 鱼类大集合</strong></p>
+  <p><strong>时间：</strong>钓到所有鱼的第二天</p>
+  <p><strong>地点：</strong>自家</p>
+  <p><strong>条件：</strong>钓到所有种类的鱼（包括鱼王）</p>
+  <p><strong>内容：</strong>扎克友好度增加。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>📖 女神的礼物 ✅ </strong></p>
+  <p><strong>时间：</strong>任何时候</p>
+  <p><strong>地点：</strong>泉</p>
+  <p><strong>条件：</strong>送女神供品连续10天</p>
+  <p><strong>内容：</strong>第10天得到1个力之果实。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>📖 女神的庆祝</strong></p>
+  <p><strong>时间：</strong>任何时候</p>
+  <p><strong>地点：</strong>任何地点</p>
+  <p><strong>条件：</strong>万步计步数、出货物数量、钓鱼数量、矿石场层数的达成次数到达一定数时</p>
+  <p><strong>内容：</strong>女神出来庆祝。庆祝1次女神的爱情度+3000。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>🥒 河童的礼物 ✅ </strong></p>
+  <p><strong>时间：</strong>春、夏、秋</p>
+  <p><strong>地点：</strong>后山的湖</p>
+  <p><strong>条件：</strong>给河童送黄瓜10天，每天1个</p>
+  <p><strong>内容：</strong>第10天能得到不可思议的果实。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>🍵 小矮人的茶会邀请</strong></p>
+  <p><strong>时间：</strong>春天</p>
+  <p><strong>地点：</strong>小矮人家</p>
+  <p><strong>条件：</strong>全体小矮人心数在3颗以上，在信箱收到茶会邀请书（参加时必须全部小矮人在家）</p>
+  <p><strong>内容：</strong>小矮人邀请你参加茶会，参加后小矮人全体友好度+10。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>🐕 和狗狗玩飞碟</strong></p>
+  <p><strong>时间：</strong>春、夏、秋的晴天 am6:00 - pm5:00</p>
+  <p><strong>地点：</strong>海滩</p>
+  <p><strong>条件：</strong>带着狗狗和飞碟，观看海之家旁边的白色牌子</p>
+  <p><strong>内容：</strong>玩飞碟，有时候狗狗会发现特殊的东西。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>🐺 野狗入侵</strong></p>
+  <p><strong>时间：</strong>晚上</p>
+  <p><strong>地点：</strong>牧场内</p>
+  <p><strong>条件：</strong>把动物放在小屋外放牧</p>
+  <p><strong>内容：</strong>有时候会有野狗入侵，袭击牧场的动物，用工具或放大狗可赶走。</p>
+</div>
+
+<div class="event-box">
+  <p><strong>🪵 摆放黄金木材</strong></p>
+  <p><strong>时间：</strong>摆放黄金木材的第二天</p>
+  <p><strong>地点：</strong>自家</p>
+  <p><strong>条件：</strong>摆放黄金木材</p>
+  <p><strong>内容：</strong>全村人友好度减少，来牧场提出抗议，友好度继续减少直到搬走黄金木材。</p>
+</div>
+
+<h2 id="strange">👻 怪谈与隐藏事件</h2>
+
+<div class="event-box hidden">
+  <p><strong>📺 电视怪谈</strong></p>
+  <p><strong>时间：</strong>pm4:44（拥有时钟才能准确到达44分）</p>
+  <p><strong>地点：</strong>自家</p>
+  <p><strong>条件：</strong>无</p>
+  <p><strong>内容：</strong>看电视会出现很多4字，那是讲解如何解除诅咒工具的方法。</p>
+</div>
+
+<div class="event-box hidden">
+  <p><strong>🪞 镜子怪谈</strong></p>
+  <p><strong>时间：</strong>午夜0点</p>
+  <p><strong>地点：</strong>自家</p>
+  <p><strong>条件：</strong>买了镜子</p>
+  <p><strong>内容：</strong>不停地看镜子，会发生两种情况：1. 镜子里会闪过河童的样子，主角头上出现惊叹号！2. 听到门"砰"一声被关上，主角四处张望，什么也没看见。</p>
+</div>
+
+<div class="event-box hidden">
+  <p><strong>👺 河童的灾难</strong></p>
+  <p><strong>时间：</strong>春、夏、秋</p>
+  <p><strong>地点：</strong>后山的湖</p>
+  <p><strong>条件：</strong>无</p>
+  <p><strong>内容：</strong>在湖里钓鱼时有1/256的几率钓到河童。</p>
+</div>
+
+</div>
+
+<a href="#" class="back-to-top" title="返回顶部">↑</a>
+
+</body>
+</html>
